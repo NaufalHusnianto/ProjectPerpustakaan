@@ -6,7 +6,7 @@ package perpustakaanprakpro;
 
 /**
  *
- * @author hp
+ * @author Naufal Husnianto
  */
 public class mainPerpus extends javax.swing.JFrame {
 
