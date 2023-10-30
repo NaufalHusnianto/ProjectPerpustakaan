@@ -26,7 +26,7 @@ public class mainPerpus extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        halamanPeminjaman = new javax.swing.JDialog();
+        HalamanPeminjaman = new javax.swing.JDialog();
         jPanel2 = new javax.swing.JPanel();
         PeminjamanTitle = new javax.swing.JLabel();
         InputNamaPeminjam = new javax.swing.JTextField();
@@ -41,6 +41,9 @@ public class mainPerpus extends javax.swing.JFrame {
         InputJudulBuku = new javax.swing.JTextField();
         InputTanggalPinjam = new javax.swing.JTextField();
         InputTanggalKembali = new javax.swing.JTextField();
+        HalamanPengembalian = new javax.swing.JDialog();
+        HalamanDataBuku = new javax.swing.JDialog();
+        HalamanDataAnggota = new javax.swing.JDialog();
         MainPanel = new javax.swing.JPanel();
         mainJudul = new javax.swing.JLabel();
         pengembalianButton = new javax.swing.JButton();
@@ -156,15 +159,48 @@ public class mainPerpus extends javax.swing.JFrame {
                 .addContainerGap(213, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout halamanPeminjamanLayout = new javax.swing.GroupLayout(halamanPeminjaman.getContentPane());
-        halamanPeminjaman.getContentPane().setLayout(halamanPeminjamanLayout);
-        halamanPeminjamanLayout.setHorizontalGroup(
-            halamanPeminjamanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout HalamanPeminjamanLayout = new javax.swing.GroupLayout(HalamanPeminjaman.getContentPane());
+        HalamanPeminjaman.getContentPane().setLayout(HalamanPeminjamanLayout);
+        HalamanPeminjamanLayout.setHorizontalGroup(
+            HalamanPeminjamanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        halamanPeminjamanLayout.setVerticalGroup(
-            halamanPeminjamanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        HalamanPeminjamanLayout.setVerticalGroup(
+            HalamanPeminjamanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout HalamanPengembalianLayout = new javax.swing.GroupLayout(HalamanPengembalian.getContentPane());
+        HalamanPengembalian.getContentPane().setLayout(HalamanPengembalianLayout);
+        HalamanPengembalianLayout.setHorizontalGroup(
+            HalamanPengembalianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        HalamanPengembalianLayout.setVerticalGroup(
+            HalamanPengembalianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout HalamanDataBukuLayout = new javax.swing.GroupLayout(HalamanDataBuku.getContentPane());
+        HalamanDataBuku.getContentPane().setLayout(HalamanDataBukuLayout);
+        HalamanDataBukuLayout.setHorizontalGroup(
+            HalamanDataBukuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        HalamanDataBukuLayout.setVerticalGroup(
+            HalamanDataBukuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout HalamanDataAnggotaLayout = new javax.swing.GroupLayout(HalamanDataAnggota.getContentPane());
+        HalamanDataAnggota.getContentPane().setLayout(HalamanDataAnggotaLayout);
+        HalamanDataAnggotaLayout.setHorizontalGroup(
+            HalamanDataAnggotaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        HalamanDataAnggotaLayout.setVerticalGroup(
+            HalamanDataAnggotaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -281,8 +317,8 @@ public class mainPerpus extends javax.swing.JFrame {
 
     private void peminjamanButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_peminjamanButtonActionPerformed
         // TODO add your handling code here:
-        this.halamanPeminjaman.setVisible(true);
-        this.halamanPeminjaman.setSize(800, 400);
+        this.HalamanPeminjaman.setVisible(true);
+        this.HalamanPeminjaman.setSize(800, 400);
     }//GEN-LAST:event_peminjamanButtonActionPerformed
 
     private void bukuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bukuButtonActionPerformed
@@ -349,6 +385,10 @@ public class mainPerpus extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDialog HalamanDataAnggota;
+    private javax.swing.JDialog HalamanDataBuku;
+    private javax.swing.JDialog HalamanPeminjaman;
+    private javax.swing.JDialog HalamanPengembalian;
     private javax.swing.JTextField InputJudulBuku;
     private javax.swing.JTextField InputKodeBuku;
     private javax.swing.JTextField InputNamaPeminjam;
@@ -365,7 +405,6 @@ public class mainPerpus extends javax.swing.JFrame {
     private javax.swing.JLabel TanggalPinjamLabel;
     private javax.swing.JButton anggotaButton;
     private javax.swing.JButton bukuButton;
-    private javax.swing.JDialog halamanPeminjaman;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel mainJudul;
     private javax.swing.JButton peminjamanButton;
