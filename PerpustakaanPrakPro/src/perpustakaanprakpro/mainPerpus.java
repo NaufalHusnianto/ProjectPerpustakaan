@@ -251,10 +251,10 @@ public class mainPerpus extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        MainPanel.setBackground(new java.awt.Color(0, 204, 204));
+        MainPanel.setBackground(new java.awt.Color(0, 51, 51));
 
         mainJudul.setFont(new java.awt.Font("Courier New", 1, 48)); // NOI18N
-        mainJudul.setForeground(new java.awt.Color(0, 0, 0));
+        mainJudul.setForeground(new java.awt.Color(255, 255, 255));
         mainJudul.setText("LIBRARY");
 
         pengembalianButton.setBackground(new java.awt.Color(0, 0, 0));
@@ -366,7 +366,7 @@ public class mainPerpus extends javax.swing.JFrame {
     private void peminjamanButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_peminjamanButtonActionPerformed
         // TODO add your handling code here:
         this.HalamanPeminjaman.setVisible(true);
-        this.HalamanPeminjaman.setSize(800, 400);
+        this.HalamanPeminjaman.setSize(800, 600);
     }//GEN-LAST:event_peminjamanButtonActionPerformed
 
     private void bukuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bukuButtonActionPerformed
