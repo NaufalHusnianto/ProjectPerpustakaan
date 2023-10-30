@@ -106,7 +106,7 @@ public class mainPerpus extends javax.swing.JFrame {
                 .addComponent(PeminjamanTitle)
                 .addGap(324, 324, 324))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(103, 103, 103)
+                .addGap(290, 290, 290)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(NamaPeminjamLabel)
                     .addComponent(NimPeminjamLabel)
@@ -129,7 +129,7 @@ public class mainPerpus extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(49, 49, 49)
                 .addComponent(PeminjamanTitle)
-                .addGap(41, 41, 41)
+                .addGap(47, 47, 47)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(InputNamaPeminjam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(NamaPeminjamLabel))
@@ -153,7 +153,7 @@ public class mainPerpus extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TanggalKembaliLabel)
                     .addComponent(InputTanggalKembali, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(219, Short.MAX_VALUE))
+                .addContainerGap(213, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout halamanPeminjamanLayout = new javax.swing.GroupLayout(halamanPeminjaman.getContentPane());
