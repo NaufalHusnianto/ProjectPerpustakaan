@@ -53,8 +53,8 @@ public class mainPerpus extends javax.swing.JFrame {
         bukuButton = new javax.swing.JButton();
         anggotaButton = new javax.swing.JButton();
 
-        jPanel2.setBackground(new java.awt.Color(0, 102, 102));
-        jPanel2.setForeground(new java.awt.Color(0, 102, 102));
+        jPanel2.setBackground(new java.awt.Color(0, 51, 102));
+        jPanel2.setForeground(new java.awt.Color(255, 255, 255));
 
         PeminjamanTitle.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
         PeminjamanTitle.setForeground(new java.awt.Color(255, 255, 255));
