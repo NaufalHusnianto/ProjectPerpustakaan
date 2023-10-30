@@ -33,6 +33,14 @@ public class mainPerpus extends javax.swing.JFrame {
         NamaPeminjamLabel = new javax.swing.JLabel();
         NimPeminjamLabel = new javax.swing.JLabel();
         KodeBukuLabel = new javax.swing.JLabel();
+        JudulBukuLabel = new javax.swing.JLabel();
+        TanggalPinjamLabel = new javax.swing.JLabel();
+        TanggalKembaliLabel = new javax.swing.JLabel();
+        InputNimPeminjam = new javax.swing.JTextField();
+        InputKodeBuku = new javax.swing.JTextField();
+        InputJudulBuku = new javax.swing.JTextField();
+        InputTanggalPinjam = new javax.swing.JTextField();
+        InputTanggalKembali = new javax.swing.JTextField();
         MainPanel = new javax.swing.JPanel();
         mainJudul = new javax.swing.JLabel();
         pengembalianButton = new javax.swing.JButton();
@@ -53,6 +61,42 @@ public class mainPerpus extends javax.swing.JFrame {
 
         KodeBukuLabel.setText("Kode Buku :");
 
+        JudulBukuLabel.setText("Judul Buku :");
+
+        TanggalPinjamLabel.setText("Tanggal Pinjam :");
+
+        TanggalKembaliLabel.setText("Tanggal Kembali :");
+
+        InputNimPeminjam.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InputNimPeminjamActionPerformed(evt);
+            }
+        });
+
+        InputKodeBuku.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InputKodeBukuActionPerformed(evt);
+            }
+        });
+
+        InputJudulBuku.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InputJudulBukuActionPerformed(evt);
+            }
+        });
+
+        InputTanggalPinjam.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InputTanggalPinjamActionPerformed(evt);
+            }
+        });
+
+        InputTanggalKembali.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InputTanggalKembaliActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -64,12 +108,20 @@ public class mainPerpus extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(103, 103, 103)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(KodeBukuLabel)
+                    .addComponent(NamaPeminjamLabel)
                     .addComponent(NimPeminjamLabel)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(NamaPeminjamLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(InputNamaPeminjam, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(KodeBukuLabel)
+                    .addComponent(JudulBukuLabel)
+                    .addComponent(TanggalPinjamLabel)
+                    .addComponent(TanggalKembaliLabel))
+                .addGap(21, 21, 21)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(InputTanggalKembali, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(InputTanggalPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(InputJudulBuku, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(InputKodeBuku, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(InputNimPeminjam, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(InputNamaPeminjam, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -82,10 +134,26 @@ public class mainPerpus extends javax.swing.JFrame {
                     .addComponent(InputNamaPeminjam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(NamaPeminjamLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(NimPeminjamLabel)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(NimPeminjamLabel)
+                    .addComponent(InputNimPeminjam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(KodeBukuLabel)
-                .addContainerGap(308, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(KodeBukuLabel)
+                    .addComponent(InputKodeBuku, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(JudulBukuLabel)
+                    .addComponent(InputJudulBuku, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TanggalPinjamLabel)
+                    .addComponent(InputTanggalPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TanggalKembaliLabel)
+                    .addComponent(InputTanggalKembali, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(219, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout halamanPeminjamanLayout = new javax.swing.GroupLayout(halamanPeminjaman.getContentPane());
@@ -225,6 +293,26 @@ public class mainPerpus extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_anggotaButtonActionPerformed
 
+    private void InputNimPeminjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InputNimPeminjamActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_InputNimPeminjamActionPerformed
+
+    private void InputKodeBukuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InputKodeBukuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_InputKodeBukuActionPerformed
+
+    private void InputJudulBukuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InputJudulBukuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_InputJudulBukuActionPerformed
+
+    private void InputTanggalPinjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InputTanggalPinjamActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_InputTanggalPinjamActionPerformed
+
+    private void InputTanggalKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InputTanggalKembaliActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_InputTanggalKembaliActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -261,12 +349,20 @@ public class mainPerpus extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField InputJudulBuku;
+    private javax.swing.JTextField InputKodeBuku;
     private javax.swing.JTextField InputNamaPeminjam;
+    private javax.swing.JTextField InputNimPeminjam;
+    private javax.swing.JTextField InputTanggalKembali;
+    private javax.swing.JTextField InputTanggalPinjam;
+    private javax.swing.JLabel JudulBukuLabel;
     private javax.swing.JLabel KodeBukuLabel;
     private javax.swing.JPanel MainPanel;
     private javax.swing.JLabel NamaPeminjamLabel;
     private javax.swing.JLabel NimPeminjamLabel;
     private javax.swing.JLabel PeminjamanTitle;
+    private javax.swing.JLabel TanggalKembaliLabel;
+    private javax.swing.JLabel TanggalPinjamLabel;
     private javax.swing.JButton anggotaButton;
     private javax.swing.JButton bukuButton;
     private javax.swing.JDialog halamanPeminjaman;

@@ -38,13 +38,21 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="103" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="KodeBukuLabel" min="-2" max="-2" attributes="0"/>
-                          <Component id="NimPeminjamLabel" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Component id="NamaPeminjamLabel" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="InputNamaPeminjam" min="-2" pref="158" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="NamaPeminjamLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="NimPeminjamLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="KodeBukuLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="JudulBukuLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="TanggalPinjamLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="TanggalKembaliLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="InputTanggalKembali" min="-2" pref="158" max="-2" attributes="0"/>
+                          <Component id="InputTanggalPinjam" min="-2" pref="158" max="-2" attributes="0"/>
+                          <Component id="InputJudulBuku" min="-2" pref="158" max="-2" attributes="0"/>
+                          <Component id="InputKodeBuku" min="-2" pref="158" max="-2" attributes="0"/>
+                          <Component id="InputNimPeminjam" min="-2" pref="158" max="-2" attributes="0"/>
+                          <Component id="InputNamaPeminjam" min="-2" pref="158" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -61,10 +69,31 @@
                           <Component id="NamaPeminjamLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="NimPeminjamLabel" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="NimPeminjamLabel" min="-2" max="-2" attributes="0"/>
+                          <Component id="InputNimPeminjam" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="KodeBukuLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="308" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="KodeBukuLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="InputKodeBuku" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="JudulBukuLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="InputJudulBuku" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="TanggalPinjamLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="InputTanggalPinjam" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="TanggalKembaliLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="InputTanggalKembali" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="219" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -97,6 +126,46 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Kode Buku :"/>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="JudulBukuLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Judul Buku :"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="TanggalPinjamLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Tanggal Pinjam :"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="TanggalKembaliLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Tanggal Kembali :"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="InputNimPeminjam">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="InputNimPeminjamActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JTextField" name="InputKodeBuku">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="InputKodeBukuActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JTextField" name="InputJudulBuku">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="InputJudulBukuActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JTextField" name="InputTanggalPinjam">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="InputTanggalPinjamActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JTextField" name="InputTanggalKembali">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="InputTanggalKembaliActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
