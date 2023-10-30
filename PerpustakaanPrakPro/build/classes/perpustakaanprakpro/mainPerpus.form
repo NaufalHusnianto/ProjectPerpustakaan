@@ -37,22 +37,31 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="290" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="NamaPeminjamLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="NimPeminjamLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="KodeBukuLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="JudulBukuLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="TanggalPinjamLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="TanggalKembaliLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="InputTanggalKembali" min="-2" pref="158" max="-2" attributes="0"/>
-                          <Component id="InputTanggalPinjam" min="-2" pref="158" max="-2" attributes="0"/>
-                          <Component id="InputJudulBuku" min="-2" pref="158" max="-2" attributes="0"/>
-                          <Component id="InputKodeBuku" min="-2" pref="158" max="-2" attributes="0"/>
-                          <Component id="InputNimPeminjam" min="-2" pref="158" max="-2" attributes="0"/>
-                          <Component id="InputNamaPeminjam" min="-2" pref="158" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="ResetButton" min="-2" pref="73" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="SubmitButton" min="-2" pref="73" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="NamaPeminjamLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="NimPeminjamLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="KodeBukuLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="JudulBukuLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="TanggalPinjamLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="TanggalKembaliLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="InputTanggalKembali" min="-2" pref="158" max="-2" attributes="0"/>
+                                  <Component id="InputTanggalPinjam" min="-2" pref="158" max="-2" attributes="0"/>
+                                  <Component id="InputJudulBuku" min="-2" pref="158" max="-2" attributes="0"/>
+                                  <Component id="InputKodeBuku" min="-2" pref="158" max="-2" attributes="0"/>
+                                  <Component id="InputNimPeminjam" min="-2" pref="158" max="-2" attributes="0"/>
+                                  <Component id="InputNamaPeminjam" min="-2" pref="158" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -93,7 +102,12 @@
                           <Component id="TanggalKembaliLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="InputTanggalKembali" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="213" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="SubmitButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="ResetButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="158" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -166,6 +180,16 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="InputTanggalKembaliActionPerformed"/>
               </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="SubmitButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Submit"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="ResetButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Reset"/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>

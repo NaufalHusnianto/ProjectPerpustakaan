@@ -41,6 +41,8 @@ public class mainPerpus extends javax.swing.JFrame {
         InputJudulBuku = new javax.swing.JTextField();
         InputTanggalPinjam = new javax.swing.JTextField();
         InputTanggalKembali = new javax.swing.JTextField();
+        SubmitButton = new javax.swing.JButton();
+        ResetButton = new javax.swing.JButton();
         HalamanPengembalian = new javax.swing.JDialog();
         HalamanDataBuku = new javax.swing.JDialog();
         HalamanDataAnggota = new javax.swing.JDialog();
@@ -100,6 +102,10 @@ public class mainPerpus extends javax.swing.JFrame {
             }
         });
 
+        SubmitButton.setText("Submit");
+
+        ResetButton.setText("Reset");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -110,21 +116,27 @@ public class mainPerpus extends javax.swing.JFrame {
                 .addGap(324, 324, 324))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(290, 290, 290)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(NamaPeminjamLabel)
-                    .addComponent(NimPeminjamLabel)
-                    .addComponent(KodeBukuLabel)
-                    .addComponent(JudulBukuLabel)
-                    .addComponent(TanggalPinjamLabel)
-                    .addComponent(TanggalKembaliLabel))
-                .addGap(21, 21, 21)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(InputTanggalKembali, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(InputTanggalPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(InputJudulBuku, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(InputKodeBuku, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(InputNimPeminjam, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(InputNamaPeminjam, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(ResetButton, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(SubmitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(NamaPeminjamLabel)
+                            .addComponent(NimPeminjamLabel)
+                            .addComponent(KodeBukuLabel)
+                            .addComponent(JudulBukuLabel)
+                            .addComponent(TanggalPinjamLabel)
+                            .addComponent(TanggalKembaliLabel))
+                        .addGap(21, 21, 21)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(InputTanggalKembali, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(InputTanggalPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(InputJudulBuku, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(InputKodeBuku, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(InputNimPeminjam, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(InputNamaPeminjam, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -156,7 +168,11 @@ public class mainPerpus extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TanggalKembaliLabel)
                     .addComponent(InputTanggalKembali, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(213, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(SubmitButton)
+                    .addComponent(ResetButton))
+                .addContainerGap(158, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout HalamanPeminjamanLayout = new javax.swing.GroupLayout(HalamanPeminjaman.getContentPane());
@@ -403,6 +419,8 @@ public class mainPerpus extends javax.swing.JFrame {
     private javax.swing.JLabel NamaPeminjamLabel;
     private javax.swing.JLabel NimPeminjamLabel;
     private javax.swing.JLabel PeminjamanTitle;
+    private javax.swing.JButton ResetButton;
+    private javax.swing.JButton SubmitButton;
     private javax.swing.JLabel TanggalKembaliLabel;
     private javax.swing.JLabel TanggalPinjamLabel;
     private javax.swing.JButton anggotaButton;
