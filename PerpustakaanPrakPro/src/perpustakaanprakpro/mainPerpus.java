@@ -370,11 +370,13 @@ public class mainPerpus extends javax.swing.JFrame {
     }//GEN-LAST:event_peminjamanButtonActionPerformed
 
     private void bukuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bukuButtonActionPerformed
-        // TODO add your handling code here:
+         new DataBuku().setVisible(true);
+         this.dispose();
     }//GEN-LAST:event_bukuButtonActionPerformed
 
     private void anggotaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_anggotaButtonActionPerformed
-        // TODO add your handling code here:
+        new dataMahasiswa().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_anggotaButtonActionPerformed
 
     private void InputNimPeminjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InputNimPeminjamActionPerformed
