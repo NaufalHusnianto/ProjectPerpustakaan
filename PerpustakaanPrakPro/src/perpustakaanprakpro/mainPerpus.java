@@ -155,7 +155,7 @@ public class mainPerpus extends javax.swing.JFrame {
     }//GEN-LAST:event_bukuButtonActionPerformed
 
     private void anggotaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_anggotaButtonActionPerformed
-        new dataMahasiswa().setVisible(true);
+        new DataMahasiswa().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_anggotaButtonActionPerformed
 
