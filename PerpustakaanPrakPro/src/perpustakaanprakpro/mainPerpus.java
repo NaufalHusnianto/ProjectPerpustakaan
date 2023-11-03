@@ -26,228 +26,12 @@ public class mainPerpus extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        HalamanPeminjaman = new javax.swing.JDialog();
-        jPanel2 = new javax.swing.JPanel();
-        PeminjamanTitle = new javax.swing.JLabel();
-        InputNamaPeminjam = new javax.swing.JTextField();
-        NamaPeminjamLabel = new javax.swing.JLabel();
-        NimPeminjamLabel = new javax.swing.JLabel();
-        KodeBukuLabel = new javax.swing.JLabel();
-        JudulBukuLabel = new javax.swing.JLabel();
-        TanggalPinjamLabel = new javax.swing.JLabel();
-        TanggalKembaliLabel = new javax.swing.JLabel();
-        InputNimPeminjam = new javax.swing.JTextField();
-        InputKodeBuku = new javax.swing.JTextField();
-        InputJudulBuku = new javax.swing.JTextField();
-        InputTanggalPinjam = new javax.swing.JTextField();
-        InputTanggalKembali = new javax.swing.JTextField();
-        SubmitButton = new javax.swing.JButton();
-        ResetButton = new javax.swing.JButton();
-        HalamanPengembalian = new javax.swing.JDialog();
-        HalamanDataBuku = new javax.swing.JDialog();
-        HalamanDataAnggota = new javax.swing.JDialog();
         MainPanel = new javax.swing.JPanel();
         mainJudul = new javax.swing.JLabel();
         pengembalianButton = new javax.swing.JButton();
         peminjamanButton = new javax.swing.JButton();
         bukuButton = new javax.swing.JButton();
         anggotaButton = new javax.swing.JButton();
-
-        jPanel2.setBackground(new java.awt.Color(0, 51, 102));
-        jPanel2.setForeground(new java.awt.Color(255, 255, 255));
-
-        PeminjamanTitle.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
-        PeminjamanTitle.setForeground(new java.awt.Color(255, 255, 255));
-        PeminjamanTitle.setText("Peminjaman Buku");
-
-        InputNamaPeminjam.setFont(new java.awt.Font("Courier New", 0, 18)); // NOI18N
-
-        NamaPeminjamLabel.setFont(new java.awt.Font("Courier New", 0, 18)); // NOI18N
-        NamaPeminjamLabel.setText("Nama :");
-
-        NimPeminjamLabel.setFont(new java.awt.Font("Courier New", 0, 18)); // NOI18N
-        NimPeminjamLabel.setText("Nim :");
-
-        KodeBukuLabel.setFont(new java.awt.Font("Courier New", 0, 18)); // NOI18N
-        KodeBukuLabel.setText("Kode Buku :");
-
-        JudulBukuLabel.setFont(new java.awt.Font("Courier New", 0, 18)); // NOI18N
-        JudulBukuLabel.setText("Judul Buku :");
-
-        TanggalPinjamLabel.setFont(new java.awt.Font("Courier New", 0, 18)); // NOI18N
-        TanggalPinjamLabel.setText("Tanggal Pinjam :");
-
-        TanggalKembaliLabel.setFont(new java.awt.Font("Courier New", 0, 18)); // NOI18N
-        TanggalKembaliLabel.setText("Tanggal Kembali :");
-
-        InputNimPeminjam.setFont(new java.awt.Font("Courier New", 0, 18)); // NOI18N
-        InputNimPeminjam.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                InputNimPeminjamActionPerformed(evt);
-            }
-        });
-
-        InputKodeBuku.setFont(new java.awt.Font("Courier New", 0, 18)); // NOI18N
-        InputKodeBuku.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                InputKodeBukuActionPerformed(evt);
-            }
-        });
-
-        InputJudulBuku.setFont(new java.awt.Font("Courier New", 0, 18)); // NOI18N
-        InputJudulBuku.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                InputJudulBukuActionPerformed(evt);
-            }
-        });
-
-        InputTanggalPinjam.setFont(new java.awt.Font("Courier New", 0, 18)); // NOI18N
-        InputTanggalPinjam.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                InputTanggalPinjamActionPerformed(evt);
-            }
-        });
-
-        InputTanggalKembali.setFont(new java.awt.Font("Courier New", 0, 18)); // NOI18N
-        InputTanggalKembali.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                InputTanggalKembaliActionPerformed(evt);
-            }
-        });
-
-        SubmitButton.setFont(new java.awt.Font("Courier New", 0, 18)); // NOI18N
-        SubmitButton.setText("Submit");
-
-        ResetButton.setFont(new java.awt.Font("Courier New", 0, 18)); // NOI18N
-        ResetButton.setText("Reset");
-        ResetButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ResetButtonActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(186, 186, 186)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(NimPeminjamLabel)
-                            .addComponent(KodeBukuLabel)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(TanggalKembaliLabel)
-                                    .addComponent(JudulBukuLabel)
-                                    .addComponent(TanggalPinjamLabel))
-                                .addGap(63, 63, 63)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(InputKodeBuku, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(InputTanggalPinjam, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(InputJudulBuku, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(InputTanggalKembali, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(InputNamaPeminjam, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(InputNimPeminjam, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(119, 119, 119)
-                                .addComponent(ResetButton)
-                                .addGap(18, 18, 18)
-                                .addComponent(SubmitButton)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(NamaPeminjamLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(698, 698, 698))))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(323, 323, 323)
-                .addComponent(PeminjamanTitle)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addComponent(PeminjamanTitle)
-                .addGap(41, 41, 41)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(ResetButton, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(SubmitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(InputNamaPeminjam, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(NamaPeminjamLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(InputNimPeminjam, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(NimPeminjamLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(KodeBukuLabel)
-                            .addComponent(InputKodeBuku, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(9, 9, 9)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(InputJudulBuku, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(JudulBukuLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(InputTanggalPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TanggalPinjamLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(TanggalKembaliLabel)
-                            .addComponent(InputTanggalKembali, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(64, 64, 64)))
-                .addGap(119, 119, 119))
-        );
-
-        javax.swing.GroupLayout HalamanPeminjamanLayout = new javax.swing.GroupLayout(HalamanPeminjaman.getContentPane());
-        HalamanPeminjaman.getContentPane().setLayout(HalamanPeminjamanLayout);
-        HalamanPeminjamanLayout.setHorizontalGroup(
-            HalamanPeminjamanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 867, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        HalamanPeminjamanLayout.setVerticalGroup(
-            HalamanPeminjamanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout HalamanPengembalianLayout = new javax.swing.GroupLayout(HalamanPengembalian.getContentPane());
-        HalamanPengembalian.getContentPane().setLayout(HalamanPengembalianLayout);
-        HalamanPengembalianLayout.setHorizontalGroup(
-            HalamanPengembalianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        HalamanPengembalianLayout.setVerticalGroup(
-            HalamanPengembalianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout HalamanDataBukuLayout = new javax.swing.GroupLayout(HalamanDataBuku.getContentPane());
-        HalamanDataBuku.getContentPane().setLayout(HalamanDataBukuLayout);
-        HalamanDataBukuLayout.setHorizontalGroup(
-            HalamanDataBukuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        HalamanDataBukuLayout.setVerticalGroup(
-            HalamanDataBukuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout HalamanDataAnggotaLayout = new javax.swing.GroupLayout(HalamanDataAnggota.getContentPane());
-        HalamanDataAnggota.getContentPane().setLayout(HalamanDataAnggotaLayout);
-        HalamanDataAnggotaLayout.setHorizontalGroup(
-            HalamanDataAnggotaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        HalamanDataAnggotaLayout.setVerticalGroup(
-            HalamanDataAnggotaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -359,14 +143,10 @@ public class mainPerpus extends javax.swing.JFrame {
 
     private void pengembalianButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pengembalianButtonActionPerformed
         // TODO add your handling code here:
-        this.HalamanPengembalian.setVisible(true);
-        this.HalamanPengembalian.setSize(800, 400);
     }//GEN-LAST:event_pengembalianButtonActionPerformed
 
     private void peminjamanButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_peminjamanButtonActionPerformed
         // TODO add your handling code here:
-        this.HalamanPeminjaman.setVisible(true);
-        this.HalamanPeminjaman.setSize(800, 600);
     }//GEN-LAST:event_peminjamanButtonActionPerformed
 
     private void bukuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bukuButtonActionPerformed
@@ -375,33 +155,9 @@ public class mainPerpus extends javax.swing.JFrame {
     }//GEN-LAST:event_bukuButtonActionPerformed
 
     private void anggotaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_anggotaButtonActionPerformed
-        new dataMahasiswa().setVisible(true);
+        new DataMahasiswa().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_anggotaButtonActionPerformed
-
-    private void InputNimPeminjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InputNimPeminjamActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_InputNimPeminjamActionPerformed
-
-    private void InputKodeBukuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InputKodeBukuActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_InputKodeBukuActionPerformed
-
-    private void InputJudulBukuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InputJudulBukuActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_InputJudulBukuActionPerformed
-
-    private void InputTanggalPinjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InputTanggalPinjamActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_InputTanggalPinjamActionPerformed
-
-    private void InputTanggalKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InputTanggalKembaliActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_InputTanggalKembaliActionPerformed
-
-    private void ResetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ResetButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -439,29 +195,9 @@ public class mainPerpus extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDialog HalamanDataAnggota;
-    private javax.swing.JDialog HalamanDataBuku;
-    private javax.swing.JDialog HalamanPeminjaman;
-    private javax.swing.JDialog HalamanPengembalian;
-    private javax.swing.JTextField InputJudulBuku;
-    private javax.swing.JTextField InputKodeBuku;
-    private javax.swing.JTextField InputNamaPeminjam;
-    private javax.swing.JTextField InputNimPeminjam;
-    private javax.swing.JTextField InputTanggalKembali;
-    private javax.swing.JTextField InputTanggalPinjam;
-    private javax.swing.JLabel JudulBukuLabel;
-    private javax.swing.JLabel KodeBukuLabel;
     private javax.swing.JPanel MainPanel;
-    private javax.swing.JLabel NamaPeminjamLabel;
-    private javax.swing.JLabel NimPeminjamLabel;
-    private javax.swing.JLabel PeminjamanTitle;
-    private javax.swing.JButton ResetButton;
-    private javax.swing.JButton SubmitButton;
-    private javax.swing.JLabel TanggalKembaliLabel;
-    private javax.swing.JLabel TanggalPinjamLabel;
     private javax.swing.JButton anggotaButton;
     private javax.swing.JButton bukuButton;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel mainJudul;
     private javax.swing.JButton peminjamanButton;
     private javax.swing.JButton pengembalianButton;
