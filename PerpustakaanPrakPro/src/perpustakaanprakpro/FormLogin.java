@@ -175,7 +175,7 @@ public class FormLogin extends javax.swing.JFrame {
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
-        String inputNama = this.jTextField1.getText();
+        String inputID = jTextField1.getText();
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**
