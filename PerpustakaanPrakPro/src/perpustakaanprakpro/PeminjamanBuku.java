@@ -26,21 +26,179 @@ public class PeminjamanBuku extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        judul = new javax.swing.JLabel();
+        nama = new javax.swing.JLabel();
+        nim = new javax.swing.JLabel();
+        kodeBuku = new javax.swing.JLabel();
+        judulBuku = new javax.swing.JLabel();
+        tglPinjam = new javax.swing.JLabel();
+        tglKembali = new javax.swing.JLabel();
+        inputNama = new javax.swing.JTextField();
+        inputNim = new javax.swing.JTextField();
+        inputTglKembali = new javax.swing.JTextField();
+        inputKode = new javax.swing.JTextField();
+        inputJudul = new javax.swing.JTextField();
+        inputTglPinjam = new javax.swing.JTextField();
+        search = new javax.swing.JButton();
+        refresh = new javax.swing.JButton();
+        edit = new javax.swing.JButton();
+        delete = new javax.swing.JButton();
+        save = new javax.swing.JButton();
+        exit = new javax.swing.JButton();
+        tabel = new javax.swing.JLabel();
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        judul.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        judul.setText("Peminjaman Buku");
+
+        nama.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        nama.setText("Nama");
+
+        nim.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        nim.setText("NIM");
+
+        kodeBuku.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        kodeBuku.setText("Kode Buku");
+
+        judulBuku.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        judulBuku.setText("Judul Buku");
+
+        tglPinjam.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        tglPinjam.setText("Tanggal Pinjam");
+
+        tglKembali.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        tglKembali.setText("Tanggal Kembali");
+
+        search.setText("Search");
+
+        refresh.setText("Refresh");
+
+        edit.setText("Edit");
+
+        delete.setText("Delete");
+
+        save.setText("Save");
+        save.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveActionPerformed(evt);
+            }
+        });
+
+        exit.setText("Exit");
+
+        tabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        tabel.setText("Tabel Data Peminjam");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(49, 49, 49)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(tabel)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tglKembali)
+                            .addComponent(tglPinjam)
+                            .addComponent(judulBuku)
+                            .addComponent(kodeBuku)
+                            .addComponent(nim)
+                            .addComponent(nama))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(judul, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(inputNama)
+                            .addComponent(inputNim)
+                            .addComponent(inputKode)
+                            .addComponent(inputJudul)
+                            .addComponent(inputTglPinjam)
+                            .addComponent(inputTglKembali))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(search)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(refresh))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(save)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(exit))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(edit)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(delete)))
+                        .addGap(35, 35, 35))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(judul)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(nama)
+                            .addComponent(inputNama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(nim))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(search)
+                            .addComponent(refresh))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(inputNim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(edit)
+                            .addComponent(delete))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(kodeBuku)
+                    .addComponent(inputKode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(save)
+                    .addComponent(exit))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(judulBuku)
+                    .addComponent(inputJudul, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tglPinjam)
+                    .addComponent(inputTglPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tglKembali)
+                    .addComponent(inputTglKembali, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addComponent(tabel)
+                .addContainerGap(211, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_saveActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +236,27 @@ public class PeminjamanBuku extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton delete;
+    private javax.swing.JButton edit;
+    private javax.swing.JButton exit;
+    private javax.swing.JTextField inputJudul;
+    private javax.swing.JTextField inputKode;
+    private javax.swing.JTextField inputNama;
+    private javax.swing.JTextField inputNim;
+    private javax.swing.JTextField inputTglKembali;
+    private javax.swing.JTextField inputTglPinjam;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JLabel judul;
+    private javax.swing.JLabel judulBuku;
+    private javax.swing.JLabel kodeBuku;
+    private javax.swing.JLabel nama;
+    private javax.swing.JLabel nim;
+    private javax.swing.JButton refresh;
+    private javax.swing.JButton save;
+    private javax.swing.JButton search;
+    private javax.swing.JLabel tabel;
+    private javax.swing.JLabel tglKembali;
+    private javax.swing.JLabel tglPinjam;
     // End of variables declaration//GEN-END:variables
 }
