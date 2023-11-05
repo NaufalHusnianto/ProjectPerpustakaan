@@ -44,40 +44,45 @@ public class FormLogin extends javax.swing.JFrame {
         cbAdmin = new javax.swing.JCheckBox();
         cbUser = new javax.swing.JCheckBox();
 
+        falseLogin.setMaximumSize(new java.awt.Dimension(200, 100));
+        falseLogin.setPreferredSize(new java.awt.Dimension(200, 100));
+
         jPanel3.setBackground(new java.awt.Color(153, 255, 255));
         jPanel3.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel3.setMaximumSize(new java.awt.Dimension(200, 100));
+        jPanel3.setPreferredSize(new java.awt.Dimension(200, 100));
 
-        jLabel6.setFont(new java.awt.Font("Courier New", 1, 36)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel6.setText("Data Anda Salah");
+        jLabel6.setFont(new java.awt.Font("Courier New", 1, 24)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(204, 0, 51));
+        jLabel6.setText("Maaf Data Anda Salah");
         jLabel6.setToolTipText("");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(61, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
                 .addComponent(jLabel6)
-                .addGap(56, 56, 56))
+                .addContainerGap(115, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(127, 127, 127)
+                .addGap(30, 30, 30)
                 .addComponent(jLabel6)
-                .addContainerGap(132, Short.MAX_VALUE))
+                .addContainerGap(191, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout falseLoginLayout = new javax.swing.GroupLayout(falseLogin.getContentPane());
         falseLogin.getContentPane().setLayout(falseLoginLayout);
         falseLoginLayout.setHorizontalGroup(
             falseLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         falseLoginLayout.setVerticalGroup(
             falseLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -220,13 +225,17 @@ public class FormLogin extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
-                String inputId = "K3522055";
-        
-                if(inputId == "K3522055") {
+                String inputId = inputIDLogin.getText().toString();
+                String inputName = inputNamaLogin.getText().toString();
+                String inputPass = inputPasswordLogin.getText().toString();
+                
+                if(inputId.equals("K3522055") && inputName.equals("Naufal Husnianto") && inputPass.equals("admin")) {
                     new mainPerpus().setVisible(true);
                     this.setVisible(false);
                 } else {
-                    System.out.println("errorrr");
+                    System.out.println(inputIDLogin);
+                    falseLogin.setVisible(true);
+                    falseLogin.setSize(400, 100);
                 }
     }//GEN-LAST:event_btnLoginActionPerformed
 
