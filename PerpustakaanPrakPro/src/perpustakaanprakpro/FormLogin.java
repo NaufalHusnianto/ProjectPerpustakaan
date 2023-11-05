@@ -79,6 +79,11 @@ public class FormLogin extends javax.swing.JFrame {
         btnLogin.setBackground(new java.awt.Color(0, 0, 0));
         btnLogin.setForeground(new java.awt.Color(255, 255, 255));
         btnLogin.setText("login");
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoginActionPerformed(evt);
+            }
+        });
 
         btnKeluar.setBackground(new java.awt.Color(0, 0, 0));
         btnKeluar.setForeground(new java.awt.Color(255, 255, 255));
@@ -172,8 +177,19 @@ public class FormLogin extends javax.swing.JFrame {
 
     private void inputIDLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputIDLoginActionPerformed
         // TODO add your handling code here:
-        String inputID = inputIDLogin.getText();
     }//GEN-LAST:event_inputIDLoginActionPerformed
+
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+        // TODO add your handling code here:
+                String inputId = "K3522055";
+        
+                if(inputId == "K3522055") {
+                    new mainPerpus().setVisible(true);
+                    this.setVisible(false);
+                } else {
+                    System.out.println("errorrr");
+                }
+    }//GEN-LAST:event_btnLoginActionPerformed
 
     /**
      * @param args the command line arguments

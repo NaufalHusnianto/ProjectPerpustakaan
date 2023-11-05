@@ -216,9 +216,7 @@ public class mainPerpus extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new mainPerpus().setVisible(true);
-                
+            public void run() {             
                 FormLogin flogin = new FormLogin();
                 flogin.setVisible(true);
             }
