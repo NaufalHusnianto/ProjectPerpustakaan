@@ -169,11 +169,14 @@ public class mainPerpus extends javax.swing.JFrame {
 
     private void pengembalianButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pengembalianButtonActionPerformed
         // TODO add your handling code here:
+        new PengembalianBuku().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_pengembalianButtonActionPerformed
 
     private void peminjamanButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_peminjamanButtonActionPerformed
         // TODO add your handling code here:
-        
+        new PeminjamanBuku().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_peminjamanButtonActionPerformed
 
     private void bukuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bukuButtonActionPerformed
