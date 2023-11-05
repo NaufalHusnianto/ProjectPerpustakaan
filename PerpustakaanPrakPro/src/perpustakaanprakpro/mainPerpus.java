@@ -219,7 +219,8 @@ public class mainPerpus extends javax.swing.JFrame {
             public void run() {
                 new mainPerpus().setVisible(true);
                 
-                
+                FormLogin flogin = new FormLogin();
+                flogin.setVisible(true);
             }
         });
     }
