@@ -168,13 +168,11 @@ public class mainPerpus extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void pengembalianButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pengembalianButtonActionPerformed
-        // TODO add your handling code here:
         new PengembalianBuku().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_pengembalianButtonActionPerformed
 
     private void peminjamanButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_peminjamanButtonActionPerformed
-        // TODO add your handling code here:
         new PeminjamanBuku().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_peminjamanButtonActionPerformed
@@ -219,10 +217,8 @@ public class mainPerpus extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new mainPerpus().setVisible(false);
+                new mainPerpus().setVisible(true);
                 
-                FormLogin formLogin = new FormLogin();
-                formLogin.setVisible(true);
                 
             }
         });
