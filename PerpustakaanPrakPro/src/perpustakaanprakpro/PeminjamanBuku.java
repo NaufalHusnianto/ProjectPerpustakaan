@@ -15,6 +15,8 @@ public class PeminjamanBuku extends javax.swing.JFrame {
      */
     public PeminjamanBuku() {
         initComponents();
+        
+        setLocationRelativeTo(this);
     }
 
     /**

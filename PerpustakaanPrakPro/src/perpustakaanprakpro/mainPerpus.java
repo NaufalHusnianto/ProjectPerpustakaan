@@ -15,6 +15,8 @@ public class mainPerpus extends javax.swing.JFrame {
      */
     public mainPerpus() {
         initComponents();
+        
+        setLocationRelativeTo(this);
     }
 
     /**

@@ -15,6 +15,8 @@ public class FormLogin extends javax.swing.JFrame {
      */
     public FormLogin() {
         initComponents();
+        
+        setLocationRelativeTo(this);
     }
 
     /**
@@ -46,6 +48,11 @@ public class FormLogin extends javax.swing.JFrame {
 
         falseLogin.setMaximumSize(new java.awt.Dimension(200, 100));
         falseLogin.setPreferredSize(new java.awt.Dimension(200, 100));
+        falseLogin.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                falseLoginComponentShown(evt);
+            }
+        });
 
         jPanel3.setBackground(new java.awt.Color(153, 255, 255));
         jPanel3.setForeground(new java.awt.Color(0, 0, 0));
@@ -54,7 +61,7 @@ public class FormLogin extends javax.swing.JFrame {
 
         errorText.setFont(new java.awt.Font("Courier New", 1, 24)); // NOI18N
         errorText.setForeground(new java.awt.Color(204, 0, 51));
-        errorText.setText("Maaf Data Anda Salah");
+        errorText.setText("Data Tidak Valid !");
         errorText.setToolTipText("");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -64,14 +71,14 @@ public class FormLogin extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(errorText)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(144, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(errorText)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(191, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout falseLoginLayout = new javax.swing.GroupLayout(falseLogin.getContentPane());
@@ -253,7 +260,6 @@ public class FormLogin extends javax.swing.JFrame {
                         falseLogin.setSize(400, 100);
                     }
                 }  else {
-                    this.errorText.setText("Pilih Login Sebagai Apa !!!");
                     falseLogin.setVisible(true);
                     falseLogin.setSize(400, 100);
                 }
@@ -272,6 +278,11 @@ public class FormLogin extends javax.swing.JFrame {
     private void cbUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbUserActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbUserActionPerformed
+
+    private void falseLoginComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_falseLoginComponentShown
+        // TODO add your handling code here:
+        this.falseLogin.setLocationRelativeTo(this);
+    }//GEN-LAST:event_falseLoginComponentShown
 
     /**
      * @param args the command line arguments

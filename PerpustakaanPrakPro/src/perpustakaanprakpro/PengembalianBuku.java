@@ -15,6 +15,8 @@ public class PengembalianBuku extends javax.swing.JFrame {
      */
     public PengembalianBuku() {
         initComponents();
+        
+        setLocationRelativeTo(this);
     }
 
     /**
