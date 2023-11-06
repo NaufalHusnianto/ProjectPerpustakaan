@@ -73,36 +73,13 @@ public class DataMahasiswa extends javax.swing.JFrame {
 
         jLabel2.setText("ID");
 
-        inputID.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inputIDActionPerformed(evt);
-            }
-        });
-
         jLabel3.setText("NIM");
 
-        inputNim.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inputNimActionPerformed(evt);
-            }
-        });
-
         jLabel4.setText("NAMA");
-
-        inputNama.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inputNamaActionPerformed(evt);
-            }
-        });
 
         jLabel5.setText("FAKULTAS");
 
         inputFakultas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "FKIP", "FSRD", "F HUKUM", "F KEDOKTERAN", "FISIP", "FEB", "FATISDA", "FIB", "F PERTANIAN" }));
-        inputFakultas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inputFakultasActionPerformed(evt);
-            }
-        });
 
         jLabel6.setText("PRODI");
 
@@ -234,25 +211,15 @@ public class DataMahasiswa extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void inputNamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputNamaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_inputNamaActionPerformed
-
-    private void inputIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputIDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_inputIDActionPerformed
-
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
         
     }//GEN-LAST:event_btnCreateActionPerformed
 
-    private void inputNimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputNimActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_inputNimActionPerformed
-
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
+        new mainPerpus().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -262,10 +229,6 @@ public class DataMahasiswa extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void inputFakultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputFakultasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_inputFakultasActionPerformed
 
     /**
      * @param args the command line arguments

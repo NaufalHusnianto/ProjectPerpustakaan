@@ -237,7 +237,7 @@ public class FormLogin extends javax.swing.JFrame {
                 if(this.cbAdmin.isSelected()) {
                     if(inputId.equals("K3522055") && inputName.equals("Naufal Husnianto") && inputPass.equals("admin")) {
                         new mainPerpus().setVisible(true);
-                        this.setVisible(false);
+                        this.dispose();
                     } else {
                         System.out.println(inputIDLogin);
                         falseLogin.setVisible(true);
@@ -246,7 +246,7 @@ public class FormLogin extends javax.swing.JFrame {
                 } else if(this.cbUser.isSelected()) {
                     if(inputId.equals("K3522055") && inputName.equals("Naufal Husnianto") && inputPass.equals("admin")) {
                         new mainPerpus().setVisible(true);
-                        this.setVisible(false);
+                        this.dispose();
                     } else {
                         System.out.println(inputIDLogin);
                         falseLogin.setVisible(true);

@@ -101,6 +101,11 @@ public class PeminjamanBuku extends javax.swing.JFrame {
         });
 
         exit.setText("Exit");
+        exit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitActionPerformed(evt);
+            }
+        });
 
         tabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         tabel.setText("Tabel Data Peminjam");
@@ -199,6 +204,12 @@ public class PeminjamanBuku extends javax.swing.JFrame {
     private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_saveActionPerformed
+
+    private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
+        // TODO add your handling code here:
+        new mainPerpus().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_exitActionPerformed
 
     /**
      * @param args the command line arguments

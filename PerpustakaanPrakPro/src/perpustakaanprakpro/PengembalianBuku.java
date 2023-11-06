@@ -91,6 +91,11 @@ public class PengembalianBuku extends javax.swing.JFrame {
         delete.setText("Delete");
 
         exit.setText("Exit");
+        exit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitActionPerformed(evt);
+            }
+        });
 
         tabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         tabel.setText("Tabel Pengembalian Buku");
@@ -193,6 +198,12 @@ public class PengembalianBuku extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
+        // TODO add your handling code here:
+        new mainPerpus().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_exitActionPerformed
 
     /**
      * @param args the command line arguments
