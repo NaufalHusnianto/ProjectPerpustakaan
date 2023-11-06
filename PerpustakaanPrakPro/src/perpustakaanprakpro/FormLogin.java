@@ -28,7 +28,7 @@ public class FormLogin extends javax.swing.JFrame {
 
         falseLogin = new javax.swing.JDialog();
         jPanel3 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
+        errorText = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -52,10 +52,10 @@ public class FormLogin extends javax.swing.JFrame {
         jPanel3.setMaximumSize(new java.awt.Dimension(200, 100));
         jPanel3.setPreferredSize(new java.awt.Dimension(200, 100));
 
-        jLabel6.setFont(new java.awt.Font("Courier New", 1, 24)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(204, 0, 51));
-        jLabel6.setText("Maaf Data Anda Salah");
-        jLabel6.setToolTipText("");
+        errorText.setFont(new java.awt.Font("Courier New", 1, 24)); // NOI18N
+        errorText.setForeground(new java.awt.Color(204, 0, 51));
+        errorText.setText("Maaf Data Anda Salah");
+        errorText.setToolTipText("");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -63,15 +63,15 @@ public class FormLogin extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addComponent(jLabel6)
-                .addContainerGap(115, Short.MAX_VALUE))
+                .addComponent(errorText)
+                .addContainerGap(33, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addComponent(jLabel6)
-                .addContainerGap(191, Short.MAX_VALUE))
+                .addComponent(errorText)
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout falseLoginLayout = new javax.swing.GroupLayout(falseLogin.getContentPane());
@@ -114,12 +114,6 @@ public class FormLogin extends javax.swing.JFrame {
 
         jLabel4.setText("ID");
 
-        inputIDLogin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inputIDLoginActionPerformed(evt);
-            }
-        });
-
         btnLogin.setBackground(new java.awt.Color(0, 0, 0));
         btnLogin.setForeground(new java.awt.Color(255, 255, 255));
         btnLogin.setText("login");
@@ -132,10 +126,25 @@ public class FormLogin extends javax.swing.JFrame {
         btnKeluar.setBackground(new java.awt.Color(0, 0, 0));
         btnKeluar.setForeground(new java.awt.Color(255, 255, 255));
         btnKeluar.setText("keluar");
+        btnKeluar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnKeluarActionPerformed(evt);
+            }
+        });
 
         cbAdmin.setText("admin");
+        cbAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbAdminActionPerformed(evt);
+            }
+        });
 
         cbUser.setText("user");
+        cbUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbUserActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -219,25 +228,50 @@ public class FormLogin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void inputIDLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputIDLoginActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_inputIDLoginActionPerformed
-
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
                 String inputId = inputIDLogin.getText().toString();
                 String inputName = inputNamaLogin.getText().toString();
                 String inputPass = inputPasswordLogin.getText().toString();
                 
-                if(inputId.equals("K3522055") && inputName.equals("Naufal Husnianto") && inputPass.equals("admin")) {
-                    new mainPerpus().setVisible(true);
-                    this.setVisible(false);
-                } else {
-                    System.out.println(inputIDLogin);
+                if(this.cbAdmin.isSelected()) {
+                    if(inputId.equals("K3522055") && inputName.equals("Naufal Husnianto") && inputPass.equals("admin")) {
+                        new mainPerpus().setVisible(true);
+                        this.setVisible(false);
+                    } else {
+                        System.out.println(inputIDLogin);
+                        falseLogin.setVisible(true);
+                        falseLogin.setSize(400, 100);
+                    }
+                } else if(this.cbUser.isSelected()) {
+                    if(inputId.equals("K3522055") && inputName.equals("Naufal Husnianto") && inputPass.equals("admin")) {
+                        new mainPerpus().setVisible(true);
+                        this.setVisible(false);
+                    } else {
+                        System.out.println(inputIDLogin);
+                        falseLogin.setVisible(true);
+                        falseLogin.setSize(400, 100);
+                    }
+                }  else {
+                    this.errorText.setText("Pilih Login Sebagai Apa !!!");
                     falseLogin.setVisible(true);
                     falseLogin.setSize(400, 100);
                 }
+                
     }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void btnKeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKeluarActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_btnKeluarActionPerformed
+
+    private void cbAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbAdminActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbAdminActionPerformed
+
+    private void cbUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbUserActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbUserActionPerformed
 
     /**
      * @param args the command line arguments
@@ -279,6 +313,7 @@ public class FormLogin extends javax.swing.JFrame {
     private javax.swing.JButton btnLogin;
     private javax.swing.JCheckBox cbAdmin;
     private javax.swing.JCheckBox cbUser;
+    private javax.swing.JLabel errorText;
     private javax.swing.JDialog falseLogin;
     private javax.swing.JTextField inputIDLogin;
     private javax.swing.JTextField inputNamaLogin;
@@ -288,7 +323,6 @@ public class FormLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
