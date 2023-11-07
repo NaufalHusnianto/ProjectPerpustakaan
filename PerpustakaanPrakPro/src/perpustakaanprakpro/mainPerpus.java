@@ -15,6 +15,8 @@ public class mainPerpus extends javax.swing.JFrame {
      */
     public mainPerpus() {
         initComponents();
+        
+        setLocationRelativeTo(this);
     }
 
     /**
@@ -97,14 +99,6 @@ public class mainPerpus extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("E:\\semester 3\\PraktikPemrograman1\\aset icon project\\book-reader-regular-24.png")); // NOI18N
-
-        jLabel2.setIcon(new javax.swing.ImageIcon("E:\\semester 3\\PraktikPemrograman1\\aset icon project\\minus-back-regular-24.png")); // NOI18N
-
-        jLabel3.setIcon(new javax.swing.ImageIcon("E:\\semester 3\\PraktikPemrograman1\\aset icon project\\book-add-regular-24.png")); // NOI18N
-
-        jLabel4.setIcon(new javax.swing.ImageIcon("E:\\semester 3\\PraktikPemrograman1\\aset icon project\\user-account-solid-24.png")); // NOI18N
-
         javax.swing.GroupLayout MainPanelLayout = new javax.swing.GroupLayout(MainPanel);
         MainPanel.setLayout(MainPanelLayout);
         MainPanelLayout.setHorizontalGroup(
@@ -143,11 +137,11 @@ public class mainPerpus extends javax.swing.JFrame {
                     .addComponent(pengembalianButton, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(39, 39, 39)
-                .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(bukuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35)
-                .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(anggotaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(124, Short.MAX_VALUE))
@@ -168,12 +162,13 @@ public class mainPerpus extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void pengembalianButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pengembalianButtonActionPerformed
-        // TODO add your handling code here:
+        new PengembalianBuku().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_pengembalianButtonActionPerformed
 
     private void peminjamanButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_peminjamanButtonActionPerformed
-        // TODO add your handling code here:
-        
+        new PeminjamanBuku().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_peminjamanButtonActionPerformed
 
     private void bukuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bukuButtonActionPerformed
@@ -215,12 +210,9 @@ public class mainPerpus extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new mainPerpus().setVisible(false);
-                
-                FormLogin formLogin = new FormLogin();
-                formLogin.setVisible(true);
-                
+            public void run() {             
+                FormLogin flogin = new FormLogin();
+                flogin.setVisible(true);
             }
         });
     }
