@@ -6,7 +6,7 @@ package perpustakaanprakpro;
 
 /**
  *
- * @author user
+ * @author hp
  */
 public class DataMahasiswa extends javax.swing.JFrame {
 
