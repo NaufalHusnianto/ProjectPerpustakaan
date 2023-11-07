@@ -16,7 +16,7 @@ public class DataMahasiswa extends javax.swing.JFrame {
     public DataMahasiswa() {
         initComponents();
         
-        setLocationRelativeTo(null);
+        setLocationRelativeTo(this);
     }
 
     /**
