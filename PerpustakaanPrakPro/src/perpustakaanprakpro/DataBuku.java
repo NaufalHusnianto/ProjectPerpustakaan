@@ -6,7 +6,7 @@ package perpustakaanprakpro;
 
 /**
  *
- * @author user
+ * @author sheila
  */
 public class DataBuku extends javax.swing.JFrame {
 
