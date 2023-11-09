@@ -48,49 +48,53 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="save" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="tglKembali" min="-2" max="-2" attributes="0"/>
+                      <Component id="tglPinjam" min="-2" max="-2" attributes="0"/>
+                      <Component id="judulBuku" min="-2" max="-2" attributes="0"/>
+                      <Component id="nim" min="-2" max="-2" attributes="0"/>
+                      <Component id="nama" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="kodeBuku" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="logo" alignment="0" min="-2" pref="70" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="tabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="tglKembali" min="-2" max="-2" attributes="0"/>
-                          <Component id="tglPinjam" min="-2" max="-2" attributes="0"/>
-                          <Component id="judulBuku" min="-2" max="-2" attributes="0"/>
-                          <Component id="kodeBuku" min="-2" max="-2" attributes="0"/>
-                          <Component id="nim" min="-2" max="-2" attributes="0"/>
-                          <Component id="nama" min="-2" max="-2" attributes="0"/>
+                          <Component id="inputNama" alignment="0" min="-2" pref="234" max="-2" attributes="0"/>
+                          <Component id="inputNim" min="-2" pref="234" max="-2" attributes="0"/>
+                          <Component id="inputKode" alignment="0" min="-2" pref="234" max="-2" attributes="0"/>
+                          <Component id="inputJudul" alignment="0" min="-2" pref="234" max="-2" attributes="0"/>
+                          <Component id="inputTglPinjam" alignment="0" min="-2" pref="234" max="-2" attributes="0"/>
+                          <Component id="inputTglKembali" alignment="0" min="-2" pref="234" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="47" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="judul" max="32767" attributes="0"/>
-                          <Component id="inputNama" alignment="0" max="32767" attributes="0"/>
-                          <Component id="inputNim" alignment="0" max="32767" attributes="0"/>
-                          <Component id="inputKode" alignment="0" max="32767" attributes="0"/>
-                          <Component id="inputJudul" alignment="0" max="32767" attributes="0"/>
-                          <Component id="inputTglPinjam" alignment="0" max="32767" attributes="0"/>
-                          <Component id="inputTglKembali" alignment="0" max="32767" attributes="0"/>
+                      <EmptySpace pref="33" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="cari" min="-2" pref="194" max="-2" attributes="0"/>
+                          <Component id="tabel" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="search" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="refresh" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="save" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="exit" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="edit" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="delete" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                      <Component id="search" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="judul" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="193" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                      <Component id="edit" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                      <Component id="delete" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                      <Component id="refresh" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                      <Component id="exit" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -99,37 +103,40 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                      <Component id="judul" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="logo" min="-2" pref="40" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="judul" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="nama" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="inputNama" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="tabel" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="nim" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="nim" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="inputNim" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cari" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="search" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="search" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="refresh" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="inputNim" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="edit" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="delete" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="inputNama" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="kodeBuku" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="inputKode" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="save" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="exit" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -146,9 +153,15 @@
                   <Component id="tglKembali" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="inputTglKembali" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-              <Component id="tabel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="211" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="save" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="edit" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="refresh" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="exit" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="delete" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="185" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -159,7 +172,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="24" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Peminjaman Buku"/>
+        <Property name="text" type="java.lang.String" value="Data Peminjaman Buku Perpustakaan"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="nama">
@@ -263,7 +276,16 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Tabel Data Peminjam"/>
+        <Property name="text" type="java.lang.String" value="Data Peminjam"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="cari">
+    </Component>
+    <Component class="javax.swing.JLabel" name="logo">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/perpustakaanprakpro/logo.png"/>
+        </Property>
       </Properties>
     </Component>
   </SubComponents>
