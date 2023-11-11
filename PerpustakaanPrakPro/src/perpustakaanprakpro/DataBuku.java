@@ -3,7 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package perpustakaanprakpro;
-
+import java.awt.HeadlessException;
+import java.sql.*;
+import javax.swing.JOptionPane;
 /**
  *
  * @author sheila
@@ -113,6 +115,11 @@ public class DataBuku extends javax.swing.JFrame {
         btnCreate.setBackground(new java.awt.Color(0, 0, 0));
         btnCreate.setForeground(new java.awt.Color(255, 255, 255));
         btnCreate.setText("CREATE");
+        btnCreate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateActionPerformed(evt);
+            }
+        });
 
         btnUpdate.setBackground(new java.awt.Color(0, 0, 0));
         btnUpdate.setForeground(new java.awt.Color(255, 255, 255));
@@ -235,6 +242,16 @@ public class DataBuku extends javax.swing.JFrame {
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         
     }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
+        try{
+            String sql = "INSERT INTO data_perpus VALUE ('" + txtID.getText() + "','" + txtJudulBuku.getText() + "','" + txtKode.getText() 
+                    + "','" + txtPenerbit.getText() + "','" + txtPengarang.getText() + "','" + txtTahun.getText() + "')";
+            java.sql.Connection con = (Connection) DatabaseConnection.DBConnection();
+        } catch(HeadlessException e){
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+    }//GEN-LAST:event_btnCreateActionPerformed
 
     /**
      * @param args the command line arguments
