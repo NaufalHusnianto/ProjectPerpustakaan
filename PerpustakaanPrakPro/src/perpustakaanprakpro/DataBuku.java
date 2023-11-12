@@ -3,9 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package perpustakaanprakpro;
-import java.awt.HeadlessException;
+import java.awt.*;
 import java.sql.*;
-import javax.swing.JOptionPane;
+import javax.swing.*;
 /**
  *
  * @author sheila
@@ -20,6 +20,7 @@ public class DataBuku extends javax.swing.JFrame {
         
         setLocationRelativeTo(this);
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -247,7 +248,8 @@ public class DataBuku extends javax.swing.JFrame {
         try{
             String sql = "INSERT INTO data_perpus VALUE ('" + txtID.getText() + "','" + txtJudulBuku.getText() + "','" + txtKode.getText() 
                     + "','" + txtPenerbit.getText() + "','" + txtPengarang.getText() + "','" + txtTahun.getText() + "')";
-            java.sql.Connection con = (Connection) DatabaseConnection.DBConnection();
+            DatabaseConnection koneksi = new DatabaseConnection();
+            
         } catch(HeadlessException e){
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
