@@ -154,6 +154,7 @@ public class FormLogin extends javax.swing.JFrame {
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
         // TODO add your handling code here:
+        // Password dan username = admin       
         String passwordString = new String(inputPassword.getPassword());
         
         if(inputNama.getText().equals("admin") && passwordString.equals("admin")) {
