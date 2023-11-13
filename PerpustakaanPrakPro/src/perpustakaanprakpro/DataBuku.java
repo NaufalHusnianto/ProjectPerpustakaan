@@ -306,6 +306,7 @@ public class DataBuku extends javax.swing.JFrame {
             java.sql.Connection conn = (Connection) DatabaseConnection.DBConnection();
             java.sql.PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.execute();
+            pstm.close();
             JOptionPane.showMessageDialog(null, "proses simpan berhasil");
             tampilkan();
             hapus();
