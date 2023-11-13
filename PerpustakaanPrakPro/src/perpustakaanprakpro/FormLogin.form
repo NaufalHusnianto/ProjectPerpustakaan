@@ -217,7 +217,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\SEMESTER 3\PRAKTIKUM PEMROGRAMAN\Elements_Java\Tanpa judul (280 x 280 piksel) (1).png"/>
+              <Image iconType="3" name="/image/Tanpa judul (280 x 280 piksel) (1).png"/>
             </Property>
           </Properties>
         </Component>
