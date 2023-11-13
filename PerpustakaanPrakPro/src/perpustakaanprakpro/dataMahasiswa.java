@@ -4,6 +4,8 @@
  */
 package perpustakaanprakpro;
 
+import java.sql.*;
+
 /**
  *
  * @author hp
@@ -17,6 +19,22 @@ public class DataMahasiswa extends javax.swing.JFrame {
         initComponents();
         
         setLocationRelativeTo(this);
+        
+        Connection db = DatabaseConnection.DBConnection();
+        try {
+            Statement st = db.createStatement();
+            String readQuery = "SELECT * FROM datamahasiswa";
+            ResultSet rs = st.executeQuery(readQuery);
+
+            System.out.println("[DATA ANGGOTA]");
+            while (rs.next()) {
+                System.out.println(rs.getString("nama") + " - " + rs.getString("nim") + " - " + rs.getString("prodi"));
+            }
+            rs.close();
+            st.close();
+        } catch (SQLException ex) {
+            ex.getMessage();
+        }
     }
 
     /**
@@ -221,7 +239,7 @@ public class DataMahasiswa extends javax.swing.JFrame {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        new mainPerpus().setVisible(true);
+        new dasboard().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnBackActionPerformed
 

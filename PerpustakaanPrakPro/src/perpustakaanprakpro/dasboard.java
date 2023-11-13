@@ -15,6 +15,8 @@ public class dasboard extends javax.swing.JFrame {
      */
     public dasboard() {
         initComponents();
+        
+        setLocationRelativeTo(this);
     }
 
     /**
@@ -42,7 +44,7 @@ public class dasboard extends javax.swing.JFrame {
         pengembalian = new javax.swing.JButton();
         pilihan4 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        pengembalian1 = new javax.swing.JButton();
+        dataAnggota = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
 
@@ -65,12 +67,15 @@ public class dasboard extends javax.swing.JFrame {
         pilihan1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         pilihan1.setForeground(new java.awt.Color(153, 204, 255));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("E:\\SEMESTER 3\\PRAKTIKUM PEMROGRAMAN\\Elements_Java\\1.png")); // NOI18N
-
         dataBuku.setBackground(new java.awt.Color(153, 204, 255));
         dataBuku.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         dataBuku.setForeground(new java.awt.Color(51, 51, 51));
         dataBuku.setText("Data Buku");
+        dataBuku.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dataBukuActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pilihan1Layout = new javax.swing.GroupLayout(pilihan1);
         pilihan1.setLayout(pilihan1Layout);
@@ -97,8 +102,6 @@ public class dasboard extends javax.swing.JFrame {
 
         pilihan2.setBackground(new java.awt.Color(255, 255, 255));
         pilihan2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        jLabel2.setIcon(new javax.swing.ImageIcon("E:\\SEMESTER 3\\PRAKTIKUM PEMROGRAMAN\\Elements_Java\\3.png")); // NOI18N
 
         pinjam.setBackground(new java.awt.Color(153, 204, 255));
         pinjam.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
@@ -133,8 +136,6 @@ public class dasboard extends javax.swing.JFrame {
         pilihan3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         pilihan3.setForeground(new java.awt.Color(153, 204, 255));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon("E:\\SEMESTER 3\\PRAKTIKUM PEMROGRAMAN\\Elements_Java\\4.png")); // NOI18N
-
         pengembalian.setBackground(new java.awt.Color(153, 204, 255));
         pengembalian.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         pengembalian.setForeground(new java.awt.Color(51, 51, 51));
@@ -145,7 +146,7 @@ public class dasboard extends javax.swing.JFrame {
         pilihan3Layout.setHorizontalGroup(
             pilihan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pilihan3Layout.createSequentialGroup()
-                .addContainerGap(26, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel4)
                 .addGap(25, 25, 25))
             .addGroup(pilihan3Layout.createSequentialGroup()
@@ -167,12 +168,15 @@ public class dasboard extends javax.swing.JFrame {
         pilihan4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         pilihan4.setForeground(new java.awt.Color(153, 204, 255));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon("E:\\SEMESTER 3\\PRAKTIKUM PEMROGRAMAN\\Elements_Java\\2.png")); // NOI18N
-
-        pengembalian1.setBackground(new java.awt.Color(153, 204, 255));
-        pengembalian1.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        pengembalian1.setForeground(new java.awt.Color(51, 51, 51));
-        pengembalian1.setText("Data Anggota");
+        dataAnggota.setBackground(new java.awt.Color(153, 204, 255));
+        dataAnggota.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        dataAnggota.setForeground(new java.awt.Color(51, 51, 51));
+        dataAnggota.setText("Data Anggota");
+        dataAnggota.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dataAnggotaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pilihan4Layout = new javax.swing.GroupLayout(pilihan4);
         pilihan4.setLayout(pilihan4Layout);
@@ -182,16 +186,16 @@ public class dasboard extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(pilihan4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel5)
-                    .addComponent(pengembalian1))
+                    .addComponent(dataAnggota))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
         pilihan4Layout.setVerticalGroup(
             pilihan4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pilihan4Layout.createSequentialGroup()
-                .addContainerGap(12, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(pengembalian1)
+                .addComponent(dataAnggota)
                 .addContainerGap())
         );
 
@@ -222,8 +226,6 @@ public class dasboard extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("E:\\SEMESTER 3\\PRAKTIKUM PEMROGRAMAN\\Elements_Java\\Welcome To Sistem Layanan Perpustakaan.png")); // NOI18N
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -239,8 +241,6 @@ public class dasboard extends javax.swing.JFrame {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
-
-        jLabel6.setIcon(new javax.swing.ImageIcon("E:\\SEMESTER 3\\PRAKTIKUM PEMROGRAMAN\\Elements_Java\\Bookmark.png")); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -288,6 +288,16 @@ public class dasboard extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void dataBukuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataBukuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dataBukuActionPerformed
+
+    private void dataAnggotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataAnggotaActionPerformed
+        // TODO add your handling code here:
+        new DataMahasiswa().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_dataAnggotaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -324,6 +334,7 @@ public class dasboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton dataAnggota;
     private javax.swing.JButton dataBuku;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -335,7 +346,6 @@ public class dasboard extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JButton pengembalian;
-    private javax.swing.JButton pengembalian1;
     private javax.swing.JPanel pilihan1;
     private javax.swing.JPanel pilihan2;
     private javax.swing.JPanel pilihan3;
