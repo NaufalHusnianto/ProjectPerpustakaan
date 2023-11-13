@@ -29,11 +29,18 @@ public class DataMahasiswa extends javax.swing.JFrame {
             String readQuery = "SELECT * FROM datamahasiswa";
             ResultSet rs = st.executeQuery(readQuery);
             
-            DefaultTableModel dataModel = (DefaultTableModel) jTable1.getModel();
-            List list = new ArrayList<>();
-            jTable1.setAutoCreateColumnsFromModel(true);
-            list.add(rs.getString("Nama"));
-            dataModel.addRow(list.toArray());
+            while(rs.next()) {
+                String id = String.valueOf("id");
+                String nama = rs.getString("nama");
+                String nim = rs.getString("nim");
+                String fakultas = rs.getString("fakultas");
+                String prodi = rs.getString("prodi");
+                
+                String tbData[] = {id, nama, nim, fakultas, prodi};
+                DefaultTableModel tblModel = (DefaultTableModel) jTable1.getModel();
+                
+                tblModel.addRow(tbData);
+            }
             
             rs.close();
             st.close();
