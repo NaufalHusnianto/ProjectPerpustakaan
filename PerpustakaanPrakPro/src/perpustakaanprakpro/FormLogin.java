@@ -92,7 +92,7 @@ public class FormLogin extends javax.swing.JFrame {
         admin.setText("Admin");
 
         image.setBackground(new java.awt.Color(255, 255, 255));
-        image.setIcon(new javax.swing.ImageIcon("E:\\SEMESTER 3\\PRAKTIKUM PEMROGRAMAN\\Elements_Java\\Tanpa judul (280 x 280 piksel) (1).png")); // NOI18N
+        image.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Tanpa judul (280 x 280 piksel) (1).png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
