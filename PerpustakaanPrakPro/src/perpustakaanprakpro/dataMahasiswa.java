@@ -5,6 +5,9 @@
 package perpustakaanprakpro;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -25,11 +28,13 @@ public class DataMahasiswa extends javax.swing.JFrame {
             Statement st = db.createStatement();
             String readQuery = "SELECT * FROM datamahasiswa";
             ResultSet rs = st.executeQuery(readQuery);
-
-            System.out.println("[DATA ANGGOTA]");
-            while (rs.next()) {
-                System.out.println(rs.getString("nama") + " - " + rs.getString("nim") + " - " + rs.getString("prodi"));
-            }
+            
+            DefaultTableModel dataModel = (DefaultTableModel) jTable1.getModel();
+            List list = new ArrayList<>();
+            jTable1.setAutoCreateColumnsFromModel(true);
+            list.add(rs.getString("Nama"));
+            dataModel.addRow(list.toArray());
+            
             rs.close();
             st.close();
         } catch (SQLException ex) {
@@ -142,10 +147,7 @@ public class DataMahasiswa extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "ID", "NIM", "NAMA", "FAKULTAS", "PRODI"
