@@ -13,6 +13,8 @@ public class FormLogin extends javax.swing.JFrame {
     int xx, xy;
     public FormLogin() {
         initComponents();
+        
+        setLocationRelativeTo(this);
     }
     
     
@@ -83,6 +85,11 @@ public class FormLogin extends javax.swing.JFrame {
         login.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         login.setForeground(new java.awt.Color(255, 255, 255));
         login.setText("LOGIN");
+        login.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginActionPerformed(evt);
+            }
+        });
 
         user.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         user.setForeground(new java.awt.Color(102, 102, 102));
@@ -92,7 +99,7 @@ public class FormLogin extends javax.swing.JFrame {
         admin.setText("Admin");
 
         image.setBackground(new java.awt.Color(255, 255, 255));
-        image.setIcon(new javax.swing.ImageIcon("E:\\SEMESTER 3\\PRAKTIKUM PEMROGRAMAN\\Elements_Java\\Tanpa judul (280 x 280 piksel) (1).png")); // NOI18N
+        image.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Tanpa judul (280 x 280 piksel) (1).png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -189,6 +196,15 @@ public class FormLogin extends javax.swing.JFrame {
         int y = evt.getYOnScreen();
         this.setLocation(x - xx, y - xy);
     }//GEN-LAST:event_formMouseDragged
+
+    private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
+        // TODO add your handling code here:
+        
+        if(inputNama.getText().equals("admin")) {
+            new dasboard().setVisible(true);
+            this.dispose();
+        }
+    }//GEN-LAST:event_loginActionPerformed
 
     /**
      * @param args the command line arguments

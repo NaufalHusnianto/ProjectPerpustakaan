@@ -4,6 +4,11 @@
  */
 package perpustakaanprakpro;
 
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author hp
@@ -17,6 +22,31 @@ public class DataMahasiswa extends javax.swing.JFrame {
         initComponents();
         
         setLocationRelativeTo(this);
+        
+        Connection db = DatabaseConnection.DBConnection();
+        try {
+            Statement st = db.createStatement();
+            String readQuery = "SELECT * FROM datamahasiswa";
+            ResultSet rs = st.executeQuery(readQuery);
+            
+            while(rs.next()) {
+                String id = String.valueOf("id");
+                String nama = rs.getString("nama");
+                String nim = rs.getString("nim");
+                String fakultas = rs.getString("fakultas");
+                String prodi = rs.getString("prodi");
+                
+                String tbData[] = {id, nama, nim, fakultas, prodi};
+                DefaultTableModel tblModel = (DefaultTableModel) jTable1.getModel();
+                
+                tblModel.addRow(tbData);
+            }
+            
+            rs.close();
+            st.close();
+        } catch (SQLException ex) {
+            ex.getMessage();
+        }
     }
 
     /**
@@ -124,10 +154,7 @@ public class DataMahasiswa extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "ID", "NIM", "NAMA", "FAKULTAS", "PRODI"
@@ -221,7 +248,7 @@ public class DataMahasiswa extends javax.swing.JFrame {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        new mainPerpus().setVisible(true);
+        new dasboard().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnBackActionPerformed
 
