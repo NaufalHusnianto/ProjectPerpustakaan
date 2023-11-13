@@ -5,8 +5,6 @@
 package perpustakaanprakpro;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -18,25 +16,27 @@ public class DataMahasiswa extends javax.swing.JFrame {
     /**
      * Creates new form dataMahasiswa
      */
+    
     public DataMahasiswa() {
         initComponents();
         
         setLocationRelativeTo(this);
-        
         Connection db = DatabaseConnection.DBConnection();
+        
+        //  TAMPIL DATA      
         try {
             Statement st = db.createStatement();
             String readQuery = "SELECT * FROM datamahasiswa";
             ResultSet rs = st.executeQuery(readQuery);
             
             while(rs.next()) {
-                String id = String.valueOf("id_mahasiswa");
+                String id = rs.getString("id_mahasiswa");
                 String nama = rs.getString("nama");
                 String nim = rs.getString("nim");
                 String fakultas = rs.getString("fakultas");
                 String prodi = rs.getString("prodi");
                 
-                String tbData[] = {id, nama, nim, fakultas, prodi};
+                String tbData[] = {id, nim, nama, fakultas, prodi};
                 DefaultTableModel tblModel = (DefaultTableModel) jTable1.getModel();
                 
                 tblModel.addRow(tbData);
@@ -234,7 +234,7 @@ public class DataMahasiswa extends javax.swing.JFrame {
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
         Connection db = DatabaseConnection.DBConnection();
-        
+        // INSERT DATA       
         try {
             String nama = txtNama.getText();
             String nim = txtNim.getText();
@@ -247,6 +247,37 @@ public class DataMahasiswa extends javax.swing.JFrame {
             ps.executeUpdate();
             ps.close();
             System.out.println("Data Berhasil Dibuat!");
+            
+        } catch (SQLException ex) {
+            ex.getMessage();
+        }
+        
+        //  CLEAR TABLE      
+        DefaultTableModel dm = (DefaultTableModel) jTable1.getModel();
+        dm.getDataVector().removeAllElements();
+        revalidate();
+        
+        //  TAMPIL DATA      
+        try {
+            Statement st = db.createStatement();
+            String readQuery = "SELECT * FROM datamahasiswa";
+            ResultSet rs = st.executeQuery(readQuery);
+            
+            while(rs.next()) {
+                String id = rs.getString("id_mahasiswa");
+                String nama = rs.getString("nama");
+                String nim = rs.getString("nim");
+                String fakultas = rs.getString("fakultas");
+                String prodi = rs.getString("prodi");
+                
+                String tbData[] = {id, nim, nama, fakultas, prodi};
+                DefaultTableModel tblModel = (DefaultTableModel) jTable1.getModel();
+                
+                tblModel.addRow(tbData);
+            }
+            
+            rs.close();
+            st.close();
         } catch (SQLException ex) {
             ex.getMessage();
         }
