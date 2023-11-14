@@ -394,7 +394,7 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
                                           <Component id="inputCari" min="-2" pref="344" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                                           <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Component id="jScrollPane2" min="-2" pref="667" max="-2" attributes="0"/>
@@ -417,7 +417,7 @@
                           <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="inputCari" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButton1" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jScrollPane2" min="-2" pref="243" max="-2" attributes="0"/>
@@ -443,7 +443,7 @@
                 <Component class="javax.swing.JButton" name="jButton1">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="E:\SEMESTER 3\PRAKTIKUM PEMROGRAMAN\Elements_Java\search-alternate.png"/>
+                      <Image iconType="3" name="/image/search-alternate.png"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -493,7 +493,7 @@
                   <Color blue="33" green="33" red="33" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="E:\SEMESTER 3\PRAKTIKUM PEMROGRAMAN\Elements_Java\floppy-disk-save.png"/>
+                  <Image iconType="3" name="/image/floppy-disk-save.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Save"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -518,7 +518,7 @@
                   <Color blue="33" green="33" red="33" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="E:\SEMESTER 3\PRAKTIKUM PEMROGRAMAN\Elements_Java\grid-edit.png"/>
+                  <Image iconType="3" name="/image/grid-edit.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Edit"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -543,7 +543,7 @@
                   <Color blue="33" green="33" red="33" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="E:\SEMESTER 3\PRAKTIKUM PEMROGRAMAN\Elements_Java\bin-1.png"/>
+                  <Image iconType="3" name="/image/bin-1.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Delete"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -568,7 +568,7 @@
                   <Color blue="33" green="33" red="33" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="E:\SEMESTER 3\PRAKTIKUM PEMROGRAMAN\Elements_Java\synchronize-arrows-1.png"/>
+                  <Image iconType="3" name="/image/synchronize-arrows-1.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Refresh"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -593,7 +593,7 @@
                   <Color blue="33" green="33" red="33" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="E:\SEMESTER 3\PRAKTIKUM PEMROGRAMAN\Elements_Java\logout-1-alternate.png"/>
+                  <Image iconType="3" name="/image/logout-1-alternate.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Exit"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">

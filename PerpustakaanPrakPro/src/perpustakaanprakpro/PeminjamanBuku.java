@@ -197,7 +197,7 @@ public class PeminjamanBuku extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(51, 51, 51));
         jLabel1.setText("Data Peminjam");
 
-        jButton1.setIcon(new javax.swing.ImageIcon("E:\\SEMESTER 3\\PRAKTIKUM PEMROGRAMAN\\Elements_Java\\search-alternate.png")); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/search-alternate.png"))); // NOI18N
 
         jScrollPane2.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
 
@@ -229,7 +229,7 @@ public class PeminjamanBuku extends javax.swing.JFrame {
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addComponent(inputCari, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(59, 59, 59)
+                                .addGap(40, 40, 40)
                                 .addComponent(jButton1))
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 667, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel5Layout.createSequentialGroup()
@@ -254,7 +254,7 @@ public class PeminjamanBuku extends javax.swing.JFrame {
         save.setBackground(new java.awt.Color(219, 234, 255));
         save.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         save.setForeground(new java.awt.Color(51, 51, 51));
-        save.setIcon(new javax.swing.ImageIcon("E:\\SEMESTER 3\\PRAKTIKUM PEMROGRAMAN\\Elements_Java\\floppy-disk-save.png")); // NOI18N
+        save.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/floppy-disk-save.png"))); // NOI18N
         save.setText("Save");
         save.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         save.addActionListener(new java.awt.event.ActionListener() {
@@ -266,7 +266,7 @@ public class PeminjamanBuku extends javax.swing.JFrame {
         edit.setBackground(new java.awt.Color(219, 234, 255));
         edit.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         edit.setForeground(new java.awt.Color(51, 51, 51));
-        edit.setIcon(new javax.swing.ImageIcon("E:\\SEMESTER 3\\PRAKTIKUM PEMROGRAMAN\\Elements_Java\\grid-edit.png")); // NOI18N
+        edit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/grid-edit.png"))); // NOI18N
         edit.setText("Edit");
         edit.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         edit.addActionListener(new java.awt.event.ActionListener() {
@@ -278,7 +278,7 @@ public class PeminjamanBuku extends javax.swing.JFrame {
         delete.setBackground(new java.awt.Color(219, 234, 255));
         delete.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         delete.setForeground(new java.awt.Color(51, 51, 51));
-        delete.setIcon(new javax.swing.ImageIcon("E:\\SEMESTER 3\\PRAKTIKUM PEMROGRAMAN\\Elements_Java\\bin-1.png")); // NOI18N
+        delete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/bin-1.png"))); // NOI18N
         delete.setText("Delete");
         delete.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         delete.addActionListener(new java.awt.event.ActionListener() {
@@ -290,7 +290,7 @@ public class PeminjamanBuku extends javax.swing.JFrame {
         refresh.setBackground(new java.awt.Color(219, 234, 255));
         refresh.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         refresh.setForeground(new java.awt.Color(51, 51, 51));
-        refresh.setIcon(new javax.swing.ImageIcon("E:\\SEMESTER 3\\PRAKTIKUM PEMROGRAMAN\\Elements_Java\\synchronize-arrows-1.png")); // NOI18N
+        refresh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/synchronize-arrows-1.png"))); // NOI18N
         refresh.setText("Refresh");
         refresh.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         refresh.addActionListener(new java.awt.event.ActionListener() {
@@ -302,7 +302,7 @@ public class PeminjamanBuku extends javax.swing.JFrame {
         exit.setBackground(new java.awt.Color(255, 51, 51));
         exit.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         exit.setForeground(new java.awt.Color(51, 51, 51));
-        exit.setIcon(new javax.swing.ImageIcon("E:\\SEMESTER 3\\PRAKTIKUM PEMROGRAMAN\\Elements_Java\\logout-1-alternate.png")); // NOI18N
+        exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/logout-1-alternate.png"))); // NOI18N
         exit.setText("Exit");
         exit.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         exit.addActionListener(new java.awt.event.ActionListener() {
