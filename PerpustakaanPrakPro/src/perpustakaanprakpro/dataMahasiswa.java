@@ -5,6 +5,7 @@
 package perpustakaanprakpro;
 
 import java.sql.*;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -295,6 +296,52 @@ public class DataMahasiswa extends javax.swing.JFrame {
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
+        Connection db = DatabaseConnection.DBConnection();
+        
+        // DELETE DATA       
+        int baris = jTable1.getSelectedRow();
+        int kolom = 0;
+        String nilai = jTable1.getValueAt(baris, kolom).toString();
+        
+        try{
+            String deleteQuery = "DELETE FROM `datamahasiswa` WHERE `datamahasiswa`.`id_mahasiswa` =" + nilai;
+            PreparedStatement stDelete = db.prepareStatement(deleteQuery);
+            stDelete.executeUpdate();
+            stDelete.close();
+            System.out.println("data berhasil dihapus");
+        } catch (SQLException ex) {
+            ex.getMessage();
+        }
+        
+        //  CLEAR TABLE      
+        DefaultTableModel dm = (DefaultTableModel) jTable1.getModel();
+        dm.getDataVector().removeAllElements();
+        revalidate();
+        
+        //  TAMPIL DATA      
+        try {
+            Statement st = db.createStatement();
+            String readQuery = "SELECT * FROM datamahasiswa";
+            ResultSet rs = st.executeQuery(readQuery);
+            
+            while(rs.next()) {
+                String id = rs.getString("id_mahasiswa");
+                String nama = rs.getString("nama");
+                String nim = rs.getString("nim");
+                String fakultas = rs.getString("fakultas");
+                String prodi = rs.getString("prodi");
+                
+                String tbData[] = {id, nim, nama, fakultas, prodi};
+                DefaultTableModel tblModel = (DefaultTableModel) jTable1.getModel();
+                
+                tblModel.addRow(tbData);
+            }
+            
+            rs.close();
+            st.close();
+        } catch (SQLException ex) {
+            ex.getMessage();
+        }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     /**
