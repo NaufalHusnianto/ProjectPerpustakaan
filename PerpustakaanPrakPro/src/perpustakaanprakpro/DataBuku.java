@@ -42,7 +42,7 @@ public class DataBuku extends javax.swing.JFrame {
         
         try{
             int kode= 1;
-            String sql = "SELECT * FROM data_perpus where KODE like '%" + txtCari.getText()
+            String sql = "SELECT * FROM databuku where KODE like '%" + txtCari.getText()
                     + "%'" + "or JUDUL like '%" + txtCari.getText() + "%'" + "or PENGARANG like '%" + txtCari.getText()
                     + "%'" + "or PENERBIT like '%" + txtCari.getText() + "%'" + "or TAHUN like '%" 
                     +txtCari.getText()+"&'";
@@ -90,7 +90,7 @@ public class DataBuku extends javax.swing.JFrame {
         btnUpdate = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         txtCari = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
+        btnSearch = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -185,7 +185,12 @@ public class DataBuku extends javax.swing.JFrame {
             }
         });
 
-        jLabel8.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\OneDrive\\Gambar\\Saved Pictures\\search-regular-24.png")); // NOI18N
+        btnSearch.setText("Search");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -220,10 +225,10 @@ public class DataBuku extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(txtCari, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtCari, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel8)
-                        .addGap(89, 89, 89)
+                        .addComponent(btnSearch)
+                        .addGap(41, 41, 41)
                         .addComponent(btnDelete)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnUpdate))
@@ -266,13 +271,14 @@ public class DataBuku extends javax.swing.JFrame {
                             .addComponent(btnCreate)))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnDelete)
                         .addComponent(btnUpdate))
-                    .addComponent(txtCari)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 30, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtCari, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 29, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -304,15 +310,13 @@ public class DataBuku extends javax.swing.JFrame {
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         Connection conn = DatabaseConnection.DBConnection();
         try{
-            String sql = "INSERT INTO data_perpus VALUE ('" + txtID.getText() + "','" + txtJudulBuku.getText() + "','" + txtKode.getText() 
+            String sql = "INSERT INTO databuku VALUE ('" + txtID.getText() + "','" + txtJudulBuku.getText() + "','" + txtKode.getText() 
                     + "','" + txtPenerbit.getText() + "','" + txtPengarang.getText() + "','" + txtTahun.getText() + "')";
             PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.execute();
             pstm.close();
-            conn.close();
             JOptionPane.showMessageDialog(null, "proses simpan berhasil");
             tampilkan();
-            hapus();
         }catch (HeadlessException | SQLException e){
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
@@ -325,6 +329,10 @@ public class DataBuku extends javax.swing.JFrame {
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSearchActionPerformed
 
     /**
      * @param args the command line arguments
@@ -365,6 +373,7 @@ public class DataBuku extends javax.swing.JFrame {
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnCreate;
     private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -373,7 +382,6 @@ public class DataBuku extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
