@@ -67,6 +67,11 @@ public class dasboard extends javax.swing.JFrame {
         pilihan1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         pilihan1.setForeground(new java.awt.Color(153, 204, 255));
 
+<<<<<<< Updated upstream
+=======
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/1.png"))); // NOI18N
+
+>>>>>>> Stashed changes
         dataBuku.setBackground(new java.awt.Color(153, 204, 255));
         dataBuku.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         dataBuku.setForeground(new java.awt.Color(51, 51, 51));

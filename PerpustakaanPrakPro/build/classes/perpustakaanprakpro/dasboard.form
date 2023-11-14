@@ -209,6 +209,14 @@
                   </Layout>
                   <SubComponents>
                     <Component class="javax.swing.JLabel" name="jLabel3">
+<<<<<<< Updated upstream
+=======
+                      <Properties>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/image/1.png"/>
+                        </Property>
+                      </Properties>
+>>>>>>> Stashed changes
                     </Component>
                     <Component class="javax.swing.JButton" name="dataBuku">
                       <Properties>
