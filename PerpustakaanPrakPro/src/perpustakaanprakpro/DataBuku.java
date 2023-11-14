@@ -38,6 +38,7 @@ public class DataBuku extends javax.swing.JFrame {
         model.addColumn("PENGARANG");
         model.addColumn("PENERBIT");
         model.addColumn("TAHUN");
+        Connection conn = DatabaseConnection.DBConnection();
         
         try{
             int kode= 1;
@@ -45,13 +46,14 @@ public class DataBuku extends javax.swing.JFrame {
                     + "%'" + "or JUDUL like '%" + txtCari.getText() + "%'" + "or PENGARANG like '%" + txtCari.getText()
                     + "%'" + "or PENERBIT like '%" + txtCari.getText() + "%'" + "or TAHUN like '%" 
                     +txtCari.getText()+"&'";
-            java.sql.Connection conn = (Connection) DatabaseConnection.DBConnection();
-            java.sql.Statement stm = conn.createStatement();
-            java.sql.ResultSet res = stm.executeQuery(sql);
+            Statement stm = conn.createStatement();
+            ResultSet res = stm.executeQuery(sql);
             while(res.next()){
                 model.addRow(new Object[]{kode++, res.getString(1),res.getString(2),res.getString(3),res.getString(4),res.getString(5),res.getString(6)});
             }
             jTable1.setModel(model);
+            res.close();
+            stm.close();
         }catch(SQLException e){
             System.out.println("error : " + e.getMessage());
         }
@@ -300,13 +302,14 @@ public class DataBuku extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
+        Connection conn = DatabaseConnection.DBConnection();
         try{
             String sql = "INSERT INTO data_perpus VALUE ('" + txtID.getText() + "','" + txtJudulBuku.getText() + "','" + txtKode.getText() 
                     + "','" + txtPenerbit.getText() + "','" + txtPengarang.getText() + "','" + txtTahun.getText() + "')";
-            java.sql.Connection conn = (Connection) DatabaseConnection.DBConnection();
-            java.sql.PreparedStatement pstm = conn.prepareStatement(sql);
+            PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.execute();
             pstm.close();
+            conn.close();
             JOptionPane.showMessageDialog(null, "proses simpan berhasil");
             tampilkan();
             hapus();
