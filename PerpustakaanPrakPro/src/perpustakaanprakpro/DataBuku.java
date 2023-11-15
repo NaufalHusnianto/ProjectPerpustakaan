@@ -28,7 +28,7 @@ public class DataBuku extends javax.swing.JFrame {
             try{
                 String url ="jdbc:mysql://localhost:3306/data_perpus";
                 String user = "root";
-                String pass = "mydatabase";
+                String pass = "";
                 
                 DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
                 MySQLConfig = DriverManager.getConnection(url,user,pass);
@@ -319,7 +319,53 @@ public class DataBuku extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+         Connection db = DatabaseConnection.DBConnection();
         
+        // DELETE DATA       
+        int baris = jTable1.getSelectedRow();
+        int kolom = 0;
+        String nilai = jTable1.getValueAt(baris, kolom).toString();
+        
+        try{
+            String deleteQuery = "DELETE FROM `databuku` WHERE `databuku`.`id_buku` =" + nilai;
+            PreparedStatement stDelete = db.prepareStatement(deleteQuery);
+            stDelete.executeUpdate();
+            stDelete.close();
+            System.out.println("data berhasil dihapus");
+        } catch (SQLException ex) {
+            ex.getMessage();
+        }
+        
+        //  CLEAR TABLE      
+        DefaultTableModel dm = (DefaultTableModel) jTable1.getModel();
+        dm.getDataVector().removeAllElements();
+        revalidate();
+        
+        //  TAMPIL DATA      
+        try {
+            Statement st = db.createStatement();
+            String readQuery = "SELECT * FROM databuku";
+            ResultSet rs = st.executeQuery(readQuery);
+            
+            while(rs.next()) {
+                String id = rs.getString("id_buku");
+                String kode = rs.getString("kode_buku");
+                String judul = rs.getString("judul_buku");
+                String pengarang = rs.getString("pengarang");
+                String penerbit = rs.getString("penerbit");
+                String tahun = rs.getString("tahun_terbit");
+                
+                String tbData[] = {id, kode, judul, pengarang, penerbit};
+                DefaultTableModel tblModel = (DefaultTableModel) jTable1.getModel();
+                
+                tblModel.addRow(tbData);
+            }
+            
+            rs.close();
+            st.close();
+        } catch (SQLException ex) {
+            ex.getMessage();
+        }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
@@ -383,19 +429,7 @@ public class DataBuku extends javax.swing.JFrame {
     }//GEN-LAST:event_txtCariActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-        try{
-            String sql = "UPDATE dataperpus SET id_buku='" + txtID.getText()+ "',kode buku='"+txtKode.getText()+"',judul buku"
-                    + txtJudulBuku.getText()+ "',pengarang" + txtPengarang.getText()+ "',penerbit" + txtPenerbit.getText()
-                    + "',tahun terbit" + txtTahun.getText();
-                       java.sql.Connection conn = (Connection)koneksi.configDB();
-           java.sql.PreparedStatement pstm = conn.prepareStatement(sql);
-           pstm.execute();
-           JOptionPane.showMessageDialog(null, "proses update berhasil");
-           tampilkanData();
-           KosongkanForm();     
-        } catch(HeadlessException | SQLException e){
-            JOptionPane.showMessageDialog(this, e.getMessage());
-        }
+   
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
