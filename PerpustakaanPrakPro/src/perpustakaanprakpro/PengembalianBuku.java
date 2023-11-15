@@ -22,7 +22,9 @@ public class PengembalianBuku extends javax.swing.JFrame {
      */
     public PengembalianBuku() {
         initComponents();
+        setLocationRelativeTo(this);
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
