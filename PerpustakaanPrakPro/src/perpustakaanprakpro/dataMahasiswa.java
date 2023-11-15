@@ -286,7 +286,7 @@ public class DataMahasiswa extends javax.swing.JFrame {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        new dasboard().setVisible(true);
+        new Dasboard().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnBackActionPerformed
 
