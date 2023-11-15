@@ -3,6 +3,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package perpustakaanprakpro;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 
 /**
  *
@@ -15,6 +23,37 @@ public class PeminjamanBuku extends javax.swing.JFrame {
      */
     public PeminjamanBuku() {
         initComponents();
+        initComponents();
+
+        setLocationRelativeTo(this);
+        Connection db = DatabaseConnection.DBConnection();
+        
+        //  TAMPIL DATA      
+        try {
+            Statement st = db.createStatement();
+            String readQuery = "SELECT * FROM pinjambuku";
+            ResultSet rs = st.executeQuery(readQuery);
+            
+            while(rs.next()) {
+                String id = rs.getString("id_mahasiswa");
+                String nama = rs.getString("nama");
+                String nim = rs.getString("nim");
+                String kodeBuku = rs.getString("kode_buku");
+                String judulBuku = rs.getString("judul_buku");
+                String tglPinjam = rs.getString("tgl_pinjam");
+                String tglKembali = rs.getString("tgl_kembali");
+                
+                String tbData[] = {id, nim, nama, kodeBuku, judulBuku, tglPinjam, tglKembali};
+                DefaultTableModel tblModel = (DefaultTableModel) jTable2.getModel();
+                
+                tblModel.addRow(tbData);
+            }
+            
+            rs.close();
+            st.close();
+        } catch (SQLException ex) {
+            ex.getMessage();
+        }
     }
 
     /**
@@ -195,6 +234,11 @@ public class PeminjamanBuku extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTable2);
 
         cari.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/search-alternate.png"))); // NOI18N
+        cari.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cariActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -402,25 +446,150 @@ public class PeminjamanBuku extends javax.swing.JFrame {
 
     private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
         // TODO add your handling code here:
-        new Dasboard().setVisible(true);
+       new Dasboard().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_exitActionPerformed
 
     private void refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshActionPerformed
         // TODO add your handling code here:
+        id.setText(null);
+        nama.setText(null);
+        nim.setText(null);
+        kodeBuku.setText(null);
+        judulBuku.setText(null);
+        tglPinjam.setText(null);
+        tglKembali.setText(null);
+        
     }//GEN-LAST:event_refreshActionPerformed
 
     private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
         // TODO add your handling code here:
+        Connection db = DatabaseConnection.DBConnection();
+        
+        // DELETE DATA       
+        int baris = jTable2.getSelectedRow();
+        int kolom = 0;
+        String nilai = jTable2.getValueAt(baris, kolom).toString();
+        
+        try{
+            String deleteQuery = "DELETE FROM `pinjambuku` WHERE `pinjambuku`.`id_mahasiswa` =" + nilai;
+            PreparedStatement stDelete = db.prepareStatement(deleteQuery);
+            stDelete.executeUpdate();
+            stDelete.close();
+            System.out.println("data berhasil dihapus");
+        } catch (SQLException ex) {
+            ex.getMessage();
+        }
+        
+        //  CLEAR TABLE      
+        DefaultTableModel dm = (DefaultTableModel) jTable2.getModel();
+        dm.getDataVector().removeAllElements();
+        revalidate();
+        
+        //  TAMPIL DATA      
+        try {
+            Statement st = db.createStatement();
+            String readQuery = "SELECT * FROM pinjambuku";
+            ResultSet rs = st.executeQuery(readQuery);
+            
+            while(rs.next()) {
+                String id = rs.getString("id_mahasiswa");
+                String nama = rs.getString("nama");
+                String nim = rs.getString("nim");
+                String kodeBuku = rs.getString("kode_buku");
+                String judulBuku = rs.getString("judul_buku");
+                String tglPinjam = rs.getNString("tgl_pinjam");
+                String tglKembali = rs.getNString("tgl_kembali");
+                
+                String tbData[] = {id, nim, nama, kodeBuku, judulBuku, tglPinjam, tglKembali};
+                DefaultTableModel tblModel = (DefaultTableModel) jTable2.getModel();
+                
+                tblModel.addRow(tbData);
+            }
+            
+            rs.close();
+            st.close();
+        } catch (SQLException ex) {
+            ex.getMessage();
+        }
     }//GEN-LAST:event_deleteActionPerformed
 
     private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
         // TODO add your handling code here:
+        Connection db = DatabaseConnection.DBConnection();
+        
+        try{
+             Statement st = db.createStatement();
+             String sqlnya = "insert into pinjambuku values ('" + id.getText()+"','" + nama.getText()+"','" + nim.getText()+"','" + kodeBuku.getText()+"','" + judulBuku.getText()+"','" + tglPinjam.getText()+"','" + tglKembali.getText()+"',)";
+             PreparedStatement p = db.prepareStatement(sqlnya);
+             st.execute(sqlnya);
+             JOptionPane.showMessageDialog(null, "Data Tersimpan");
+        } catch(Exception e) {
+            System.out.print(e);
+            JOptionPane.showMessageDialog(null, "Koneksi Gagal");
+        }
+        
     }//GEN-LAST:event_saveActionPerformed
 
     private void editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editActionPerformed
         // TODO add your handling code here:
+        int coba = JOptionPane.showConfirmDialog(null, "Yakin Untuk mengubah Data ini???","Confirmation",JOptionPane.YES_NO_OPTION);
+        Connection db = DatabaseConnection.DBConnection();
+        
+        try{
+            Statement st = db.createStatement();
+            String sql = "Update peminjam set ID=?, Nama=?, NIM=?, KodeBuku=?, JudulBuku=?, TglPinjam=?, TglKembali=? where " + "ID = '" + id.getText();
+            PreparedStatement pp = db.prepareStatement(sql);
+            if (coba == 0){
+                try{
+                    pp.setString(1,id.getText());
+                    pp.setString(2,nama.getText());
+                    pp.setString(3,nim.getText());
+                    pp.setString(4,kodeBuku.getText());
+                    pp.setString(5,judulBuku.getText());
+                    pp.setString(6,tglPinjam.getText());
+                    pp.setString(7,tglKembali.getText());
+                    pp.executeUpdate();
+                    JOptionPane.showMessageDialog(null, "Update Data Sukses");
+                    
+                }catch (Exception e){
+                    JOptionPane.showMessageDialog(null, "Update Data Gagal");
+                }
+            }
+        } catch (Exception e){}
     }//GEN-LAST:event_editActionPerformed
+
+    private void cariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cariActionPerformed
+        // TODO add your handling code here:
+        String x = JOptionPane.showInputDialog(null, "Masukkan Nama!!!");
+        Connection db = DatabaseConnection.DBConnection();
+        
+        try{
+            Statement st = db.createStatement();
+            String cari = "SELECT * FROM pinjambuku WHERE Nama ='" + x +"'";
+            ResultSet rsnya = st.executeQuery(cari);
+            
+            if (rsnya.next()){
+                System.out.println(rsnya.getString(1));
+                JOptionPane.showMessageDialog(rootPane, "Data berhasil ditemukan");
+                
+                id.setText(rsnya.getString(1));
+                nama.setText(rsnya.getString(2));
+                nim.setText(rsnya.getString(3));
+                kodeBuku.setText(rsnya.getString(4));
+                judulBuku.setText(rsnya.getString(5));
+                tglPinjam.setText(rsnya.getString(6));
+                tglKembali.setText(rsnya.getString(7));
+                
+            } else{
+                JOptionPane.showMessageDialog(null, "Data tidak ada");
+            }
+        } catch (Exception e){
+            System.out.print(e);
+            JOptionPane.showMessageDialog(null, "Koneksi Gagal");
+        }
+        
+    }//GEN-LAST:event_cariActionPerformed
 
     /**
      * @param args the command line arguments
