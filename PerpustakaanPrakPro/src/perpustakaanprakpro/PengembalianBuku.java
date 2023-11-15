@@ -15,7 +15,6 @@ public class PengembalianBuku extends javax.swing.JFrame {
      */
     public PengembalianBuku() {
         initComponents();
-        setLocationRelativeTo(this);
     }
 
     /**
@@ -38,30 +37,30 @@ public class PengembalianBuku extends javax.swing.JFrame {
         kodeBuku = new javax.swing.JLabel();
         tglPinjam = new javax.swing.JLabel();
         tglKembali = new javax.swing.JLabel();
-        txtNama = new javax.swing.JTextField();
-        txtNim = new javax.swing.JTextField();
-        txtKode = new javax.swing.JTextField();
-        txtJudul = new javax.swing.JTextField();
-        txtTglPinjam = new javax.swing.JTextField();
-        txtTglKembali = new javax.swing.JTextField();
+        inputNama = new javax.swing.JTextField();
+        inputNim = new javax.swing.JTextField();
+        inputKode = new javax.swing.JTextField();
+        inputJudul = new javax.swing.JTextField();
+        inputTglPinjam = new javax.swing.JTextField();
+        inputTglKembali = new javax.swing.JTextField();
         id = new javax.swing.JLabel();
-        txtID = new javax.swing.JTextField();
+        inputID = new javax.swing.JTextField();
         status = new javax.swing.JLabel();
-        txtStatus = new javax.swing.JTextField();
+        inputStatus = new javax.swing.JTextField();
         tagihan = new javax.swing.JLabel();
-        txtTagihan = new javax.swing.JTextField();
+        inputTagihan = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         inputCari = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         cari = new javax.swing.JButton();
+        exit = new javax.swing.JButton();
+        refresh = new javax.swing.JButton();
+        delete = new javax.swing.JButton();
+        save = new javax.swing.JButton();
         edit = new javax.swing.JButton();
-        btnExit = new javax.swing.JButton();
-        btnRefresh = new javax.swing.JButton();
-        btnDelete = new javax.swing.JButton();
-        btnSave = new javax.swing.JButton();
-        btnEdit = new javax.swing.JButton();
+        logo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -96,9 +95,9 @@ public class PengembalianBuku extends javax.swing.JFrame {
         tglKembali.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         tglKembali.setText("Tanggal Kembali");
 
-        txtJudul.addActionListener(new java.awt.event.ActionListener() {
+        inputJudul.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtJudulActionPerformed(evt);
+                inputJudulActionPerformed(evt);
             }
         });
 
@@ -121,39 +120,39 @@ public class PengembalianBuku extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(tagihan)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtTagihan, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(inputTagihan, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(status)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(inputStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addComponent(tglKembali)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
-                        .addComponent(txtTglKembali, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(inputTglKembali, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addComponent(tglPinjam)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtTglPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(inputTglPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addComponent(judulBuku)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtJudul, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(inputJudul, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addComponent(kodeBuku)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtKode, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(inputKode, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addComponent(nim)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtNim, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(inputNim, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(nama)
                             .addComponent(id))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtID, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtNama, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(inputID, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(inputNama, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(50, 50, 50))
         );
         jPanel3Layout.setVerticalGroup(
@@ -162,38 +161,38 @@ public class PengembalianBuku extends javax.swing.JFrame {
                 .addGap(16, 16, 16)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(id)
-                    .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(inputID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(inputNama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(nama))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nim)
-                    .addComponent(txtNim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(inputNim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(kodeBuku)
-                    .addComponent(txtKode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(inputKode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(judulBuku)
-                    .addComponent(txtJudul, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(inputJudul, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tglPinjam)
-                    .addComponent(txtTglPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(inputTglPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tglKembali)
-                    .addComponent(txtTglKembali, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(inputTglKembali, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(inputStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(status))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtTagihan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(inputTagihan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tagihan))
                 .addGap(17, 17, 17))
         );
@@ -210,22 +209,7 @@ public class PengembalianBuku extends javax.swing.JFrame {
         jTable2.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null}
+
             },
             new String [] {
                 "ID", "Nama", "NIM", "Kode Buku", "Judul Buku", "Tanggal Pinjam", "Tanggal Kembali", "Status", "Tagihan"
@@ -234,18 +218,6 @@ public class PengembalianBuku extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTable2);
 
         cari.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/search-alternate.png"))); // NOI18N
-
-        edit.setBackground(new java.awt.Color(219, 234, 255));
-        edit.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        edit.setForeground(new java.awt.Color(51, 51, 51));
-        edit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/grid-edit.png"))); // NOI18N
-        edit.setText("Edit");
-        edit.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        edit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -265,11 +237,6 @@ public class PengembalianBuku extends javax.swing.JFrame {
                         .addGap(79, 79, 79)
                         .addComponent(jLabel1)))
                 .addContainerGap(41, Short.MAX_VALUE))
-            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel5Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(edit, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -283,71 +250,66 @@ public class PengembalianBuku extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(cari))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel5Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(edit, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
 
-        btnExit.setBackground(new java.awt.Color(255, 51, 51));
-        btnExit.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        btnExit.setForeground(new java.awt.Color(51, 51, 51));
-        btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/logout-1-alternate.png"))); // NOI18N
-        btnExit.setText("Exit");
-        btnExit.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        btnExit.addActionListener(new java.awt.event.ActionListener() {
+        exit.setBackground(new java.awt.Color(255, 51, 51));
+        exit.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        exit.setForeground(new java.awt.Color(51, 51, 51));
+        exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/logout-1-alternate.png"))); // NOI18N
+        exit.setText("Exit");
+        exit.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        exit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExitActionPerformed(evt);
+                exitActionPerformed(evt);
             }
         });
 
-        btnRefresh.setBackground(new java.awt.Color(219, 234, 255));
-        btnRefresh.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        btnRefresh.setForeground(new java.awt.Color(51, 51, 51));
-        btnRefresh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/synchronize-arrows-1.png"))); // NOI18N
-        btnRefresh.setText("Refresh");
-        btnRefresh.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        btnRefresh.addActionListener(new java.awt.event.ActionListener() {
+        refresh.setBackground(new java.awt.Color(219, 234, 255));
+        refresh.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        refresh.setForeground(new java.awt.Color(51, 51, 51));
+        refresh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/synchronize-arrows-1.png"))); // NOI18N
+        refresh.setText("Refresh");
+        refresh.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        refresh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRefreshActionPerformed(evt);
+                refreshActionPerformed(evt);
             }
         });
 
-        btnDelete.setBackground(new java.awt.Color(219, 234, 255));
-        btnDelete.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        btnDelete.setForeground(new java.awt.Color(51, 51, 51));
-        btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/bin-1.png"))); // NOI18N
-        btnDelete.setText("Delete");
-        btnDelete.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+        delete.setBackground(new java.awt.Color(219, 234, 255));
+        delete.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        delete.setForeground(new java.awt.Color(51, 51, 51));
+        delete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/bin-1.png"))); // NOI18N
+        delete.setText("Delete");
+        delete.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        delete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDeleteActionPerformed(evt);
+                deleteActionPerformed(evt);
             }
         });
 
-        btnSave.setBackground(new java.awt.Color(219, 234, 255));
-        btnSave.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        btnSave.setForeground(new java.awt.Color(51, 51, 51));
-        btnSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/floppy-disk-save.png"))); // NOI18N
-        btnSave.setText("Save");
-        btnSave.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        btnSave.addActionListener(new java.awt.event.ActionListener() {
+        save.setBackground(new java.awt.Color(219, 234, 255));
+        save.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        save.setForeground(new java.awt.Color(51, 51, 51));
+        save.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/floppy-disk-save.png"))); // NOI18N
+        save.setText("Save");
+        save.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        save.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSaveActionPerformed(evt);
+                saveActionPerformed(evt);
             }
         });
 
-        btnEdit.setBackground(new java.awt.Color(219, 234, 255));
-        btnEdit.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        btnEdit.setForeground(new java.awt.Color(51, 51, 51));
-        btnEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/grid-edit.png"))); // NOI18N
-        btnEdit.setText("Edit");
-        btnEdit.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        btnEdit.addActionListener(new java.awt.event.ActionListener() {
+        edit.setBackground(new java.awt.Color(219, 234, 255));
+        edit.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        edit.setForeground(new java.awt.Color(51, 51, 51));
+        edit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/grid-edit.png"))); // NOI18N
+        edit.setText("Edit");
+        edit.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        edit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditActionPerformed(evt);
+                editActionPerformed(evt);
             }
         });
 
@@ -363,15 +325,15 @@ public class PengembalianBuku extends javax.swing.JFrame {
                 .addContainerGap(133, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(save, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(51, 51, 51)
-                .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(edit, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(45, 45, 45)
-                .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(delete, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(44, 44, 44)
-                .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(refresh, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(45, 45, 45)
-                .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(exit, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(183, 183, 183))
         );
         jPanel2Layout.setVerticalGroup(
@@ -383,13 +345,15 @@ public class PengembalianBuku extends javax.swing.JFrame {
                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(266, Short.MAX_VALUE))
+                    .addComponent(save, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(edit, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(delete, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(refresh, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(exit, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(384, Short.MAX_VALUE))
         );
+
+        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Bookmark.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -397,8 +361,10 @@ public class PengembalianBuku extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
+                .addComponent(logo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(imageLogo)
-                .addGap(353, 353, 353)
+                .addGap(309, 309, 309)
                 .addComponent(judul)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -409,12 +375,15 @@ public class PengembalianBuku extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(imageLogo)
-                    .addComponent(judul))
-                .addGap(18, 18, 18)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(10, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(logo)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(imageLogo)
+                            .addComponent(judul))
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -435,34 +404,31 @@ public class PengembalianBuku extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtJudulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtJudulActionPerformed
+    private void inputJudulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputJudulActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtJudulActionPerformed
+    }//GEN-LAST:event_inputJudulActionPerformed
 
-    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+    private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
+        // TODO add your handling code here:
         new Dasboard().setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_btnExitActionPerformed
+    }//GEN-LAST:event_exitActionPerformed
 
-    private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
+    private void refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnRefreshActionPerformed
+    }//GEN-LAST:event_refreshActionPerformed
 
-    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+    private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnDeleteActionPerformed
+    }//GEN-LAST:event_deleteActionPerformed
+
+    private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_saveActionPerformed
 
     private void editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_editActionPerformed
-
-    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        
-    }//GEN-LAST:event_btnSaveActionPerformed
-
-    private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnEditActionPerformed
 
     /**
      * @param args the command line arguments
@@ -501,16 +467,22 @@ public class PengembalianBuku extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnDelete;
-    private javax.swing.JButton btnEdit;
-    private javax.swing.JButton btnExit;
-    private javax.swing.JButton btnRefresh;
-    private javax.swing.JButton btnSave;
     private javax.swing.JButton cari;
+    private javax.swing.JButton delete;
     private javax.swing.JButton edit;
+    private javax.swing.JButton exit;
     private javax.swing.JLabel id;
     private javax.swing.JLabel imageLogo;
     private javax.swing.JTextField inputCari;
+    private javax.swing.JTextField inputID;
+    private javax.swing.JTextField inputJudul;
+    private javax.swing.JTextField inputKode;
+    private javax.swing.JTextField inputNama;
+    private javax.swing.JTextField inputNim;
+    private javax.swing.JTextField inputStatus;
+    private javax.swing.JTextField inputTagihan;
+    private javax.swing.JTextField inputTglKembali;
+    private javax.swing.JTextField inputTglPinjam;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -521,20 +493,14 @@ public class PengembalianBuku extends javax.swing.JFrame {
     private javax.swing.JLabel judul;
     private javax.swing.JLabel judulBuku;
     private javax.swing.JLabel kodeBuku;
+    private javax.swing.JLabel logo;
     private javax.swing.JLabel nama;
     private javax.swing.JLabel nim;
+    private javax.swing.JButton refresh;
+    private javax.swing.JButton save;
     private javax.swing.JLabel status;
     private javax.swing.JLabel tagihan;
     private javax.swing.JLabel tglKembali;
     private javax.swing.JLabel tglPinjam;
-    private javax.swing.JTextField txtID;
-    private javax.swing.JTextField txtJudul;
-    private javax.swing.JTextField txtKode;
-    private javax.swing.JTextField txtNama;
-    private javax.swing.JTextField txtNim;
-    private javax.swing.JTextField txtStatus;
-    private javax.swing.JTextField txtTagihan;
-    private javax.swing.JTextField txtTglKembali;
-    private javax.swing.JTextField txtTglPinjam;
     // End of variables declaration//GEN-END:variables
 }
