@@ -80,6 +80,7 @@
                           <Component id="admin" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Component id="login" min="-2" pref="258" max="-2" attributes="0"/>
+                      <Component id="exit" min="-2" pref="258" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="60" max="32767" attributes="0"/>
                   <Component id="gambar" min="-2" max="-2" attributes="0"/>
@@ -119,9 +120,11 @@
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="login" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="exit" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="26" max="32767" attributes="0"/>
+                  <EmptySpace pref="32" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -202,6 +205,20 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/image/Tanpa judul (280 x 280 piksel) (1).png"/>
             </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="exit">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="ff" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="SansSerif" size="14" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="EXIT"/>
           </Properties>
         </Component>
       </SubComponents>

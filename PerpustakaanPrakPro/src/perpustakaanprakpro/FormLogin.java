@@ -37,6 +37,7 @@ public class FormLogin extends javax.swing.JFrame {
         user = new javax.swing.JCheckBox();
         admin = new javax.swing.JCheckBox();
         gambar = new javax.swing.JLabel();
+        exit = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -82,6 +83,11 @@ public class FormLogin extends javax.swing.JFrame {
 
         gambar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Tanpa judul (280 x 280 piksel) (1).png"))); // NOI18N
 
+        exit.setBackground(new java.awt.Color(255, 51, 51));
+        exit.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        exit.setForeground(new java.awt.Color(255, 255, 255));
+        exit.setText("EXIT");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -102,7 +108,8 @@ public class FormLogin extends javax.swing.JFrame {
                         .addComponent(user)
                         .addGap(69, 69, 69)
                         .addComponent(admin))
-                    .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(exit, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
                 .addComponent(gambar)
                 .addGap(23, 23, 23))
@@ -133,8 +140,10 @@ public class FormLogin extends javax.swing.JFrame {
                             .addComponent(user)
                             .addComponent(admin))
                         .addGap(18, 18, 18)
-                        .addComponent(login)))
-                .addContainerGap(26, Short.MAX_VALUE))
+                        .addComponent(login)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(exit)))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -199,6 +208,7 @@ public class FormLogin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox admin;
+    private javax.swing.JButton exit;
     private javax.swing.JLabel gambar;
     private javax.swing.JTextField inputNama;
     private javax.swing.JPasswordField inputPassword;
