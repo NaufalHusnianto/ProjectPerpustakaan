@@ -19,6 +19,7 @@ public class DataBuku extends javax.swing.JFrame {
     public DataBuku() {
         initComponents();
         setLocationRelativeTo(this);
+        this.tampilkanData();
     }
     //Membuat Koneksi //
     public class koneksi{
@@ -29,7 +30,7 @@ public class DataBuku extends javax.swing.JFrame {
                 String user = "root";
                 String pass = "";
                 
-                DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+                DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
                 MySQLConfig = DriverManager.getConnection(url,user,pass);
             } catch(SQLException e){
                 System.out.println("Koneksi gagal" + e.getMessage());
@@ -47,29 +48,32 @@ public class DataBuku extends javax.swing.JFrame {
         txtTahun.setText(null);
     }
     private void tampilkanData(){
-        DefaultTableModel model = new DefaultTableModel();
-        model.addColumn("ID");
-        model.addColumn("KODE");
-        model.addColumn("JUDUL");
-        model.addColumn("PENGARANG");
-        model.addColumn("PENERBIT");
-        model.addColumn("TAHUN");
-        try{
-            int no = 1;
-            String sql = "SELECT * FROM databuku where id_buku like '%"
-                    + txtCari.getText() + "%'" + "or kode_buku like'%" + txtCari.getText()
-                    + "or judul_buku like '%" + txtCari.getText() + "or pengarang like '%" 
-                    + txtCari.getText()+ "or penerbit like '%" + txtCari.getText()
-                    + "or tahun_terbit like'%" + txtCari.getText() + "%'";
-            java.sql.Connection conn = (Connection) koneksi.configDB();
-            java.sql.Statement stm = conn.createStatement();
-            java.sql.ResultSet res = stm.executeQuery(sql);
-            while(res.next()){
-                model.addRow(new Object[]{no++, res.getString(1), res.getString(2), res.getString(3), res.getString(4), res.getString(5), res.getString(6)} );
+        
+        
+        //  TAMPIL DATA      
+        try {
+            Connection conn = koneksi.configDB();
+            Statement st = conn.createStatement();
+            String readQuery = "SELECT * FROM databuku";
+            ResultSet rs = st.executeQuery(readQuery);
+            
+            while(rs.next()) {
+                String id = rs.getString("id_buku");
+                String kode = rs.getString("kode buku");
+                String judul = rs.getString("judul buku");
+                String pengarang = rs.getString("pengarang");
+                String penerbit = rs.getString("penerbit");
+                String tahun = rs.getString("tahun");
+                
+                String tbData[] = {id, kode, judul, pengarang, penerbit,tahun};
+                DefaultTableModel tblModel = (DefaultTableModel) jTable1.getModel();
+                
+                tblModel.addRow(tbData);
             }
-            jTable1.setModel(model);
-        } catch(SQLException e){
-            System.out.println("error : " + e.getMessage());
+            
+
+        } catch (SQLException ex) {
+            ex.getMessage();
         }
     }
    
@@ -146,10 +150,7 @@ public class DataBuku extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
                 "ID", "KODE", "JUDUL", "PENGARANG", "PENERBIT", "TAHUN"
@@ -322,18 +323,59 @@ public class DataBuku extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
-       try{
-           String sql = "INSERT INTO databuku VALUES('" + txtID.getText() +"','"+ txtKode.getText() +"','" + txtJudulBuku.getText() +"','"
-                   + txtPengarang.getText() +"','"+ txtPenerbit.getText() +"','"+ txtTahun.getText() +"')";
-           java.sql.Connection conn = (Connection)koneksi.configDB();
-           java.sql.PreparedStatement pstm = conn.prepareStatement(sql);
-           pstm.execute();
-           JOptionPane.showMessageDialog(null, "proses simpan berhasil");
-           tampilkanData();
-           KosongkanForm();
-       }catch(HeadlessException | SQLException e){
-           JOptionPane.showMessageDialog(this, e.getMessage());
-       }
+       
+        // INSERT DATA       
+        try {
+            Connection conn = koneksi.configDB();
+            String id = txtID.getText();
+            String kode = txtKode.getText();
+            String judul = txtJudulBuku.getText();
+            String pengarang = txtPengarang.getText();
+            String penerbit = txtPenerbit.getText();
+            String tahun = txtTahun.getText();
+            
+            String insertQuery = "INSERT INTO `databuku` (`id_buku`, `kode buku`,`judul buku`, `pengarang`, `penerbit`, `tahun terbit`) VALUES (NULL, '" + kode + "', '" + judul+ "', '" + pengarang + "', '" + penerbit + "','" + tahun + "')";
+            PreparedStatement ps = conn.prepareStatement(insertQuery);
+
+            ps.executeUpdate();
+            ps.close();
+            System.out.println("Data Berhasil Dibuat!");
+            
+        } catch (SQLException ex) {
+            ex.getMessage();
+        }
+        
+        //  CLEAR TABLE      
+        DefaultTableModel dm = (DefaultTableModel) jTable1.getModel();
+        dm.getDataVector().removeAllElements();
+        revalidate();
+        
+        //  TAMPIL DATA      
+        try {
+            Connection conn = koneksi.configDB();
+            Statement st = conn.createStatement();
+            String readQuery = "SELECT * FROM databuku";
+            ResultSet rs = st.executeQuery(readQuery);
+            
+            while(rs.next()) {
+                String id = rs.getString("id_buku");
+                String kode = rs.getString("kode buku");
+                String judul = rs.getString("judul buku");
+                String pengarang = rs.getString("pengarang");
+                String penerbit = rs.getString("penerbit");
+                String tahun = rs.getString("tahun");
+                
+                String tbData[] = {id, kode, judul, pengarang, penerbit,tahun};
+                DefaultTableModel tblModel = (DefaultTableModel) jTable1.getModel();
+                
+                tblModel.addRow(tbData);
+           }
+            
+            rs.close();
+            st.close();
+        } catch (SQLException ex) {
+            ex.getMessage();
+        }   
     }//GEN-LAST:event_btnCreateActionPerformed
 
     private void txtCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCariActionPerformed
@@ -341,7 +383,19 @@ public class DataBuku extends javax.swing.JFrame {
     }//GEN-LAST:event_txtCariActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-        // TODO add your handling code here:
+        try{
+            String sql = "UPDATE dataperpus SET id_buku='" + txtID.getText()+ "',kode buku='"+txtKode.getText()+"',judul buku"
+                    + txtJudulBuku.getText()+ "',pengarang" + txtPengarang.getText()+ "',penerbit" + txtPenerbit.getText()
+                    + "',tahun terbit" + txtTahun.getText();
+                       java.sql.Connection conn = (Connection)koneksi.configDB();
+           java.sql.PreparedStatement pstm = conn.prepareStatement(sql);
+           pstm.execute();
+           JOptionPane.showMessageDialog(null, "proses update berhasil");
+           tampilkanData();
+           KosongkanForm();     
+        } catch(HeadlessException | SQLException e){
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
