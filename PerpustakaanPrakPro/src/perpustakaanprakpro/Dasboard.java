@@ -313,6 +313,7 @@ public class Dasboard extends javax.swing.JFrame {
         // TODO add your handling code here:
         new PeminjamanBuku().setVisible(true);
         this.dispose();
+        
     }//GEN-LAST:event_peminjamanActionPerformed
 
     /**

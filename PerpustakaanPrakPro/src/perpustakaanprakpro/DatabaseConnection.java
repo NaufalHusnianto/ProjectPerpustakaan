@@ -10,11 +10,11 @@ import java.sql.SQLException;
 
 /**
  *
- * @author hp
+ * @author ASUS
  */
 public class DatabaseConnection {
         static Connection koneksi = null;
-        static String url = "jdbc:mysql://localhost:3306/data_perpus";
+        static String url = "jdbc:mysql://localhost:3306/aplikasiperpustakaan";
         static String username = "root";
         static String password = "";
     
@@ -30,3 +30,6 @@ public class DatabaseConnection {
             return koneksi;
         }
 }
+
+    
+
