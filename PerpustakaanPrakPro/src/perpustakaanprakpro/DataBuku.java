@@ -28,7 +28,7 @@ public class DataBuku extends javax.swing.JFrame {
             try{
                 String url ="jdbc:mysql://localhost:3306/data_perpus";
                 String user = "root";
-                String pass = "";
+                String pass = "mydatabase";
                 
                 DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
                 MySQLConfig = DriverManager.getConnection(url,user,pass);
@@ -59,11 +59,11 @@ public class DataBuku extends javax.swing.JFrame {
             
             while(rs.next()) {
                 String id = rs.getString("id_buku");
-                String kode = rs.getString("kode buku");
-                String judul = rs.getString("judul buku");
+                String kode = rs.getString("kode_buku");
+                String judul = rs.getString("judul_buku");
                 String pengarang = rs.getString("pengarang");
                 String penerbit = rs.getString("penerbit");
-                String tahun = rs.getString("tahun");
+                String tahun = rs.getString("tahun_terbit");
                 
                 String tbData[] = {id, kode, judul, pengarang, penerbit,tahun};
                 DefaultTableModel tblModel = (DefaultTableModel) jTable1.getModel();
@@ -334,7 +334,7 @@ public class DataBuku extends javax.swing.JFrame {
             String penerbit = txtPenerbit.getText();
             String tahun = txtTahun.getText();
             
-            String insertQuery = "INSERT INTO `databuku` (`id_buku`, `kode buku`,`judul buku`, `pengarang`, `penerbit`, `tahun terbit`) VALUES (NULL, '" + kode + "', '" + judul+ "', '" + pengarang + "', '" + penerbit + "','" + tahun + "')";
+            String insertQuery = "INSERT INTO `databuku` (`id_buku`, `kode buku`,`judul buku`, `pengarang`, `penerbit`, `tahun terbit`) VALUES (" + id + " , '" + kode + "', '" + judul+ "', '" + pengarang + "', '" + penerbit + "','" + tahun + "')";
             PreparedStatement ps = conn.prepareStatement(insertQuery);
 
             ps.executeUpdate();

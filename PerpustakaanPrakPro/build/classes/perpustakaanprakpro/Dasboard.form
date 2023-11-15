@@ -225,6 +225,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Data Buku"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dataBukuActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -288,6 +291,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Peminjaman"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="peminjamanActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -349,6 +355,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Data Anggota"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dataAnggotaActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -412,6 +421,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Pengembalian"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pengembalianActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

@@ -88,6 +88,11 @@ public class Dasboard extends javax.swing.JFrame {
         dataBuku.setBackground(new java.awt.Color(153, 204, 255));
         dataBuku.setForeground(new java.awt.Color(51, 51, 51));
         dataBuku.setText("Data Buku");
+        dataBuku.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dataBukuActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -120,6 +125,11 @@ public class Dasboard extends javax.swing.JFrame {
         peminjaman.setBackground(new java.awt.Color(153, 204, 255));
         peminjaman.setForeground(new java.awt.Color(51, 51, 51));
         peminjaman.setText("Peminjaman");
+        peminjaman.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                peminjamanActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -153,6 +163,11 @@ public class Dasboard extends javax.swing.JFrame {
         dataAnggota.setBackground(new java.awt.Color(153, 204, 255));
         dataAnggota.setForeground(new java.awt.Color(51, 51, 51));
         dataAnggota.setText("Data Anggota");
+        dataAnggota.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dataAnggotaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -185,6 +200,11 @@ public class Dasboard extends javax.swing.JFrame {
         pengembalian.setBackground(new java.awt.Color(153, 204, 255));
         pengembalian.setForeground(new java.awt.Color(51, 51, 51));
         pengembalian.setText("Pengembalian");
+        pengembalian.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pengembalianActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -271,6 +291,30 @@ public class Dasboard extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void dataBukuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataBukuActionPerformed
+        // TODO add your handling code here:
+        new DataBuku().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_dataBukuActionPerformed
+
+    private void dataAnggotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataAnggotaActionPerformed
+        // TODO add your handling code here:
+        new DataMahasiswa().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_dataAnggotaActionPerformed
+
+    private void pengembalianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pengembalianActionPerformed
+        // TODO add your handling code here:
+        new PengembalianBuku().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_pengembalianActionPerformed
+
+    private void peminjamanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_peminjamanActionPerformed
+        // TODO add your handling code here:
+        new PeminjamanBuku().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_peminjamanActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -301,7 +345,8 @@ public class Dasboard extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Dasboard().setVisible(true);
+                new Dasboard().setVisible(false);
+                new FormLogin().setVisible(true);
             }
         });
     }
