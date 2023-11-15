@@ -5,6 +5,7 @@
 package perpustakaanprakpro;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -22,9 +23,25 @@ public class PengembalianBuku extends javax.swing.JFrame {
      */
     public PengembalianBuku() {
         initComponents();
-        setLocationRelativeTo(this);
+        setLocationRelativeTo(this);     
     }
-    
+     //Membuat Koneksi //
+    public class koneksi{
+        private static Connection MySQLConfig;
+        public static Connection configDB()throws SQLException{
+            try{
+                String url ="jdbc:mysql://localhost:3306/data_perpus";
+                String user = "root";
+                String pass = "";
+                
+                DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
+                MySQLConfig = DriverManager.getConnection(url,user,pass);
+            } catch(SQLException e){
+                System.out.println("Koneksi gagal" + e.getMessage());
+            }
+            return MySQLConfig;
+        }
+    }   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -432,9 +449,9 @@ public class PengembalianBuku extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        Connection db = DatabaseConnection.DBConnection();
-        // INSERT DATA       
+             
         try {
+            Connection conn = koneksi.configDB();
             String id = txtID.getText();
             String nama = txtNama.getText();
             String nim = txtNIM.getText();
@@ -445,10 +462,10 @@ public class PengembalianBuku extends javax.swing.JFrame {
             String status = txtStatus.getText();
             String tagihan = txtTagihan.getText();
             
-            String insertQuery = "INSERT INTO `pengembalianbuku` (`id`, `nama_mhs`, `nim`, `kode_buku`, `judul_buku`,`tanggal_pinjam`,`tanggal_kembali`,`status`,`tagihan`) VALUES ("
+            String insertQuery = "INSERT INTO `pengembalianbuku` (`id`, `nama_mhs`, `nim`, `kode_buku`, `judul_buku`,`tanggal_pinjam`,`tanggal_kembali`,`status`,`tagihan`) VALUES ('"
                      + id + "' ,'"+ nama + "', '" + nim + "', '" + kode + "', '" + judul + "', '" + tglpinjam + "', '" + tglkembali + "', '" + status + "', '" + tagihan +"')";
-            PreparedStatement ps = db.prepareStatement(insertQuery);
-
+            
+            PreparedStatement ps = conn.prepareStatement(insertQuery);
             ps.executeUpdate();
             ps.close();
             System.out.println("Data Berhasil Dibuat!");
@@ -457,14 +474,15 @@ public class PengembalianBuku extends javax.swing.JFrame {
             ex.getMessage();
         }
         
-        //  CLEAR TABLE      
+     
         DefaultTableModel dm = (DefaultTableModel) jTable2.getModel();
         dm.getDataVector().removeAllElements();
         revalidate();
         
-        //  TAMPIL DATA      
+     
         try {
-            Statement st = db.createStatement();
+            Connection conn = koneksi.configDB();
+            Statement st = conn.createStatement();
             String readQuery = "SELECT * FROM pengembalianbuku";
             ResultSet rs = st.executeQuery(readQuery);
             

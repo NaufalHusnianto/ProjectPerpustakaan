@@ -86,6 +86,23 @@ public class DataBuku extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jDialog1 = new javax.swing.JDialog();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        ID = new javax.swing.JTextField();
+        Kode = new javax.swing.JTextField();
+        Judul = new javax.swing.JTextField();
+        Pengarang = new javax.swing.JTextField();
+        Penerbit = new javax.swing.JTextField();
+        Tahun = new javax.swing.JTextField();
+        Update = new javax.swing.JButton();
+        Batal = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -109,6 +126,127 @@ public class DataBuku extends javax.swing.JFrame {
         btnDelete = new javax.swing.JButton();
         txtCari = new javax.swing.JTextField();
         btnSearch = new javax.swing.JButton();
+
+        jPanel3.setBackground(new java.awt.Color(230, 235, 239));
+
+        jLabel8.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        jLabel8.setText("Update Data Buku");
+
+        jLabel9.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
+        jLabel9.setText("ID");
+
+        jLabel10.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
+        jLabel10.setText("Kode Buku");
+
+        jLabel11.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
+        jLabel11.setText("Judul Buku");
+
+        jLabel12.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
+        jLabel12.setText("Pengarang");
+
+        jLabel13.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
+        jLabel13.setText("Penerbit");
+
+        jLabel14.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
+        jLabel14.setText("Tahun Terbit");
+
+        ID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                IDActionPerformed(evt);
+            }
+        });
+
+        Update.setText("Update");
+        Update.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UpdateActionPerformed(evt);
+            }
+        });
+
+        Batal.setText("Batal");
+        Batal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BatalActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(Batal)
+                        .addGap(18, 18, 18)
+                        .addComponent(Update))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel13)
+                            .addComponent(jLabel14))
+                        .addGap(21, 21, 21)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Pengarang)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Penerbit)
+                            .addComponent(Tahun)
+                            .addComponent(ID, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Kode)
+                            .addComponent(Judul))))
+                .addGap(91, 91, 91))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(jLabel8)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel9)
+                            .addComponent(ID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel10)
+                            .addComponent(Kode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel11)
+                            .addComponent(Judul, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(14, 14, 14)
+                        .addComponent(Pengarang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel12))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(Penerbit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14)
+                    .addComponent(Tahun, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Update)
+                    .addComponent(Batal))
+                .addContainerGap(34, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
+        jDialog1.getContentPane().setLayout(jDialog1Layout);
+        jDialog1Layout.setHorizontalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jDialog1Layout.setVerticalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -429,12 +567,80 @@ public class DataBuku extends javax.swing.JFrame {
     }//GEN-LAST:event_txtCariActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-   
+        jDialog1.setVisible(true);
+        jDialog1.setLocationRelativeTo(this);
+        jDialog1.setSize(500, 400);
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void IDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_IDActionPerformed
+
+    private void UpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateActionPerformed
+        Connection db = DatabaseConnection.DBConnection();
+                
+        int baris = jTable1.getSelectedRow();
+        int kolom = 0;
+        String nilai = jTable1.getValueAt(baris, kolom).toString();
+        String id = ID.getText();
+        String kode= Kode.getText();
+        String judul = Judul.getText();
+        String pengarang = Pengarang.getText();
+        String penerbit = Penerbit.getText();
+        String tahun = Tahun.getText();
+        
+        try {
+            String updateQuery = "UPDATE `databuku` SET `id_buku` = '" + id + "', `kode_buku` = '" + kode + "', `judul_buku` = '" + judul + "', `pengarang` = '" + pengarang + "', `penerbit` = '" + penerbit + "', `tahun_terbit` = '" + tahun + "' WHERE `databuku`.`id_buku` = " + nilai;
+            PreparedStatement stUpdate = db.prepareStatement(updateQuery);
+                    
+            stUpdate.executeUpdate();
+            stUpdate.close();
+            System.out.println("Data berhasil dirubah");
+        } catch (SQLException ex) {
+            ex.getMessage();
+        }
+        
+        //  CLEAR TABLE      
+        DefaultTableModel dm = (DefaultTableModel) jTable1.getModel();
+        dm.getDataVector().removeAllElements();
+        revalidate();
+        
+        //  TAMPIL DATA      
+        try {
+            Statement st = db.createStatement();
+            String readQuery = "SELECT * FROM databuku";
+            ResultSet rs = st.executeQuery(readQuery);
+            
+            while(rs.next()) {
+                String idbuku = rs.getString("id_buku");
+                String kodebuku = rs.getString("kode_buku");
+                String judulbuku = rs.getString("judul_buku");
+                String pengarangbuku = rs.getString("pengarang");
+                String penerbitbuku = rs.getString("penerbit");
+                String tahunterbit = rs.getString("tahun_terbit");
+                
+                String tbData[] = {idbuku,kodebuku,judulbuku,pengarangbuku,penerbitbuku,tahunterbit};
+                DefaultTableModel tblModel = (DefaultTableModel) jTable1.getModel();
+                
+                tblModel.addRow(tbData);
+            }
+            
+            rs.close();
+            st.close();
+        } catch (SQLException ex) {
+            ex.getMessage();
+        }
+        
+        jDialog1.dispose();
+    }//GEN-LAST:event_UpdateActionPerformed
+
+    private void BatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BatalActionPerformed
+        jDialog1.dispose();
+    }//GEN-LAST:event_BatalActionPerformed
 
     /**
      * @param args the command line arguments
@@ -472,20 +678,37 @@ public class DataBuku extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Batal;
+    private javax.swing.JTextField ID;
+    private javax.swing.JTextField Judul;
+    private javax.swing.JTextField Kode;
+    private javax.swing.JTextField Penerbit;
+    private javax.swing.JTextField Pengarang;
+    private javax.swing.JTextField Tahun;
+    private javax.swing.JButton Update;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnCreate;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnUpdate;
+    private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField txtCari;
