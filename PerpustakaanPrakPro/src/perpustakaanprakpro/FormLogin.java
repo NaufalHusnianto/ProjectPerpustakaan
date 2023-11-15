@@ -4,6 +4,8 @@
  */
 package perpustakaanprakpro;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author ASUS
@@ -34,8 +36,6 @@ public class FormLogin extends javax.swing.JFrame {
         password = new javax.swing.JLabel();
         inputPassword = new javax.swing.JPasswordField();
         login = new javax.swing.JButton();
-        user = new javax.swing.JCheckBox();
-        admin = new javax.swing.JCheckBox();
         gambar = new javax.swing.JLabel();
         exit = new javax.swing.JButton();
 
@@ -54,7 +54,7 @@ public class FormLogin extends javax.swing.JFrame {
         });
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(153, 204, 255))); // NOI18N
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 11), new java.awt.Color(153, 204, 255))); // NOI18N
         jPanel4.setForeground(new java.awt.Color(153, 204, 255));
 
         welcome.setFont(new java.awt.Font("SansSerif", 1, 23)); // NOI18N
@@ -73,13 +73,11 @@ public class FormLogin extends javax.swing.JFrame {
         login.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         login.setForeground(new java.awt.Color(255, 255, 255));
         login.setText("LOGIN");
-
-        user.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        user.setForeground(new java.awt.Color(102, 102, 102));
-        user.setText("User");
-
-        admin.setForeground(new java.awt.Color(102, 102, 102));
-        admin.setText("Admin");
+        login.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginActionPerformed(evt);
+            }
+        });
 
         gambar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Tanpa judul (280 x 280 piksel) (1).png"))); // NOI18N
 
@@ -103,11 +101,6 @@ public class FormLogin extends javax.swing.JFrame {
                     .addComponent(inputNama, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(password)
                     .addComponent(inputPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addComponent(user)
-                        .addGap(69, 69, 69)
-                        .addComponent(admin))
                     .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(exit, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
@@ -135,11 +128,7 @@ public class FormLogin extends javax.swing.JFrame {
                         .addComponent(password)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(inputPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(user)
-                            .addComponent(admin))
-                        .addGap(18, 18, 18)
+                        .addGap(60, 60, 60)
                         .addComponent(login)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(exit)))
@@ -170,6 +159,17 @@ public class FormLogin extends javax.swing.JFrame {
         int y = evt.getYOnScreen();
         this.setLocation(x - xx, y - xy);
     }//GEN-LAST:event_formMouseDragged
+
+    private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
+        // TODO add your handling code here:
+        // pass and username = admin       
+        if(inputNama.getText().equals("admin")) {
+            new Dasboard().setVisible(true);
+            this.dispose();   
+        } else {
+            JOptionPane.showMessageDialog(null, "Password atau Username Salahhh");
+        }
+    }//GEN-LAST:event_loginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -207,7 +207,6 @@ public class FormLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JCheckBox admin;
     private javax.swing.JButton exit;
     private javax.swing.JLabel gambar;
     private javax.swing.JTextField inputNama;
@@ -215,7 +214,6 @@ public class FormLogin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JButton login;
     private javax.swing.JLabel password;
-    private javax.swing.JCheckBox user;
     private javax.swing.JLabel username;
     private javax.swing.JLabel welcome;
     // End of variables declaration//GEN-END:variables
