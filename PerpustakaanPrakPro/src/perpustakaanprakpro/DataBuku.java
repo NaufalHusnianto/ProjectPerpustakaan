@@ -57,10 +57,10 @@ public class DataBuku extends javax.swing.JFrame {
         try{
             int no = 1;
             String sql = "SELECT * FROM databuku where id_buku like '%"
-                    + txtCari.getText() + "%'" + "or kode buku like'%" + txtCari.getText()
-                    + "or judul buku like '%" + txtCari.getText() + "or pengarang like '%" 
+                    + txtCari.getText() + "%'" + "or kode_buku like'%" + txtCari.getText()
+                    + "or judul_buku like '%" + txtCari.getText() + "or pengarang like '%" 
                     + txtCari.getText()+ "or penerbit like '%" + txtCari.getText()
-                    + "or tahun terbit like'%" + txtCari.getText() + "%'";
+                    + "or tahun_terbit like'%" + txtCari.getText() + "%'";
             java.sql.Connection conn = (Connection) koneksi.configDB();
             java.sql.Statement stm = conn.createStatement();
             java.sql.ResultSet res = stm.executeQuery(sql);

@@ -56,7 +56,6 @@ public class PengembalianBuku extends javax.swing.JFrame {
         jTable2 = new javax.swing.JTable();
         cari = new javax.swing.JButton();
         edit = new javax.swing.JButton();
-        save = new javax.swing.JButton();
         exit = new javax.swing.JButton();
         refresh = new javax.swing.JButton();
         delete = new javax.swing.JButton();
@@ -66,8 +65,6 @@ public class PengembalianBuku extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-
-        imageLogo.setIcon(new javax.swing.ImageIcon("E:\\SEMESTER 3\\PRAKTIKUM PEMROGRAMAN\\Elements_Java\\Bookmark.png")); // NOI18N
 
         judul.setBackground(new java.awt.Color(255, 255, 255));
         judul.setFont(new java.awt.Font("SansSerif", 1, 30)); // NOI18N
@@ -249,18 +246,6 @@ public class PengembalianBuku extends javax.swing.JFrame {
             }
         });
 
-        save.setBackground(new java.awt.Color(219, 234, 255));
-        save.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        save.setForeground(new java.awt.Color(51, 51, 51));
-        save.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/floppy-disk-save.png"))); // NOI18N
-        save.setText("Save");
-        save.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        save.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                saveActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -284,11 +269,6 @@ public class PengembalianBuku extends javax.swing.JFrame {
                     .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(edit, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
-            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel5Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(save, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -302,16 +282,11 @@ public class PengembalianBuku extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(cari))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(49, Short.MAX_VALUE))
             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel5Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(edit, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel5Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(save, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
@@ -479,10 +454,6 @@ public class PengembalianBuku extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_editActionPerformed
 
-    private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_saveActionPerformed
-
     private void save1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_save1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_save1ActionPerformed
@@ -558,7 +529,6 @@ public class PengembalianBuku extends javax.swing.JFrame {
     private javax.swing.JLabel nama;
     private javax.swing.JLabel nim;
     private javax.swing.JButton refresh;
-    private javax.swing.JButton save;
     private javax.swing.JButton save1;
     private javax.swing.JLabel status;
     private javax.swing.JLabel tagihan;
