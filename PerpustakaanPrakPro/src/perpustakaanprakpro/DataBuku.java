@@ -18,19 +18,35 @@ public class DataBuku extends javax.swing.JFrame {
      */
     public DataBuku() {
         initComponents();
-        
         setLocationRelativeTo(this);
     }
-    
-    private void hapus(){
+    //Membuat Koneksi //
+    public class koneksi{
+        private static Connection MySQLConfig;
+        public static Connection configDB()throws SQLException{
+            try{
+                String url ="jdbc:mysql://localhost:3306/data_perpus";
+                String user = "root";
+                String pass = "";
+                
+                DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+                MySQLConfig = DriverManager.getConnection(url,user,pass);
+            } catch(SQLException e){
+                System.out.println("Koneksi gagal" + e.getMessage());
+            }
+            return MySQLConfig;
+        }
+    }
+    private void KosongkanForm(){
         txtID.setEditable(true);
         txtID.setText(null);
         txtKode.setText(null);
-        txtPenerbit.setText(null);
+        txtJudulBuku.setText(null);
         txtPengarang.setText(null);
+        txtPenerbit.setText(null);
         txtTahun.setText(null);
     }
-    private void tampilkan(){
+    private void tampilkanData(){
         DefaultTableModel model = new DefaultTableModel();
         model.addColumn("ID");
         model.addColumn("KODE");
@@ -38,27 +54,25 @@ public class DataBuku extends javax.swing.JFrame {
         model.addColumn("PENGARANG");
         model.addColumn("PENERBIT");
         model.addColumn("TAHUN");
-        Connection conn = DatabaseConnection.DBConnection();
-        
         try{
-            int kode= 1;
-            String sql = "SELECT * FROM databuku where KODE like '%" + txtCari.getText()
-                    + "%'" + "or JUDUL like '%" + txtCari.getText() + "%'" + "or PENGARANG like '%" + txtCari.getText()
-                    + "%'" + "or PENERBIT like '%" + txtCari.getText() + "%'" + "or TAHUN like '%" 
-                    +txtCari.getText()+"&'";
-            Statement stm = conn.createStatement();
-            ResultSet res = stm.executeQuery(sql);
+            int no = 1;
+            String sql = "SELECT * FROM databuku where id_buku like '%"
+                    + txtCari.getText() + "%'" + "or kode buku like'%" + txtCari.getText()
+                    + "or judul buku like '%" + txtCari.getText() + "or pengarang like '%" 
+                    + txtCari.getText()+ "or penerbit like '%" + txtCari.getText()
+                    + "or tahun terbit like'%" + txtCari.getText() + "%'";
+            java.sql.Connection conn = (Connection) koneksi.configDB();
+            java.sql.Statement stm = conn.createStatement();
+            java.sql.ResultSet res = stm.executeQuery(sql);
             while(res.next()){
-                model.addRow(new Object[]{kode++, res.getString(1),res.getString(2),res.getString(3),res.getString(4),res.getString(5),res.getString(6)});
+                model.addRow(new Object[]{no++, res.getString(1), res.getString(2), res.getString(3), res.getString(4), res.getString(5), res.getString(6)} );
             }
             jTable1.setModel(model);
-            res.close();
-            stm.close();
-        }catch(SQLException e){
+        } catch(SQLException e){
             System.out.println("error : " + e.getMessage());
         }
     }
-
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -299,7 +313,7 @@ public class DataBuku extends javax.swing.JFrame {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        new mainPerpus().setVisible(true);
+        new Dasboard().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnBackActionPerformed
 
@@ -308,18 +322,18 @@ public class DataBuku extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
-        Connection conn = DatabaseConnection.DBConnection();
-        try{
-            String sql = "INSERT INTO databuku VALUE ('" + txtID.getText() + "','" + txtJudulBuku.getText() + "','" + txtKode.getText() 
-                    + "','" + txtPenerbit.getText() + "','" + txtPengarang.getText() + "','" + txtTahun.getText() + "')";
-            PreparedStatement pstm = conn.prepareStatement(sql);
-            pstm.execute();
-            pstm.close();
-            JOptionPane.showMessageDialog(null, "proses simpan berhasil");
-            tampilkan();
-        }catch (HeadlessException | SQLException e){
-            JOptionPane.showMessageDialog(this, e.getMessage());
-        }
+       try{
+           String sql = "INSERT INTO databuku VALUES('" + txtID.getText() +"','"+ txtKode.getText() +"','" + txtJudulBuku.getText() +"','"
+                   + txtPengarang.getText() +"','"+ txtPenerbit.getText() +"','"+ txtTahun.getText() +"')";
+           java.sql.Connection conn = (Connection)koneksi.configDB();
+           java.sql.PreparedStatement pstm = conn.prepareStatement(sql);
+           pstm.execute();
+           JOptionPane.showMessageDialog(null, "proses simpan berhasil");
+           tampilkanData();
+           KosongkanForm();
+       }catch(HeadlessException | SQLException e){
+           JOptionPane.showMessageDialog(this, e.getMessage());
+       }
     }//GEN-LAST:event_btnCreateActionPerformed
 
     private void txtCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCariActionPerformed
