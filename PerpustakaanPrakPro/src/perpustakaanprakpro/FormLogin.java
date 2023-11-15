@@ -167,12 +167,15 @@ public class FormLogin extends javax.swing.JFrame {
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
         // TODO add your handling code here:
-        // pass and username = admin       
-        if(inputNama.getText().equals("admin")) {
+        // pass and username = admin
+        String username = inputNama.getText();
+        String password = new String(inputPassword.getPassword());
+        
+        if(username.equals("admin") && password.equals("admin")) {
             new Dasboard().setVisible(true);
             this.dispose();   
         } else {
-            JOptionPane.showMessageDialog(null, "Password atau Username Salahhh");
+            JOptionPane.showMessageDialog(null, "Password atau Username Salah !");
         }
     }//GEN-LAST:event_loginActionPerformed
 
