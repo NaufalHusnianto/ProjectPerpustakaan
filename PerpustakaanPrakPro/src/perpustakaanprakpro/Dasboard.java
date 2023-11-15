@@ -51,7 +51,7 @@ public class Dasboard extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        gambar.setIcon(new javax.swing.ImageIcon("E:\\SEMESTER 3\\PRAKTIKUM PEMROGRAMAN\\Elements_Java\\Welcome To Sistem Layanan Perpustakaan.png")); // NOI18N
+        gambar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Welcome To Sistem Layanan Perpustakaan.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -68,7 +68,7 @@ public class Dasboard extends javax.swing.JFrame {
                 .addGap(0, 6, Short.MAX_VALUE))
         );
 
-        logo.setIcon(new javax.swing.ImageIcon("E:\\SEMESTER 3\\PRAKTIKUM PEMROGRAMAN\\Elements_Java\\Bookmark.png")); // NOI18N
+        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Bookmark.png"))); // NOI18N
 
         jLabel1.setBackground(new java.awt.Color(153, 204, 255));
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 20)); // NOI18N
