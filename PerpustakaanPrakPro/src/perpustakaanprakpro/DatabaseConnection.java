@@ -16,7 +16,7 @@ public class DatabaseConnection {
         static Connection koneksi = null;
         static String url = "jdbc:mysql://localhost:3306/data_perpus";
         static String username = "root";
-        static String password = "mydatabase";
+        static String password = "";
     
         public static Connection DBConnection () {
             try {

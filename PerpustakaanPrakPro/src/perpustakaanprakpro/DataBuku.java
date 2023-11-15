@@ -19,63 +19,36 @@ public class DataBuku extends javax.swing.JFrame {
     public DataBuku() {
         initComponents();
         setLocationRelativeTo(this);
-        this.tampilkanData();
-    }
-    //Membuat Koneksi //
-    public class koneksi{
-        private static Connection MySQLConfig;
-        public static Connection configDB()throws SQLException{
-            try{
-                String url ="jdbc:mysql://localhost:3306/data_perpus";
-                String user = "root";
-                String pass = "";
-                
-                DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
-                MySQLConfig = DriverManager.getConnection(url,user,pass);
-            } catch(SQLException e){
-                System.out.println("Koneksi gagal" + e.getMessage());
-            }
-            return MySQLConfig;
-        }
-    }
-    private void KosongkanForm(){
-        txtID.setEditable(true);
-        txtID.setText(null);
-        txtKode.setText(null);
-        txtJudulBuku.setText(null);
-        txtPengarang.setText(null);
-        txtPenerbit.setText(null);
-        txtTahun.setText(null);
-    }
-    private void tampilkanData(){
-        
+        Connection db = DatabaseConnection.DBConnection();
         
         //  TAMPIL DATA      
         try {
-            Connection conn = koneksi.configDB();
-            Statement st = conn.createStatement();
+            Statement st = db.createStatement();
             String readQuery = "SELECT * FROM databuku";
             ResultSet rs = st.executeQuery(readQuery);
             
             while(rs.next()) {
                 String id = rs.getString("id_buku");
-                String kode = rs.getString("kode buku");
-                String judul = rs.getString("judul buku");
+                String kode = rs.getString("kode_buku");
+                String judul = rs.getString("judul_buku");
                 String pengarang = rs.getString("pengarang");
                 String penerbit = rs.getString("penerbit");
-                String tahun = rs.getString("tahun");
+                String tahun = rs.getString("tahun_terbit");
                 
-                String tbData[] = {id, kode, judul, pengarang, penerbit,tahun};
+                String tbData[] = {id, kode, judul, pengarang,penerbit,tahun};
                 DefaultTableModel tblModel = (DefaultTableModel) jTable1.getModel();
                 
                 tblModel.addRow(tbData);
             }
             
-
+            rs.close();
+            st.close();
         } catch (SQLException ex) {
             ex.getMessage();
         }
     }
+    
+    
    
     /**
      * This method is called from within the constructor to initialize the form.
@@ -323,10 +296,9 @@ public class DataBuku extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
-       
+       Connection db = DatabaseConnection.DBConnection();
         // INSERT DATA       
         try {
-            Connection conn = koneksi.configDB();
             String id = txtID.getText();
             String kode = txtKode.getText();
             String judul = txtJudulBuku.getText();
@@ -334,8 +306,8 @@ public class DataBuku extends javax.swing.JFrame {
             String penerbit = txtPenerbit.getText();
             String tahun = txtTahun.getText();
             
-            String insertQuery = "INSERT INTO `databuku` (`id_buku`, `kode buku`,`judul buku`, `pengarang`, `penerbit`, `tahun terbit`) VALUES (NULL, '" + kode + "', '" + judul+ "', '" + pengarang + "', '" + penerbit + "','" + tahun + "')";
-            PreparedStatement ps = conn.prepareStatement(insertQuery);
+            String insertQuery = "INSERT INTO `databuku` (`id_buku`, `kode_buku`, `judul_buku`, `pengarang`, `penerbit`,`tahun_terbit`) VALUES (NULL, '"  + kode + "', '" + judul+ "', '"+ pengarang+ "', '" + penerbit+ "', '"+ tahun + "')";
+            PreparedStatement ps = db.prepareStatement(insertQuery);
 
             ps.executeUpdate();
             ps.close();
@@ -352,30 +324,29 @@ public class DataBuku extends javax.swing.JFrame {
         
         //  TAMPIL DATA      
         try {
-            Connection conn = koneksi.configDB();
-            Statement st = conn.createStatement();
+            Statement st = db.createStatement();
             String readQuery = "SELECT * FROM databuku";
             ResultSet rs = st.executeQuery(readQuery);
             
             while(rs.next()) {
                 String id = rs.getString("id_buku");
-                String kode = rs.getString("kode buku");
-                String judul = rs.getString("judul buku");
+                String kode = rs.getString("kode_buku");
+                String judul = rs.getString("judul_buku");
                 String pengarang = rs.getString("pengarang");
                 String penerbit = rs.getString("penerbit");
-                String tahun = rs.getString("tahun");
-                
+                String tahun = rs.getString("tahun_terbit");
+              
                 String tbData[] = {id, kode, judul, pengarang, penerbit,tahun};
                 DefaultTableModel tblModel = (DefaultTableModel) jTable1.getModel();
                 
                 tblModel.addRow(tbData);
-           }
+            }
             
             rs.close();
             st.close();
         } catch (SQLException ex) {
             ex.getMessage();
-        }   
+        }
     }//GEN-LAST:event_btnCreateActionPerformed
 
     private void txtCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCariActionPerformed
@@ -383,19 +354,7 @@ public class DataBuku extends javax.swing.JFrame {
     }//GEN-LAST:event_txtCariActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-        try{
-            String sql = "UPDATE dataperpus SET id_buku='" + txtID.getText()+ "',kode buku='"+txtKode.getText()+"',judul buku"
-                    + txtJudulBuku.getText()+ "',pengarang" + txtPengarang.getText()+ "',penerbit" + txtPenerbit.getText()
-                    + "',tahun terbit" + txtTahun.getText();
-                       java.sql.Connection conn = (Connection)koneksi.configDB();
-           java.sql.PreparedStatement pstm = conn.prepareStatement(sql);
-           pstm.execute();
-           JOptionPane.showMessageDialog(null, "proses update berhasil");
-           tampilkanData();
-           KosongkanForm();     
-        } catch(HeadlessException | SQLException e){
-            JOptionPane.showMessageDialog(this, e.getMessage());
-        }
+
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
