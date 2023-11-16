@@ -564,7 +564,7 @@ public class PeminjamanBuku extends javax.swing.JFrame {
                 String tglPinjam = tanggalSekarang.format(dbDateFormatter);
                 int selisihHari = tanggalSekarang.getDayOfMonth() + 5;
 
-                LocalDate tenggatWaktu = tanggalSekarang.toLocalDate().plusDays(selisihHari);
+                LocalDate tenggatWaktu = tanggalSekarang.toLocalDate().plusDays(5);
                 String tenggatHari = tenggatWaktu.format(dbDateFormatter);
 
                 String insertQuery = "INSERT INTO `data_peminjaman` (`kode_buku`, `judul_buku`, `nama_peminjam`, `nim_peminjam`, `tanggal_pinjam`, `tanggal_kembali`, `status`, `tagihan`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
