@@ -396,7 +396,7 @@ public class DataBuku extends javax.swing.JFrame {
             ex.getMessage();
         }
         
-        //  CLEAR TABLE      
+       //  CLEAR TABLE      
         DefaultTableModel dm = (DefaultTableModel) jTable1.getModel();
         dm.getDataVector().removeAllElements();
         revalidate();
@@ -408,24 +408,22 @@ public class DataBuku extends javax.swing.JFrame {
             ResultSet rs = st.executeQuery(readQuery);
             
             while(rs.next()) {
-                String idbuku = rs.getString("id_buku");
-                String kodebuku = rs.getString("kode_buku");
-                String judulbuku = rs.getString("judul_buku");
-                String pengarangbuku = rs.getString("pengarang");
-                String penerbitbuku = rs.getString("penerbit");
-                String tahunterbit = rs.getString("tahun_terbit");
+                String id = rs.getString("id_buku");
+                String kode = rs.getString("kode_buku");
+                String judul = rs.getString("judul_buku");
+                String pengarang = rs.getString("pengarang");
+                String penerbit = rs.getString("penerbit");
+                String tahun = rs.getString("tahun_terbit");
                 
-                String tbData[] = {idbuku,kodebuku,judulbuku,pengarangbuku,penerbitbuku,tahunterbit};
+                String tbData[] = {id, kode, judul, pengarang, penerbit, tahun};
                 DefaultTableModel tblModel = (DefaultTableModel) jTable1.getModel();
                 
                 tblModel.addRow(tbData);
             }
             
-            rs.close();
-            st.close();
         } catch (SQLException ex) {
             ex.getMessage();
-        }
+        }     
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
