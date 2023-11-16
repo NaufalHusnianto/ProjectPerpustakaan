@@ -19,41 +19,11 @@ public class DataBuku extends javax.swing.JFrame {
     public DataBuku() {
         initComponents();
         setLocationRelativeTo(this);
-        this.tampilkanData();
-    }
-    //Membuat Koneksi //
-    public class koneksi{
-        private static Connection MySQLConfig;
-        public static Connection configDB()throws SQLException{
-            try{
-                String url ="jdbc:mysql://localhost:3306/data_perpus";
-                String user = "root";
-                String pass = "";
-                
-                DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
-                MySQLConfig = DriverManager.getConnection(url,user,pass);
-            } catch(SQLException e){
-                System.out.println("Koneksi gagal" + e.getMessage());
-            }
-            return MySQLConfig;
-        }
-    }
-    private void KosongkanForm(){
-        txtID.setEditable(true);
-        txtID.setText(null);
-        txtKode.setText(null);
-        txtJudulBuku.setText(null);
-        txtPengarang.setText(null);
-        txtPenerbit.setText(null);
-        txtTahun.setText(null);
-    }
-    private void tampilkanData(){
-        
+        Connection db = DatabaseConnection.DBConnection();
         
         //  TAMPIL DATA      
         try {
-            Connection conn = koneksi.configDB();
-            Statement st = conn.createStatement();
+            Statement st = db.createStatement();
             String readQuery = "SELECT * FROM databuku";
             ResultSet rs = st.executeQuery(readQuery);
             
@@ -65,17 +35,17 @@ public class DataBuku extends javax.swing.JFrame {
                 String penerbit = rs.getString("penerbit");
                 String tahun = rs.getString("tahun_terbit");
                 
-                String tbData[] = {id, kode, judul, pengarang, penerbit,tahun};
+                String tbData[] = {id, kode, judul, pengarang, penerbit, tahun};
                 DefaultTableModel tblModel = (DefaultTableModel) jTable1.getModel();
                 
                 tblModel.addRow(tbData);
             }
             
-
         } catch (SQLException ex) {
             ex.getMessage();
-        }
+        }     
     }
+   
    
     /**
      * This method is called from within the constructor to initialize the form.
@@ -89,13 +59,11 @@ public class DataBuku extends javax.swing.JFrame {
         jDialog1 = new javax.swing.JDialog();
         jPanel3 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        ID = new javax.swing.JTextField();
         Kode = new javax.swing.JTextField();
         Judul = new javax.swing.JTextField();
         Pengarang = new javax.swing.JTextField();
@@ -106,7 +74,6 @@ public class DataBuku extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -114,7 +81,6 @@ public class DataBuku extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        txtID = new javax.swing.JTextField();
         txtKode = new javax.swing.JTextField();
         txtJudulBuku = new javax.swing.JTextField();
         txtPengarang = new javax.swing.JTextField();
@@ -130,9 +96,6 @@ public class DataBuku extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
         jLabel8.setText("Update Data Buku");
 
-        jLabel9.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
-        jLabel9.setText("ID");
-
         jLabel10.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
         jLabel10.setText("Kode Buku");
 
@@ -147,12 +110,6 @@ public class DataBuku extends javax.swing.JFrame {
 
         jLabel14.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
         jLabel14.setText("Tahun Terbit");
-
-        ID.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IDActionPerformed(evt);
-            }
-        });
 
         Update.setText("Update");
         Update.addActionListener(new java.awt.event.ActionListener() {
@@ -181,7 +138,6 @@ public class DataBuku extends javax.swing.JFrame {
                         .addComponent(Update))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel10)
                             .addComponent(jLabel11)
                             .addComponent(jLabel12)
@@ -190,10 +146,9 @@ public class DataBuku extends javax.swing.JFrame {
                         .addGap(21, 21, 21)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(Pengarang)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
                             .addComponent(Penerbit)
                             .addComponent(Tahun)
-                            .addComponent(ID, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Kode)
                             .addComponent(Judul))))
                 .addGap(91, 91, 91))
@@ -203,13 +158,9 @@ public class DataBuku extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(jLabel8)
-                .addGap(18, 18, 18)
+                .addGap(48, 48, 48)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel9)
-                            .addComponent(ID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel10)
                             .addComponent(Kode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -232,7 +183,7 @@ public class DataBuku extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Update)
                     .addComponent(Batal))
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
@@ -271,8 +222,6 @@ public class DataBuku extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(20, 20, 20))
         );
-
-        jLabel2.setText("ID");
 
         jLabel3.setText("KODE BUKU");
 
@@ -346,13 +295,11 @@ public class DataBuku extends javax.swing.JFrame {
                         .addComponent(txtTahun, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3)
                             .addComponent(jLabel4))
                         .addGap(25, 25, 25)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtPengarang, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE)
-                            .addComponent(txtID)
                             .addComponent(txtKode)
                             .addComponent(txtJudulBuku)
                             .addComponent(txtPenerbit)))
@@ -377,10 +324,7 @@ public class DataBuku extends javax.swing.JFrame {
                 .addGap(29, 29, 29)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(27, 27, 27)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
                             .addComponent(txtKode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -435,7 +379,7 @@ public class DataBuku extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-         Connection db = DatabaseConnection.DBConnection();
+        Connection db = DatabaseConnection.DBConnection();
         
         // DELETE DATA       
         int baris = jTable1.getSelectedRow();
@@ -464,14 +408,14 @@ public class DataBuku extends javax.swing.JFrame {
             ResultSet rs = st.executeQuery(readQuery);
             
             while(rs.next()) {
-                String id = rs.getString("id_buku");
-                String kode = rs.getString("kode_buku");
-                String judul = rs.getString("judul_buku");
-                String pengarang = rs.getString("pengarang");
-                String penerbit = rs.getString("penerbit");
-                String tahun = rs.getString("tahun_terbit");
+                String idbuku = rs.getString("id_buku");
+                String kodebuku = rs.getString("kode_buku");
+                String judulbuku = rs.getString("judul_buku");
+                String pengarangbuku = rs.getString("pengarang");
+                String penerbitbuku = rs.getString("penerbit");
+                String tahunterbit = rs.getString("tahun_terbit");
                 
-                String tbData[] = {id, kode, judul, pengarang, penerbit};
+                String tbData[] = {idbuku,kodebuku,judulbuku,pengarangbuku,penerbitbuku,tahunterbit};
                 DefaultTableModel tblModel = (DefaultTableModel) jTable1.getModel();
                 
                 tblModel.addRow(tbData);
@@ -485,19 +429,18 @@ public class DataBuku extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
-       
+        // TODO add your handling code here:
+        Connection db = DatabaseConnection.DBConnection();
         // INSERT DATA       
         try {
-            Connection conn = koneksi.configDB();
-            String id = txtID.getText();
-            String kode = txtKode.getText();
-            String judul = txtJudulBuku.getText();
+            String kodeBuku = txtKode.getText();
+            String judulBuku = txtJudulBuku.getText();
             String pengarang = txtPengarang.getText();
             String penerbit = txtPenerbit.getText();
-            String tahun = txtTahun.getText();
+            String tahunTerbit = txtTahun.getText();
             
-            String insertQuery = "INSERT INTO `databuku` (`id_buku`, `kode buku`,`judul buku`, `pengarang`, `penerbit`, `tahun terbit`) VALUES (" + id + " , '" + kode + "', '" + judul+ "', '" + pengarang + "', '" + penerbit + "','" + tahun + "')";
-            PreparedStatement ps = conn.prepareStatement(insertQuery);
+            String insertQuery = "INSERT INTO `databuku` (`id_buku`, `kode_buku`, `judul_buku`, `pengarang`, `penerbit`, `tahun_terbit`) VALUES (NULL, '" + kodeBuku + "', '" + judulBuku + "', '" + pengarang + "', '" + penerbit + "', '" + tahunTerbit + "')";
+            PreparedStatement ps = db.prepareStatement(insertQuery);
 
             ps.executeUpdate();
             ps.close();
@@ -514,30 +457,27 @@ public class DataBuku extends javax.swing.JFrame {
         
         //  TAMPIL DATA      
         try {
-            Connection conn = koneksi.configDB();
-            Statement st = conn.createStatement();
+            Statement st = db.createStatement();
             String readQuery = "SELECT * FROM databuku";
             ResultSet rs = st.executeQuery(readQuery);
             
             while(rs.next()) {
                 String id = rs.getString("id_buku");
-                String kode = rs.getString("kode buku");
-                String judul = rs.getString("judul buku");
+                String kode = rs.getString("kode_buku");
+                String judul = rs.getString("judul_buku");
                 String pengarang = rs.getString("pengarang");
                 String penerbit = rs.getString("penerbit");
-                String tahun = rs.getString("tahun");
+                String tahun = rs.getString("tahun_terbit");
                 
-                String tbData[] = {id, kode, judul, pengarang, penerbit,tahun};
+                String tbData[] = {id, kode, judul, pengarang, penerbit, tahun};
                 DefaultTableModel tblModel = (DefaultTableModel) jTable1.getModel();
                 
                 tblModel.addRow(tbData);
-           }
+            }
             
-            rs.close();
-            st.close();
         } catch (SQLException ex) {
             ex.getMessage();
-        }   
+        }     
     }//GEN-LAST:event_btnCreateActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
@@ -546,25 +486,21 @@ public class DataBuku extends javax.swing.JFrame {
         jDialog1.setSize(500, 400);
     }//GEN-LAST:event_btnUpdateActionPerformed
 
-    private void IDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_IDActionPerformed
-
     private void UpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateActionPerformed
+        // TODO add your handling code here:
         Connection db = DatabaseConnection.DBConnection();
                 
         int baris = jTable1.getSelectedRow();
         int kolom = 0;
         String nilai = jTable1.getValueAt(baris, kolom).toString();
-        String id = ID.getText();
-        String kode= Kode.getText();
+        String kode = Kode.getText();
         String judul = Judul.getText();
         String pengarang = Pengarang.getText();
         String penerbit = Penerbit.getText();
-        String tahun = Tahun.getText();
+        String tahunTerbit = Tahun.getText();
         
         try {
-            String updateQuery = "UPDATE `databuku` SET `id_buku` = '" + id + "', `kode_buku` = '" + kode + "', `judul_buku` = '" + judul + "', `pengarang` = '" + pengarang + "', `penerbit` = '" + penerbit + "', `tahun_terbit` = '" + tahun + "' WHERE `databuku`.`id_buku` = " + nilai;
+            String updateQuery =  "UPDATE `databuku` SET `kode_buku` = '"+ kode +"', `judul_buku` = '"+ judul +"', `pengarang` = '" + pengarang + "', `penerbit` = '" +penerbit+ "', `tahun_terbit` = '"+tahunTerbit+"' WHERE `databuku`.`id_buku` = "+nilai+";";
             PreparedStatement stUpdate = db.prepareStatement(updateQuery);
                     
             stUpdate.executeUpdate();
@@ -579,7 +515,7 @@ public class DataBuku extends javax.swing.JFrame {
         dm.getDataVector().removeAllElements();
         revalidate();
         
-        //  TAMPIL DATA      
+         //  TAMPIL DATA      
         try {
             Statement st = db.createStatement();
             String readQuery = "SELECT * FROM databuku";
@@ -649,7 +585,6 @@ public class DataBuku extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Batal;
-    private javax.swing.JTextField ID;
     private javax.swing.JTextField Judul;
     private javax.swing.JTextField Kode;
     private javax.swing.JTextField Penerbit;
@@ -667,20 +602,17 @@ public class DataBuku extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtJudulBuku;
     private javax.swing.JTextField txtKode;
     private javax.swing.JTextField txtPenerbit;

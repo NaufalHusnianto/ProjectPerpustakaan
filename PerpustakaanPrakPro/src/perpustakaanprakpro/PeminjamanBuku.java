@@ -23,7 +23,6 @@ public class PeminjamanBuku extends javax.swing.JFrame {
      */
     public PeminjamanBuku() {
         initComponents();
-        initComponents();
 
         setLocationRelativeTo(this);
         Connection db = DatabaseConnection.DBConnection();
@@ -526,7 +525,7 @@ try {
     String tglPinjam = inputTglPinjam.getText();
     String tglKembali = inputTglKembali.getText();
 
-    String insertQuery = "INSERT INTO `peminjamanbuku` (`id_peminjambuku`, `nama`, `nim`, `kode_buku`, `judul_buku`,`tgl_pinjam`, `tgl_kembali`) VALUES (NULL, ?, ?, ?, ?, ?, ?)";
+    String insertQuery = "INSERT INTO `peminjamanbuku` (`id_peminjambuku`, `kode_buku`, `nama_buku`, `pengarang`, `penerbit`, `tahun_terbit`, `tanggal_pinjam`, `tanggal_kembali`) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?);";
     PreparedStatement ps = db.prepareStatement(insertQuery);
     
     // Set parameter values to avoid SQL Injection
@@ -583,7 +582,7 @@ try {
         
         try{
             Statement st = db.createStatement();
-            String sql = "Update peminjam set ID=?, Nama=?, NIM=?, KodeBuku=?, JudulBuku=?, TglPinjam=?, TglKembali=? where " + "ID = '" + id.getText();
+            String sql = "Update peminjam set id_peminjambuku=?, Nama=?, NIM=?, kode_buku=?, nama_buku=?, TglPinjam=?, TglKembali=? where " + "ID = '" + id.getText();
             PreparedStatement pp = db.prepareStatement(sql);
             if (coba == 0){
                 try{
