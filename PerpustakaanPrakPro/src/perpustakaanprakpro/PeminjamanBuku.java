@@ -3,13 +3,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package perpustakaanprakpro;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import javax.swing.JOptionPane;
+import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 
 /**
@@ -25,29 +27,31 @@ public class PeminjamanBuku extends javax.swing.JFrame {
         initComponents();
 
         setLocationRelativeTo(this);
-        Connection db = DatabaseConnection.DBConnection();
         
-        //  TAMPIL DATA      
+        Connection db = DatabaseConnection.DBConnection();
+        //  TAMPIL DATA
         try {
             Statement st = db.createStatement();
-            String readQuery = "SELECT * FROM peminjamanbuku";
+            String readQuery = "SELECT * FROM data_peminjaman";
             ResultSet rs = st.executeQuery(readQuery);
-            
+
             while(rs.next()) {
-                String id = rs.getString("id_peminjambuku");
-                String nama = rs.getString("nama");
-                String nim = rs.getString("nim");
-                String kodeBuku = rs.getString("kode_buku");
-                String judulBuku = rs.getString("judul_buku");
-                String tglPinjam = rs.getString("tgl_pinjam");
-                String tglKembali = rs.getString("tgl_kembali");
-                
-                String tbData[] = {id, nim, nama, kodeBuku, judulBuku, tglPinjam, tglKembali};
+                String id = rs.getString("id_peminjaman");
+                String nama = rs.getString("nama_peminjam");
+                String nim = rs.getString("nim_peminjam");
+                String kode = rs.getString("kode_buku");
+                String judul = rs.getString("judul_buku");
+                String tPinjam = rs.getString("tanggal_pinjam");
+                String tKembali = rs.getString("tanggal_kembali");
+                String status = rs.getString("status");
+                String tagihan = rs.getString("tagihan");
+
+                String tbData[] = {id, nim, nama, kode, judul, tPinjam, tKembali, status, tagihan};
                 DefaultTableModel tblModel = (DefaultTableModel) jTable2.getModel();
-                
+
                 tblModel.addRow(tbData);
             }
-            
+
             rs.close();
             st.close();
         } catch (SQLException ex) {
@@ -64,6 +68,19 @@ public class PeminjamanBuku extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jDialog1 = new javax.swing.JDialog();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        upInputNama = new javax.swing.JTextField();
+        upInputNim = new javax.swing.JTextField();
+        upInputKode = new javax.swing.JTextField();
+        upInputJudul = new javax.swing.JTextField();
+        upJdialog = new javax.swing.JButton();
+        cancelJdialog = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         imageLogo = new javax.swing.JLabel();
@@ -74,28 +91,128 @@ public class PeminjamanBuku extends javax.swing.JFrame {
         judulBuku = new javax.swing.JLabel();
         nim = new javax.swing.JLabel();
         kodeBuku = new javax.swing.JLabel();
-        tglPinjam = new javax.swing.JLabel();
-        tglKembali = new javax.swing.JLabel();
         inputNama = new javax.swing.JTextField();
         inputNim = new javax.swing.JTextField();
         inputKode = new javax.swing.JTextField();
         inputJudul = new javax.swing.JTextField();
-        inputTglPinjam = new javax.swing.JTextField();
-        inputTglKembali = new javax.swing.JTextField();
-        id = new javax.swing.JLabel();
-        inputID = new javax.swing.JTextField();
+        save = new javax.swing.JButton();
+        refresh = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         inputCari = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         cari = new javax.swing.JButton();
-        exit = new javax.swing.JButton();
-        refresh = new javax.swing.JButton();
         delete = new javax.swing.JButton();
-        save = new javax.swing.JButton();
         edit = new javax.swing.JButton();
+        exit = new javax.swing.JButton();
+        pengembalian = new javax.swing.JButton();
         logo = new javax.swing.JLabel();
+
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel6.setForeground(new java.awt.Color(0, 0, 0));
+
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setText("UpdateData Peminjaman Buku");
+
+        upJdialog.setText("Update");
+        upJdialog.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                upJdialogActionPerformed(evt);
+            }
+        });
+
+        cancelJdialog.setText("Cancel");
+        cancelJdialog.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelJdialogActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setText("Nama");
+
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setText("Nim");
+
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel5.setText("Kode_Buku");
+
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel6.setText("judul_Buku");
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(82, 82, 82)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGap(122, 122, 122)
+                                .addComponent(jLabel2))
+                            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel6Layout.createSequentialGroup()
+                                    .addComponent(jLabel6)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(upInputJudul, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel6Layout.createSequentialGroup()
+                                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel5))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(upInputKode, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(upInputNim, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(upInputNama, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addContainerGap(42, Short.MAX_VALUE))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(cancelJdialog, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(upJdialog, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(81, 81, 81))))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(upInputNama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(upInputNim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(upInputKode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(upInputJudul, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(upJdialog)
+                    .addComponent(cancelJdialog))
+                .addGap(40, 40, 40))
+        );
+
+        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
+        jDialog1.getContentPane().setLayout(jDialog1Layout);
+        jDialog1Layout.setHorizontalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jDialog1Layout.setVerticalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -111,7 +228,7 @@ public class PeminjamanBuku extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel4.setBackground(new java.awt.Color(219, 234, 255));
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(153, 204, 255))); // NOI18N
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 11), new java.awt.Color(153, 204, 255))); // NOI18N
         jPanel4.setForeground(new java.awt.Color(153, 204, 255));
 
         nama.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -126,66 +243,66 @@ public class PeminjamanBuku extends javax.swing.JFrame {
         kodeBuku.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         kodeBuku.setText("Kode Buku");
 
-        tglPinjam.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        tglPinjam.setText("Tanggal Pinjam");
-
-        tglKembali.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        tglKembali.setText("Tanggal Kembali");
-
-        inputJudul.addActionListener(new java.awt.event.ActionListener() {
+        save.setBackground(new java.awt.Color(219, 234, 255));
+        save.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        save.setForeground(new java.awt.Color(51, 51, 51));
+        save.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/floppy-disk-save.png"))); // NOI18N
+        save.setText("Save");
+        save.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        save.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inputJudulActionPerformed(evt);
+                saveActionPerformed(evt);
             }
         });
 
-        id.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        id.setText("ID");
+        refresh.setBackground(new java.awt.Color(219, 234, 255));
+        refresh.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        refresh.setForeground(new java.awt.Color(51, 51, 51));
+        refresh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/synchronize-arrows-1.png"))); // NOI18N
+        refresh.setText("Reset");
+        refresh.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        refresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refreshActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addComponent(judulBuku)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(inputJudul, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addComponent(kodeBuku)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(inputKode, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addComponent(nim)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(inputNim, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nama)
-                            .addComponent(id))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(inputID, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(inputNama, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(tglKembali)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
-                        .addComponent(inputTglKembali, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addComponent(tglPinjam)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(inputTglPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(50, 50, 50))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(refresh, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(65, 65, 65)
+                        .addComponent(save, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                                .addComponent(judulBuku)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+                                .addComponent(inputJudul, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                                .addComponent(kodeBuku)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(inputKode, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                                .addComponent(nim)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(inputNim, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                                .addComponent(nama)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(inputNama, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(37, 37, 37))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(inputID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(id))
-                .addGap(18, 18, 18)
+                .addGap(52, 52, 52)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(inputNama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(nama))
@@ -201,19 +318,15 @@ public class PeminjamanBuku extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(inputJudul, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(judulBuku))
-                .addGap(29, 29, 29)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(inputTglPinjam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tglPinjam))
-                .addGap(28, 28, 28)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tglKembali)
-                    .addComponent(inputTglKembali, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(save, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(refresh, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21))
         );
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(153, 204, 255))); // NOI18N
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 11), new java.awt.Color(153, 204, 255))); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 51, 51));
@@ -227,7 +340,7 @@ public class PeminjamanBuku extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Nama", "NIM", "Kode Buku", "Judul Buku", "Tanggal Pinjam", "Tanggal Kembali"
+                "ID", "Nama", "NIM", "Kode Buku", "Judul Buku", "Tanggal Pinjam", "Tanggal Kembali", "Status", "Tagihan"
             }
         ));
         jScrollPane2.setViewportView(jTable2);
@@ -244,19 +357,18 @@ public class PeminjamanBuku extends javax.swing.JFrame {
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(inputCari, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(cari))
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 667, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(79, 79, 79)
-                        .addComponent(jLabel1)))
+                        .addComponent(inputCari, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(cari))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 667, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(41, Short.MAX_VALUE))
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(79, 79, 79)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -270,32 +382,8 @@ public class PeminjamanBuku extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(cari))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 2, Short.MAX_VALUE))
         );
-
-        exit.setBackground(new java.awt.Color(255, 51, 51));
-        exit.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        exit.setForeground(new java.awt.Color(51, 51, 51));
-        exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/logout-1-alternate.png"))); // NOI18N
-        exit.setText("Exit");
-        exit.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        exit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exitActionPerformed(evt);
-            }
-        });
-
-        refresh.setBackground(new java.awt.Color(219, 234, 255));
-        refresh.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        refresh.setForeground(new java.awt.Color(51, 51, 51));
-        refresh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/synchronize-arrows-1.png"))); // NOI18N
-        refresh.setText("Refresh");
-        refresh.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        refresh.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                refreshActionPerformed(evt);
-            }
-        });
 
         delete.setBackground(new java.awt.Color(219, 234, 255));
         delete.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
@@ -306,18 +394,6 @@ public class PeminjamanBuku extends javax.swing.JFrame {
         delete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteActionPerformed(evt);
-            }
-        });
-
-        save.setBackground(new java.awt.Color(219, 234, 255));
-        save.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        save.setForeground(new java.awt.Color(51, 51, 51));
-        save.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/floppy-disk-save.png"))); // NOI18N
-        save.setText("Save");
-        save.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        save.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                saveActionPerformed(evt);
             }
         });
 
@@ -333,6 +409,27 @@ public class PeminjamanBuku extends javax.swing.JFrame {
             }
         });
 
+        exit.setBackground(new java.awt.Color(255, 51, 51));
+        exit.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        exit.setForeground(new java.awt.Color(51, 51, 51));
+        exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/logout-1-alternate.png"))); // NOI18N
+        exit.setText("Exit");
+        exit.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        exit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitActionPerformed(evt);
+            }
+        });
+
+        pengembalian.setBackground(new java.awt.Color(204, 255, 255));
+        pengembalian.setForeground(new java.awt.Color(0, 0, 0));
+        pengembalian.setText("Return Book");
+        pengembalian.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pengembalianActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -345,16 +442,14 @@ public class PeminjamanBuku extends javax.swing.JFrame {
                 .addContainerGap(133, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(save, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51)
+                .addComponent(pengembalian)
+                .addGap(72, 72, 72)
                 .addComponent(edit, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
+                .addGap(70, 70, 70)
                 .addComponent(delete, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44)
-                .addComponent(refresh, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
+                .addGap(71, 71, 71)
                 .addComponent(exit, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(183, 183, 183))
+                .addGap(208, 208, 208))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -365,12 +460,11 @@ public class PeminjamanBuku extends javax.swing.JFrame {
                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(save, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(edit, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(delete, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(refresh, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(exit, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(384, Short.MAX_VALUE))
+                    .addComponent(exit, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pengembalian, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(390, Short.MAX_VALUE))
         );
 
         logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Bookmark.png"))); // NOI18N
@@ -439,43 +533,258 @@ public class PeminjamanBuku extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void inputJudulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputJudulActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_inputJudulActionPerformed
-
     private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
         // TODO add your handling code here:
-       new Dasboard().setVisible(true);
+        new Dasboard().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_exitActionPerformed
 
     private void refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshActionPerformed
         // TODO add your handling code here:
-        id.setText(null);
-        nama.setText(null);
-        nim.setText(null);
-        kodeBuku.setText(null);
-        judulBuku.setText(null);
-        tglPinjam.setText(null);
-        tglKembali.setText(null);
-        
+        inputNama.setText(null);
+        inputJudul.setText(null);
+        inputKode.setText(null);
+        inputNim.setText(null);
     }//GEN-LAST:event_refreshActionPerformed
+
+    private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
+        // TODO add your handling code here:
+        Connection db = null;
+        try {
+            db = DatabaseConnection.DBConnection();
+            if (db != null) {
+                String nama = inputNama.getText();
+                String nim = inputNim.getText();
+                String kode = inputKode.getText();
+                String judul = inputJudul.getText();
+
+                LocalDateTime tanggalSekarang = LocalDateTime.now();
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("ddMMyyyy");
+                DateTimeFormatter dbDateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                String tglPinjam = tanggalSekarang.format(dbDateFormatter);
+                int selisihHari = tanggalSekarang.getDayOfMonth() + 5;
+
+                LocalDate tenggatWaktu = tanggalSekarang.toLocalDate().plusDays(selisihHari);
+                String tenggatHari = tenggatWaktu.format(dbDateFormatter);
+
+                String insertQuery = "INSERT INTO `data_peminjaman` (`kode_buku`, `judul_buku`, `nama_peminjam`, `nim_peminjam`, `tanggal_pinjam`, `tanggal_kembali`, `status`, `tagihan`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+                PreparedStatement ps = db.prepareStatement(insertQuery);
+                ps.setString(1, kode);
+                ps.setString(2, judul);
+                ps.setString(3, nama);
+                ps.setString(4, nim);
+                ps.setString(5, tglPinjam);
+                ps.setString(6, tenggatHari);
+                ps.setString(7, "Dipinjam");
+
+                LocalDate tanggalPinjam = LocalDate.parse(tglPinjam, dbDateFormatter);
+                LocalDate tanggalKembali = LocalDate.parse(tenggatHari, dbDateFormatter);
+
+                // Calculate the difference in days between the current date and the return date
+                long selisihHariFix = ChronoUnit.DAYS.between(tanggalPinjam, tanggalKembali);
+
+                // Calculate the tagihan (penalty) if the book is overdue
+                int tagihan = 0;
+                if (selisihHariFix > 5) {
+                    tagihan = (int) ((selisihHariFix - 5) * 1000);
+                }
+                ps.setInt(8, tagihan);
+
+                int rowsInserted = ps.executeUpdate();
+                if (rowsInserted > 0) {
+                    System.out.println("Data Berhasil Dibuat!");
+                }
+
+                ps.close();
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace(); // Handle the exception appropriately based on your application's requirements
+        } finally {
+            // Close the database connection in the finally block to ensure it's closed properly
+            if (db != null) {
+                try {
+                    db.close();
+                } catch (SQLException ex) {
+                    ex.printStackTrace(); // Handle the exception appropriately
+                }
+            }
+        }
+        
+         //  CLEAR TABLE      
+        DefaultTableModel dm = (DefaultTableModel) jTable2.getModel();
+        dm.getDataVector().removeAllElements();
+        revalidate();
+        
+       //  TAMPIL DATA
+        try {
+            Statement st = db.createStatement();
+            String readQuery = "SELECT * FROM data_peminjaman";
+            ResultSet rs = st.executeQuery(readQuery);
+
+            while(rs.next()) {
+                String id = rs.getString("id_peminjaman");
+                String nama = rs.getString("nama_peminjam");
+                String nim = rs.getString("nim_peminjam");
+                String kode = rs.getString("kode_buku");
+                String judul = rs.getString("judul_buku");
+                String tPinjam = rs.getString("tanggal_pinjam");
+                String tKembali = rs.getString("tanggal_kembali");
+                String status = rs.getString("status");
+                String tagihan = rs.getString("tagihan");
+
+                String tbData[] = {id, nim, nama, kode, judul, tPinjam, tKembali, status, tagihan};
+                DefaultTableModel tblModel = (DefaultTableModel) jTable2.getModel();
+
+                tblModel.addRow(tbData);
+            }
+
+            rs.close();
+            st.close();
+        } catch (SQLException ex) {
+            ex.getMessage();
+        }
+    }//GEN-LAST:event_saveActionPerformed
 
     private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
         // TODO add your handling code here:
+        int selectedRow = jTable2.getSelectedRow();
         Connection db = DatabaseConnection.DBConnection();
         
-        // DELETE DATA       
+        if (selectedRow >= 0) {
+            String idToDelete = jTable2.getValueAt(selectedRow, 0).toString(); // Ambil ID dari baris terpilih
+            // Lakukan logika penghapusan data dari database sesuai dengan ID yang terpilih
+
+            try {
+                // Kode penghapusan data dari database
+                // Lakukan penghapusan berdasarkan ID yang telah dipilih
+                String deleteQuery = "DELETE FROM data_peminjaman WHERE id_peminjaman = ?";
+                PreparedStatement ps = db.prepareStatement(deleteQuery);
+                ps.setString(1, idToDelete);
+                ps.executeUpdate();
+
+                // Hapus baris dari tabel GUI setelah berhasil dihapus dari database
+                DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
+                model.removeRow(selectedRow);
+
+                ps.close();
+                System.out.println("Data Berhasil Dihapus!");
+            } catch (SQLException ex) {
+                ex.printStackTrace(); // Ganti dengan tindakan penanganan kesalahan yang sesuai
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Pilih baris yang ingin dihapus.", "Peringatan", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_deleteActionPerformed
+
+    private void pengembalianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pengembalianActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = jTable2.getSelectedRow();
+        Connection db = DatabaseConnection.DBConnection();
+        
+        if (selectedRow >= 0) {
+            String idToReturn = jTable2.getValueAt(selectedRow, 0).toString(); // Ambil ID dari baris terpilih
+
+            try {
+                // Kode penandaan pengembalian buku di database
+                // Lakukan perubahan status di database untuk menandai bahwa buku telah dikembalikan
+
+                String updateQuery = "UPDATE data_peminjaman SET status = 'Dikembalikan' WHERE id_peminjaman = ?";
+                PreparedStatement ps = db.prepareStatement(updateQuery);
+                ps.setString(1, idToReturn);
+                ps.executeUpdate();
+
+                ps.close();
+                System.out.println("Buku telah berhasil dikembalikan!");
+            } catch (SQLException ex) {
+                ex.printStackTrace(); // Ganti dengan tindakan penanganan kesalahan yang sesuai
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Pilih baris yang ingin dikembalikan.", "Peringatan", JOptionPane.WARNING_MESSAGE);
+        }
+        
+        //  CLEAR TABLE      
+        DefaultTableModel dm = (DefaultTableModel) jTable2.getModel();
+        dm.getDataVector().removeAllElements();
+        revalidate();
+        
+       //  TAMPIL DATA
+        try {
+            Statement st = db.createStatement();
+            String readQuery = "SELECT * FROM data_peminjaman";
+            ResultSet rs = st.executeQuery(readQuery);
+
+            while(rs.next()) {
+                String id = rs.getString("id_peminjaman");
+                String nama = rs.getString("nama_peminjam");
+                String nim = rs.getString("nim_peminjam");
+                String kode = rs.getString("kode_buku");
+                String judul = rs.getString("judul_buku");
+                String tPinjam = rs.getString("tanggal_pinjam");
+                String tKembali = rs.getString("tanggal_kembali");
+                String status = rs.getString("status");
+                String tagihan = rs.getString("tagihan");
+
+                String tbData[] = {id, nim, nama, kode, judul, tPinjam, tKembali, status, tagihan};
+                DefaultTableModel tblModel = (DefaultTableModel) jTable2.getModel();
+
+                tblModel.addRow(tbData);
+            }
+
+            rs.close();
+            st.close();
+        } catch (SQLException ex) {
+            ex.getMessage();
+        }
+    }//GEN-LAST:event_pengembalianActionPerformed
+
+    private void cariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cariActionPerformed
+        // TODO add your handling code here:
+        String keyword = inputCari.getText().trim();
+        DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
+
+        if (!keyword.isEmpty()) {
+            TableRowSorter<DefaultTableModel> rowSorter = new TableRowSorter<>(model);
+            jTable2.setRowSorter(rowSorter);
+
+            rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + keyword));
+        } else {
+            jTable2.setRowSorter(null); // Menghapus filter jika kotak pencarian kosong
+        }
+    }//GEN-LAST:event_cariActionPerformed
+
+    private void editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editActionPerformed
+        // TODO add your handling code here:
+        jDialog1.setVisible(true);
+        jDialog1.setLocationRelativeTo(this);
+        jDialog1.setSize(500, 400);
+        
+    }//GEN-LAST:event_editActionPerformed
+
+    private void cancelJdialogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelJdialogActionPerformed
+        // TODO add your handling code here:
+        jDialog1.dispose();
+    }//GEN-LAST:event_cancelJdialogActionPerformed
+
+    private void upJdialogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upJdialogActionPerformed
+        // TODO add your handling code here:
+        // TODO add your handling code here:
+        Connection db = DatabaseConnection.DBConnection();
+                
         int baris = jTable2.getSelectedRow();
         int kolom = 0;
         String nilai = jTable2.getValueAt(baris, kolom).toString();
+        String upNama = upInputNama.getText();
+        String upNim = upInputNim.getText();
+        String upkode = upInputKode.getText();
+        String upJudul = upInputJudul.getText();
         
-        try{
-            String deleteQuery = "DELETE FROM `peminjamanbuku` WHERE `peminjamanbuku`.`id_mahasiswa` =" + nilai;
-            PreparedStatement stDelete = db.prepareStatement(deleteQuery);
-            stDelete.executeUpdate();
-            stDelete.close();
-            System.out.println("data berhasil dihapus");
+        try {
+            String updateQuery = "UPDATE `data_peminjaman` SET `nama_peminjam` = '" + upNama + "', `nim_peminjam` = '" + upNim + "', `kode_buku` = '" + upkode + "', `judul_buku` = '" + upJudul + "' WHERE `data_peminjaman`.`id_peminjaman` = " + nilai;
+            PreparedStatement stUpdate = db.prepareStatement(updateQuery);
+                    
+            stUpdate.executeUpdate();
+            stUpdate.close();
+            System.out.println("Data berhasil dirubah");
         } catch (SQLException ex) {
             ex.getMessage();
         }
@@ -485,155 +794,37 @@ public class PeminjamanBuku extends javax.swing.JFrame {
         dm.getDataVector().removeAllElements();
         revalidate();
         
-        //  TAMPIL DATA      
+       //  TAMPIL DATA
         try {
             Statement st = db.createStatement();
-            String readQuery = "SELECT * FROM peminjamanbuku";
+            String readQuery = "SELECT * FROM data_peminjaman";
             ResultSet rs = st.executeQuery(readQuery);
-            
+
             while(rs.next()) {
-                String id = rs.getString("id_peminjambuku");
-                String nama = rs.getString("nama");
-                String nim = rs.getString("nim");
-                String kodeBuku = rs.getString("kode_buku");
-                String judulBuku = rs.getString("judul_buku");
-                String tglPinjam = rs.getNString("tgl_pinjam");
-                String tglKembali = rs.getNString("tgl_kembali");
-                
-                String tbData[] = {id, nim, nama, kodeBuku, judulBuku, tglPinjam, tglKembali};
+                String id = rs.getString("id_peminjaman");
+                String nama = rs.getString("nama_peminjam");
+                String nim = rs.getString("nim_peminjam");
+                String kode = rs.getString("kode_buku");
+                String judul = rs.getString("judul_buku");
+                String tPinjam = rs.getString("tanggal_pinjam");
+                String tKembali = rs.getString("tanggal_kembali");
+                String status = rs.getString("status");
+                String tagihan = rs.getString("tagihan");
+
+                String tbData[] = {id, nim, nama, kode, judul, tPinjam, tKembali, status, tagihan};
                 DefaultTableModel tblModel = (DefaultTableModel) jTable2.getModel();
-                
+
                 tblModel.addRow(tbData);
             }
-            
+
             rs.close();
             st.close();
         } catch (SQLException ex) {
             ex.getMessage();
         }
-    }//GEN-LAST:event_deleteActionPerformed
-
-    private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
-        // TODO add your handling code here:
-            Connection db = DatabaseConnection.DBConnection();
-// INSERT DATA       
-try {
-    String nama = inputNama.getText();
-    String nim = inputNim.getText();
-    String kodeBuku = inputKode.getText();
-    String judulBuku = inputJudul.getText();
-    String tglPinjam = inputTglPinjam.getText();
-    String tglKembali = inputTglKembali.getText();
-
-    String insertQuery = "INSERT INTO `peminjamanbuku` (`id_peminjambuku`, `kode_buku`, `nama_buku`, `pengarang`, `penerbit`, `tahun_terbit`, `tanggal_pinjam`, `tanggal_kembali`) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?);";
-    PreparedStatement ps = db.prepareStatement(insertQuery);
-    
-    // Set parameter values to avoid SQL Injection
-    ps.setString(1, nama);
-    ps.setString(2, nim);
-    ps.setString(3, kodeBuku);
-    ps.setString(4, judulBuku);
-    ps.setString(5, tglPinjam);
-    ps.setString(6, tglKembali);
-
-    ps.executeUpdate();
-    ps.close();
-    System.out.println("Data Berhasil Dibuat!");
-    
-} catch (SQLException ex) {
-    ex.printStackTrace(); // Print stack trace to see the error
-}
-
-// CLEAR TABLE      
-DefaultTableModel dm = (DefaultTableModel) jTable2.getModel();
-dm.setRowCount(0); // Clear table data
-
-// TAMPIL DATA      
-try {
-    Statement st = db.createStatement();
-    String readQuery = "SELECT * FROM peminjamanbuku";
-    ResultSet rs = st.executeQuery(readQuery);
-    
-    while(rs.next()) {
-        String id = rs.getString("id_peminjambuku");
-        String nama = rs.getString("nama");
-        String nim = rs.getString("nim");
-        String kodeBuku = rs.getString("kode_buku");
-        String judulBuku = rs.getString("judul_buku");
-        String tglPinjam = rs.getString("tgl_pinjam"); // Use getString for String values
-        String tglKembali = rs.getString("tgl_kembali"); // Use getString for String values
         
-        String tbData[] = {id, nim, nama, kodeBuku, judulBuku, tglPinjam, tglKembali};
-        dm.addRow(tbData);
-    }
-    
-    rs.close();
-    st.close();
-} catch (SQLException ex) {
-    ex.printStackTrace(); // Print stack trace to see the error
-}
-
-    }//GEN-LAST:event_saveActionPerformed
-
-    private void editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editActionPerformed
-        // TODO add your handling code here:
-        int coba = JOptionPane.showConfirmDialog(null, "Yakin Untuk mengubah Data ini???","Confirmation",JOptionPane.YES_NO_OPTION);
-        Connection db = DatabaseConnection.DBConnection();
-        
-        try{
-            Statement st = db.createStatement();
-            String sql = "Update peminjam set id_peminjambuku=?, Nama=?, NIM=?, kode_buku=?, nama_buku=?, TglPinjam=?, TglKembali=? where " + "ID = '" + id.getText();
-            PreparedStatement pp = db.prepareStatement(sql);
-            if (coba == 0){
-                try{
-                    pp.setString(1,id.getText());
-                    pp.setString(2,nama.getText());
-                    pp.setString(3,nim.getText());
-                    pp.setString(4,kodeBuku.getText());
-                    pp.setString(5,judulBuku.getText());
-                    pp.setString(6,tglPinjam.getText());
-                    pp.setString(7,tglKembali.getText());
-                    pp.executeUpdate();
-                    JOptionPane.showMessageDialog(null, "Update Data Sukses");
-                    
-                }catch (Exception e){
-                    JOptionPane.showMessageDialog(null, "Update Data Gagal");
-                }
-            }
-        } catch (Exception e){}
-    }//GEN-LAST:event_editActionPerformed
-
-    private void cariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cariActionPerformed
-        // TODO add your handling code here:
-        String x = JOptionPane.showInputDialog(null, "Masukkan Nama!!!");
-        Connection db = DatabaseConnection.DBConnection();
-        
-        try{
-            Statement st = db.createStatement();
-            String cari = "SELECT * FROM peminjamanbuku WHERE Nama ='" + x +"'";
-            ResultSet rsnya = st.executeQuery(cari);
-            
-            if (rsnya.next()){
-                System.out.println(rsnya.getString(1));
-                JOptionPane.showMessageDialog(rootPane, "Data berhasil ditemukan");
-                
-                id.setText(rsnya.getString(1));
-                nama.setText(rsnya.getString(2));
-                nim.setText(rsnya.getString(3));
-                kodeBuku.setText(rsnya.getString(4));
-                judulBuku.setText(rsnya.getString(5));
-                tglPinjam.setText(rsnya.getString(6));
-                tglKembali.setText(rsnya.getString(7));
-                
-            } else{
-                JOptionPane.showMessageDialog(null, "Data tidak ada");
-            }
-        } catch (Exception e){
-            System.out.print(e);
-            JOptionPane.showMessageDialog(null, "Koneksi Gagal");
-        }
-        
-    }//GEN-LAST:event_cariActionPerformed
+        jDialog1.dispose();
+    }//GEN-LAST:event_upJdialogActionPerformed
 
     /**
      * @param args the command line arguments
@@ -671,26 +862,30 @@ try {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cancelJdialog;
     private javax.swing.JButton cari;
     private javax.swing.JButton delete;
     private javax.swing.JButton edit;
     private javax.swing.JButton exit;
-    private javax.swing.JLabel id;
     private javax.swing.JLabel imageLogo;
     private javax.swing.JTextField inputCari;
-    private javax.swing.JTextField inputID;
     private javax.swing.JTextField inputJudul;
     private javax.swing.JTextField inputKode;
     private javax.swing.JTextField inputNama;
     private javax.swing.JTextField inputNim;
-    private javax.swing.JTextField inputTglKembali;
-    private javax.swing.JTextField inputTglPinjam;
+    private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable2;
     private javax.swing.JLabel judul;
@@ -699,9 +894,13 @@ try {
     private javax.swing.JLabel logo;
     private javax.swing.JLabel nama;
     private javax.swing.JLabel nim;
+    private javax.swing.JButton pengembalian;
     private javax.swing.JButton refresh;
     private javax.swing.JButton save;
-    private javax.swing.JLabel tglKembali;
-    private javax.swing.JLabel tglPinjam;
+    private javax.swing.JTextField upInputJudul;
+    private javax.swing.JTextField upInputKode;
+    private javax.swing.JTextField upInputNama;
+    private javax.swing.JTextField upInputNim;
+    private javax.swing.JButton upJdialog;
     // End of variables declaration//GEN-END:variables
 }
