@@ -703,8 +703,7 @@ public class PengembalianBuku extends javax.swing.JFrame {
             String status = txtStatus.getText();
             String tagihan = txtTagihan.getText();
             
-            String insertQuery = "INSERT INTO `pengembalianbuku` (`id`, `nama_mhs`, `nim`, `kode_buku`, `judul_buku`,`tanggal_pinjam`,`tanggal_kembali`,`status`,`tagihan`) VALUES ('"
-                     + id + "' ,'"+ nama + "', '" + nim + "', '" + kode + "', '" + judul + "', '" + tglpinjam + "', '" + tglkembali + "', '" + status + "', '" + tagihan +"')";
+            String insertQuery = "INSERT INTO `pengembalianbuku` (`id`, `nama_mhs`, `nim`, `kode_buku`, `judul_buku`,`tanggal_pinjam`,`tanggal_kembali`,`status`,`tagihan`) VALUES (NULL,'"+ nama + "', '" + nim + "', '" + kode + "', '" + judul + "', '" + tglpinjam + "', '" + tglkembali + "', '" + status + "', '" + tagihan +"')";
             
             PreparedStatement ps = conn.prepareStatement(insertQuery);
             ps.executeUpdate();
