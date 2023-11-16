@@ -693,7 +693,6 @@ public class PengembalianBuku extends javax.swing.JFrame {
              
         try {
             Connection conn = koneksi.configDB();
-            String id = txtID.getText();
             String nama = txtNama.getText();
             String nim = txtNIM.getText();
             String kode = txtKode.getText();
