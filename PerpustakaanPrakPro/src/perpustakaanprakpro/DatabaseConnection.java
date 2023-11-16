@@ -14,7 +14,7 @@ import java.sql.SQLException;
  */
 public class DatabaseConnection {
         static Connection koneksi = null;
-        static String url = "jdbc:mysql://localhost:3306/aplikasiperpustakaan";
+        static String url = "jdbc:mysql://localhost:3306/data_perpus";
         static String username = "root";
         static String password = "";
     

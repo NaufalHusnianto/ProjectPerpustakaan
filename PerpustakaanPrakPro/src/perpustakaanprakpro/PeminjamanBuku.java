@@ -31,11 +31,11 @@ public class PeminjamanBuku extends javax.swing.JFrame {
         //  TAMPIL DATA      
         try {
             Statement st = db.createStatement();
-            String readQuery = "SELECT * FROM pinjambuku";
+            String readQuery = "SELECT * FROM peminjamanbuku";
             ResultSet rs = st.executeQuery(readQuery);
             
             while(rs.next()) {
-                String id = rs.getString("id_mahasiswa");
+                String id = rs.getString("id_peminjambuku");
                 String nama = rs.getString("nama");
                 String nim = rs.getString("nim");
                 String kodeBuku = rs.getString("kode_buku");
@@ -228,7 +228,7 @@ public class PeminjamanBuku extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Nama", "NIM", "Kode Buku", "Judul Buku", "Tanggal Pinjam", "Tanggal Kembali", "Status", "Tagihan"
+                "ID", "Nama", "NIM", "Kode Buku", "Judul Buku", "Tanggal Pinjam", "Tanggal Kembali"
             }
         ));
         jScrollPane2.setViewportView(jTable2);
@@ -271,7 +271,7 @@ public class PeminjamanBuku extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(cari))
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         exit.setBackground(new java.awt.Color(255, 51, 51));
@@ -472,7 +472,7 @@ public class PeminjamanBuku extends javax.swing.JFrame {
         String nilai = jTable2.getValueAt(baris, kolom).toString();
         
         try{
-            String deleteQuery = "DELETE FROM `pinjambuku` WHERE `pinjambuku`.`id_mahasiswa` =" + nilai;
+            String deleteQuery = "DELETE FROM `peminjamanbuku` WHERE `peminjamanbuku`.`id_mahasiswa` =" + nilai;
             PreparedStatement stDelete = db.prepareStatement(deleteQuery);
             stDelete.executeUpdate();
             stDelete.close();
@@ -489,11 +489,11 @@ public class PeminjamanBuku extends javax.swing.JFrame {
         //  TAMPIL DATA      
         try {
             Statement st = db.createStatement();
-            String readQuery = "SELECT * FROM pinjambuku";
+            String readQuery = "SELECT * FROM peminjamanbuku";
             ResultSet rs = st.executeQuery(readQuery);
             
             while(rs.next()) {
-                String id = rs.getString("id_mahasiswa");
+                String id = rs.getString("id_peminjambuku");
                 String nama = rs.getString("nama");
                 String nim = rs.getString("nim");
                 String kodeBuku = rs.getString("kode_buku");
@@ -516,19 +516,64 @@ public class PeminjamanBuku extends javax.swing.JFrame {
 
     private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
         // TODO add your handling code here:
-        Connection db = DatabaseConnection.DBConnection();
+            Connection db = DatabaseConnection.DBConnection();
+// INSERT DATA       
+try {
+    String nama = inputNama.getText();
+    String nim = inputNim.getText();
+    String kodeBuku = inputKode.getText();
+    String judulBuku = inputJudul.getText();
+    String tglPinjam = inputTglPinjam.getText();
+    String tglKembali = inputTglKembali.getText();
+
+    String insertQuery = "INSERT INTO `peminjamanbuku` (`id_peminjambuku`, `nama`, `nim`, `kode_buku`, `judul_buku`,`tgl_pinjam`, `tgl_kembali`) VALUES (NULL, ?, ?, ?, ?, ?, ?)";
+    PreparedStatement ps = db.prepareStatement(insertQuery);
+    
+    // Set parameter values to avoid SQL Injection
+    ps.setString(1, nama);
+    ps.setString(2, nim);
+    ps.setString(3, kodeBuku);
+    ps.setString(4, judulBuku);
+    ps.setString(5, tglPinjam);
+    ps.setString(6, tglKembali);
+
+    ps.executeUpdate();
+    ps.close();
+    System.out.println("Data Berhasil Dibuat!");
+    
+} catch (SQLException ex) {
+    ex.printStackTrace(); // Print stack trace to see the error
+}
+
+// CLEAR TABLE      
+DefaultTableModel dm = (DefaultTableModel) jTable2.getModel();
+dm.setRowCount(0); // Clear table data
+
+// TAMPIL DATA      
+try {
+    Statement st = db.createStatement();
+    String readQuery = "SELECT * FROM peminjamanbuku";
+    ResultSet rs = st.executeQuery(readQuery);
+    
+    while(rs.next()) {
+        String id = rs.getString("id_peminjambuku");
+        String nama = rs.getString("nama");
+        String nim = rs.getString("nim");
+        String kodeBuku = rs.getString("kode_buku");
+        String judulBuku = rs.getString("judul_buku");
+        String tglPinjam = rs.getString("tgl_pinjam"); // Use getString for String values
+        String tglKembali = rs.getString("tgl_kembali"); // Use getString for String values
         
-        try{
-             Statement st = db.createStatement();
-             String sqlnya = "insert into pinjambuku values ('" + id.getText()+"','" + nama.getText()+"','" + nim.getText()+"','" + kodeBuku.getText()+"','" + judulBuku.getText()+"','" + tglPinjam.getText()+"','" + tglKembali.getText()+"',)";
-             PreparedStatement p = db.prepareStatement(sqlnya);
-             st.execute(sqlnya);
-             JOptionPane.showMessageDialog(null, "Data Tersimpan");
-        } catch(Exception e) {
-            System.out.print(e);
-            JOptionPane.showMessageDialog(null, "Koneksi Gagal");
-        }
-        
+        String tbData[] = {id, nim, nama, kodeBuku, judulBuku, tglPinjam, tglKembali};
+        dm.addRow(tbData);
+    }
+    
+    rs.close();
+    st.close();
+} catch (SQLException ex) {
+    ex.printStackTrace(); // Print stack trace to see the error
+}
+
     }//GEN-LAST:event_saveActionPerformed
 
     private void editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editActionPerformed
@@ -566,7 +611,7 @@ public class PeminjamanBuku extends javax.swing.JFrame {
         
         try{
             Statement st = db.createStatement();
-            String cari = "SELECT * FROM pinjambuku WHERE Nama ='" + x +"'";
+            String cari = "SELECT * FROM peminjamanbuku WHERE Nama ='" + x +"'";
             ResultSet rsnya = st.executeQuery(cari);
             
             if (rsnya.next()){
