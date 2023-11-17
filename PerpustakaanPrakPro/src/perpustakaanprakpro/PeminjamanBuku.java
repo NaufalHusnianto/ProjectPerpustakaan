@@ -46,7 +46,7 @@ public class PeminjamanBuku extends javax.swing.JFrame {
                 String status = rs.getString("status");
                 String tagihan = rs.getString("tagihan");
 
-                String tbData[] = {id, nim, nama, kode, judul, tPinjam, tKembali, status, tagihan};
+                String tbData[] = {id, nama, nim, kode, judul, tPinjam, tKembali, status, tagihan};
                 DefaultTableModel tblModel = (DefaultTableModel) jTable2.getModel();
 
                 tblModel.addRow(tbData);
@@ -110,9 +110,7 @@ public class PeminjamanBuku extends javax.swing.JFrame {
         logo = new javax.swing.JLabel();
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel6.setForeground(new java.awt.Color(0, 0, 0));
 
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("UpdateData Peminjaman Buku");
 
         upJdialog.setText("Update");
@@ -129,16 +127,12 @@ public class PeminjamanBuku extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Nama");
 
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Nim");
 
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Kode_Buku");
 
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("judul_Buku");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
@@ -228,7 +222,7 @@ public class PeminjamanBuku extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel4.setBackground(new java.awt.Color(219, 234, 255));
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 11), new java.awt.Color(153, 204, 255))); // NOI18N
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(153, 204, 255))); // NOI18N
         jPanel4.setForeground(new java.awt.Color(153, 204, 255));
 
         nama.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -326,7 +320,7 @@ public class PeminjamanBuku extends javax.swing.JFrame {
         );
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 11), new java.awt.Color(153, 204, 255))); // NOI18N
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(153, 204, 255))); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 51, 51));
@@ -357,18 +351,19 @@ public class PeminjamanBuku extends javax.swing.JFrame {
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(inputCari, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(cari))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 667, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(28, 28, 28)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(inputCari, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(cari))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 667, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(79, 79, 79)
+                        .addComponent(jLabel1)))
                 .addContainerGap(41, Short.MAX_VALUE))
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(79, 79, 79)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -422,7 +417,6 @@ public class PeminjamanBuku extends javax.swing.JFrame {
         });
 
         pengembalian.setBackground(new java.awt.Color(204, 255, 255));
-        pengembalian.setForeground(new java.awt.Color(0, 0, 0));
         pengembalian.setText("Return Book");
         pengembalian.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -542,9 +536,10 @@ public class PeminjamanBuku extends javax.swing.JFrame {
     private void refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshActionPerformed
         // TODO add your handling code here:
         inputNama.setText(null);
-        inputJudul.setText(null);
-        inputKode.setText(null);
         inputNim.setText(null);
+        inputKode.setText(null);
+        inputJudul.setText(null);
+        
     }//GEN-LAST:event_refreshActionPerformed
 
     private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
@@ -580,10 +575,10 @@ public class PeminjamanBuku extends javax.swing.JFrame {
                 LocalDate tanggalPinjam = LocalDate.parse(tglPinjam, dbDateFormatter);
                 LocalDate tanggalKembali = LocalDate.parse(tenggatHari, dbDateFormatter);
 
-                // Calculate the difference in days between the current date and the return date
+                
                 long selisihHariFix = ChronoUnit.DAYS.between(tanggalPinjam, tanggalKembali);
 
-                // Calculate the tagihan (penalty) if the book is overdue
+               
                 int tagihan = 0;
                 if (selisihHariFix > 5) {
                     tagihan = (int) ((selisihHariFix - 5) * 1000);
@@ -598,14 +593,14 @@ public class PeminjamanBuku extends javax.swing.JFrame {
                 ps.close();
             }
         } catch (SQLException ex) {
-            ex.printStackTrace(); // Handle the exception appropriately based on your application's requirements
+            ex.printStackTrace(); 
         } finally {
-            // Close the database connection in the finally block to ensure it's closed properly
+           
             if (db != null) {
                 try {
                     db.close();
                 } catch (SQLException ex) {
-                    ex.printStackTrace(); // Handle the exception appropriately
+                    ex.printStackTrace(); 
                 }
             }
         }
@@ -632,7 +627,7 @@ public class PeminjamanBuku extends javax.swing.JFrame {
                 String status = rs.getString("status");
                 String tagihan = rs.getString("tagihan");
 
-                String tbData[] = {id, nim, nama, kode, judul, tPinjam, tKembali, status, tagihan};
+                String tbData[] = {id, nama, nim, kode, judul, tPinjam, tKembali, status, tagihan};
                 DefaultTableModel tblModel = (DefaultTableModel) jTable2.getModel();
 
                 tblModel.addRow(tbData);
@@ -724,7 +719,7 @@ public class PeminjamanBuku extends javax.swing.JFrame {
                 String status = rs.getString("status");
                 String tagihan = rs.getString("tagihan");
 
-                String tbData[] = {id, nim, nama, kode, judul, tPinjam, tKembali, status, tagihan};
+                String tbData[] = {id, nama, nim, kode, judul, tPinjam, tKembali, status, tagihan};
                 DefaultTableModel tblModel = (DefaultTableModel) jTable2.getModel();
 
                 tblModel.addRow(tbData);
@@ -811,7 +806,7 @@ public class PeminjamanBuku extends javax.swing.JFrame {
                 String status = rs.getString("status");
                 String tagihan = rs.getString("tagihan");
 
-                String tbData[] = {id, nim, nama, kode, judul, tPinjam, tKembali, status, tagihan};
+                String tbData[] = {id, nama, nim, kode, judul, tPinjam, tKembali, status, tagihan};
                 DefaultTableModel tblModel = (DefaultTableModel) jTable2.getModel();
 
                 tblModel.addRow(tbData);
