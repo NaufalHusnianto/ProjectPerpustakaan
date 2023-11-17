@@ -491,14 +491,15 @@ public class DataBuku extends javax.swing.JFrame {
         int baris = jTable1.getSelectedRow();
         int kolom = 0;
         String nilai = jTable1.getValueAt(baris, kolom).toString();
-        String kode = Kode.getText();
-        String judul = Judul.getText();
-        String pengarang = Pengarang.getText();
-        String penerbit = Penerbit.getText();
-        String tahunTerbit = Tahun.getText();
+        String upKode = Kode.getText();
+        String upJudul = Judul.getText();
+        String upPengarang = Pengarang.getText();
+        String upPenerbit = Penerbit.getText();
+        String upTahun = Tahun.getText();
         
         try {
-            String updateQuery =  "UPDATE `databuku` SET `kode_buku` = '"+ kode +"', `judul_buku` = '"+ judul +"', `pengarang` = '" + pengarang + "', `penerbit` = '" +penerbit+ "', `tahun_terbit` = '"+tahunTerbit+"' WHERE `databuku`.`id_buku` = "+nilai+";";
+            String updateQuery = "UPDATE `databuku` SET `kode_buku` = '" + upKode + "', `judul_buku` = '" + upJudul
+            + "', `pengarang` = '" + upPengarang + "', `penerbit` = '" + upPenerbit + "', `tahun_terbit` = '" + upTahun + "' WHERE `databuku`.`id_buku` = " + nilai;
             PreparedStatement stUpdate = db.prepareStatement(updateQuery);
                     
             stUpdate.executeUpdate();
@@ -513,26 +514,26 @@ public class DataBuku extends javax.swing.JFrame {
         dm.getDataVector().removeAllElements();
         revalidate();
         
-         //  TAMPIL DATA      
+       //  TAMPIL DATA
         try {
             Statement st = db.createStatement();
             String readQuery = "SELECT * FROM databuku";
             ResultSet rs = st.executeQuery(readQuery);
-            
+
             while(rs.next()) {
-                String idbuku = rs.getString("id_buku");
-                String kodebuku = rs.getString("kode_buku");
-                String judulbuku = rs.getString("judul_buku");
-                String pengarangbuku = rs.getString("pengarang");
-                String penerbitbuku = rs.getString("penerbit");
-                String tahunterbit = rs.getString("tahun_terbit");
-                
-                String tbData[] = {idbuku,kodebuku,judulbuku,pengarangbuku,penerbitbuku,tahunterbit};
+                String id = rs.getString("id_buku");
+                String kode = rs.getString("kode_buku");
+                String judul = rs.getString("judul_buku");
+                String pengarang = rs.getString("pengarang");
+                String penerbit = rs.getString("penerbit");
+                String tahunTerbit = rs.getString("tahun_terbit");
+
+                String tbData[] = {id, kode, judul, pengarang, penerbit, tahunTerbit};
                 DefaultTableModel tblModel = (DefaultTableModel) jTable1.getModel();
-                
+
                 tblModel.addRow(tbData);
             }
-            
+
             rs.close();
             st.close();
         } catch (SQLException ex) {

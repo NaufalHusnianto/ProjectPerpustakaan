@@ -471,13 +471,16 @@ public class DataMahasiswa extends javax.swing.JFrame {
         int baris = jTable1.getSelectedRow();
         int kolom = 0;
         String nilai = jTable1.getValueAt(baris, kolom).toString();
-        String upNama = updateNama.getText();
         String upNim = updateNim.getText();
+        String upNama = updateNama.getText();
         String upFakultas = updateFakultas.getSelectedItem().toString();
         String upProdi = updateProdi.getText();
         
+        
         try {
-            String updateQuery = "UPDATE `datamahasiswa` SET `nama` = '" + upNama + "', `nim` = '" + upNim + "', `fakultas` = '" + upFakultas + "', `prodi` = '" + upProdi + "' WHERE `datamahasiswa`.`id_mahasiswa` = " + nilai;
+            String updateQuery = "UPDATE `datamahasiswa` SET `nim` = '" + upNim + "', "
+                    + "`nama` = '" + upNama + "', `fakultas` = '" + upFakultas 
+                    + "', `prodi` = '" + upProdi + "' WHERE `datamahasiswa`.`id_mahasiswa` = " + nilai;
             PreparedStatement stUpdate = db.prepareStatement(updateQuery);
                     
             stUpdate.executeUpdate();
@@ -492,25 +495,26 @@ public class DataMahasiswa extends javax.swing.JFrame {
         dm.getDataVector().removeAllElements();
         revalidate();
         
-        //  TAMPIL DATA      
+       //  TAMPIL DATA
         try {
             Statement st = db.createStatement();
             String readQuery = "SELECT * FROM datamahasiswa";
             ResultSet rs = st.executeQuery(readQuery);
-            
+
             while(rs.next()) {
                 String id = rs.getString("id_mahasiswa");
-                String nama = rs.getString("nama");
                 String nim = rs.getString("nim");
+                String nama = rs.getString("nama");
                 String fakultas = rs.getString("fakultas");
                 String prodi = rs.getString("prodi");
                 
-                String tbData[] = {id, nim, nama, fakultas, prodi};
+
+                String tbData[] = {id, nim, nama, fakultas, prodi };
                 DefaultTableModel tblModel = (DefaultTableModel) jTable1.getModel();
-                
+
                 tblModel.addRow(tbData);
             }
-            
+
             rs.close();
             st.close();
         } catch (SQLException ex) {
